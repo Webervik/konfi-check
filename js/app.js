@@ -222,11 +222,11 @@ function renderZitat(naechsteFrage) {
   const card = document.getElementById('quiz-card');
   card.innerHTML = `
     <div style="text-align:center; margin-bottom:20px; font-size:2rem">✨</div>
-    <div class="zitat-text">„${zitat.text}"</div>
+    <div class="zitat-text">${zitat.text}</div>
     <div class="zitat-quelle">
       <a href="${zitat.link}" target="_blank" rel="noopener" class="zitat-link">📖 ${zitat.quelle}</a>
     </div>
-    <button class="weiter-btn" style="display:block; margin-top:24px" onclick="state.showZitat=false; renderFrage()">Weiter →</button>
+    <button class="weiter-btn" style="display:block; margin-top:24px" onclick="state.showZitat=true; renderFrage()">Weiter →</button>
   `;
   // Ersetze card mit Zitat-Card-Styling
   card.style.background = 'linear-gradient(135deg, #8e44ad, #6c3483)';
