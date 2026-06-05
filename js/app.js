@@ -336,7 +336,7 @@ function renderScores(filterGruppe) {
         <div class="score-detail">${escapeHtml(s.gruppe)} · ${datum} <span class="score-thema-badge">${themaIcon} ${s.thema}</span></div>
       </div>
       <div class="score-punkte">${s.punkte}/${s.gesamt}</div>
-      <button class="delete-btn" onclick="loescheEintrag('${s.id}')" style="display:none; align-items:center; justify-content:center; width:28px; height:28px; border-radius:50%; border:none; background:#e74c3c; color:#fff; font-size:1rem; cursor:pointer; margin-left:8px; flex-shrink:0;">×</button>
+      <button onclick="loescheEintrag('${s.id}')" title="Eintrag entfernen" style="width:28px; height:28px; border-radius:50%; border:none; background:#1a1a2e; color:#1a1a2e; font-size:1.1rem; cursor:pointer; margin-left:8px; flex-shrink:0; transition:background 0.2s, color 0.2s;" onmouseenter="this.style.background='#e74c3c';this.style.color='#fff'" onmouseleave="this.style.background='#1a1a2e';this.style.color='#1a1a2e'">×</button>
     `;
     list.appendChild(item);
   });
@@ -366,13 +366,7 @@ function initScoresTabs() {
   });
   document.getElementById('btn-back-scores').onclick = () => showScreen('start');
 
-  let loeschModus = false;
-  document.getElementById('btn-eintraege-entfernen').onclick = () => {
-    loeschModus = !loeschModus;
-    document.getElementById('score-list').querySelectorAll('.delete-btn').forEach(btn => {
-      btn.style.display = loeschModus ? 'flex' : 'none';
-    });
-  };
+  document.getElementById('btn-eintraege-entfernen').onclick = () => {}; // versteckt, nicht mehr nötig
 
   window.loescheEintrag = async (id) => {
     if (!confirm('Diesen Eintrag löschen?')) return;
