@@ -364,6 +364,21 @@ function initScoresTabs() {
     };
   });
   document.getElementById('btn-back-scores').onclick = () => showScreen('start');
+
+  document.getElementById('btn-eintraege-entfernen').onclick = async () => {
+    const name = prompt('Welchen Namen möchtest du entfernen?');
+    if (!name || !name.trim()) return;
+    const res = await fetch(
+      `${SUPABASE_URL}/rest/v1/scores?name=eq.${encodeURIComponent(name.trim())}`,
+      { method: 'DELETE', headers: SB_HEADERS }
+    );
+    if (res.ok) {
+      alert(`Einträge für „${name.trim()}" wurden entfernt.`);
+      ladeScores();
+    } else {
+      alert('Fehler beim Entfernen.');
+    }
+  };
 }
 
 // ---- KONFETTI ----
