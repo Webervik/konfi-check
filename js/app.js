@@ -305,13 +305,17 @@ const SB_HEADERS = {
 
 async function speichereScore(name, gruppe, thema, punkte, gesamt) {
   try {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 5000);
     await fetch(`${SUPABASE_URL}/rest/v1/scores`, {
       method: 'POST',
       headers: { ...SB_HEADERS, 'Prefer': 'return=minimal' },
-      body: JSON.stringify({ name, gruppe, thema, punkte, gesamt })
+      body: JSON.stringify({ name, gruppe, thema, punkte, gesamt }),
+      signal: controller.signal,
     });
+    clearTimeout(timeout);
   } catch (e) {
-    console.warn('Score konnte nicht gespeichert werden:', e);
+    console.warn('Score konnte nicht gespeichert werden:', e.message);
   }
 }
 
@@ -320,15 +324,18 @@ async function ladeScores() {
   list.innerHTML = '<div class="loading"><div class="spinner"></div>Lade Ergebnisse…</div>';
 
   try {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 6000);
     const res = await fetch(
       `${SUPABASE_URL}/rest/v1/scores?select=*&order=erstellt_am.desc&limit=100`,
-      { headers: SB_HEADERS }
+      { headers: SB_HEADERS, signal: controller.signal }
     );
+    clearTimeout(timeout);
     alleScores = await res.json();
     renderScores('alle');
     renderDuell();
   } catch (e) {
-    list.innerHTML = '<div class="loading">Scores konnten nicht geladen werden.</div>';
+    list.innerHTML = '<div class="loading">⚠️ Verbindung fehlgeschlagen. Bitte Seite neu laden.</div>';
   }
 }
 
