@@ -333,7 +333,7 @@ async function ladeScores() {
     clearTimeout(timeout);
     alleScores = await res.json();
     renderScores('alle');
-    renderDuell();
+    renderTeamRangliste();
   } catch (e) {
     list.innerHTML = '<div class="loading">⚠️ Verbindung fehlgeschlagen. Bitte Seite neu laden.</div>';
   }
@@ -375,17 +375,40 @@ function renderScores(filterGruppe) {
   });
 }
 
-function renderDuell() {
-  const gruppen = ['Staaken Dorfkirche', 'Staaken Gartenstadt'];
-  const avgs = gruppen.map(g => {
-    const scores = alleScores.filter(s => s.gruppe === g);
-    if (scores.length === 0) return 0;
-    const avg = scores.reduce((sum, s) => sum + (s.punkte / s.gesamt), 0) / scores.length;
-    return Math.round(avg * 100);
-  });
+function renderTeamRangliste() {
+  const gruppen = [
+    { name: 'Staaken Dorfkirche', icon: '⛪' },
+    { name: 'Staaken Gartenstadt', icon: '🌳' },
+    { name: 'Eltern', icon: '👨‍👩‍👧' },
+    { name: 'Gemeinde', icon: '🕊️' },
+    { name: 'Sonstige', icon: '🌍' },
+  ];
 
-  document.getElementById('duell-avg-0').textContent = avgs[0] + '%';
-  document.getElementById('duell-avg-1').textContent = avgs[1] + '%';
+  const mitWerten = gruppen.map(g => {
+    const scores = alleScores.filter(s => s.gruppe === g.name);
+    const avg = scores.length > 0
+      ? Math.round(scores.reduce((sum, s) => sum + (s.punkte / s.gesamt), 0) / scores.length * 100)
+      : null;
+    return { ...g, avg, count: scores.length };
+  }).filter(g => g.avg !== null)
+    .sort((a, b) => b.avg - a.avg);
+
+  const container = document.getElementById('team-rangliste');
+  if (mitWerten.length === 0) { container.innerHTML = ''; return; }
+
+  const rankIcons = ['🥇','🥈','🥉','4.','5.'];
+  container.innerHTML = `<div class="team-rangliste-grid">
+    ${mitWerten.map((g, i) => `
+      <div class="team-card">
+        <div class="team-rank">${rankIcons[i] || (i+1)+'.'}
+        </div>
+        <div class="team-info">
+          <div class="team-name">${g.icon} ${g.name}</div>
+          <div class="team-avg">${g.avg}%</div>
+          <div class="team-count">${g.count} Spiel${g.count !== 1 ? 'e' : ''}</div>
+        </div>
+      </div>`).join('')}
+  </div>`;
 }
 
 // ---- SCORES TABS ----

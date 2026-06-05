@@ -42,6 +42,12 @@
         <button class="gruppe-btn" data-gruppe="Eltern">
           👨‍👩‍👧 Eltern
         </button>
+        <button class="gruppe-btn" data-gruppe="Gemeinde">
+          🕊️ Gemeinde
+        </button>
+        <button class="gruppe-btn" data-gruppe="Sonstige">
+          🌍 Sonstige
+        </button>
       </div>
     </div>
 
@@ -99,25 +105,17 @@
 <!-- ===== SCORES SCREEN ===== -->
 <div id="screen-scores" class="screen">
 
-  <!-- Duell-Banner -->
-  <div class="duell-banner">
-    <div class="duell-gruppe">
-      <div class="duell-gruppe-name">⛪ Staaken Dorfkirche</div>
-      <div class="duell-avg" id="duell-avg-0">–</div>
-    </div>
-    <div class="duell-vs">VS</div>
-    <div class="duell-gruppe">
-      <div class="duell-gruppe-name">🌳 Staaken Gartenstadt</div>
-      <div class="duell-avg" id="duell-avg-1">–</div>
-    </div>
-  </div>
+  <!-- Team-Rangliste -->
+  <div id="team-rangliste" style="width:100%; max-width:600px; margin-bottom:16px;"></div>
 
   <!-- Tabs -->
-  <div class="gruppe-tabs">
+  <div class="gruppe-tabs" style="flex-wrap:wrap;">
     <button class="gruppe-tab active" data-filter="alle">Alle</button>
     <button class="gruppe-tab" data-filter="Staaken Dorfkirche">⛪ Dorfkirche</button>
     <button class="gruppe-tab" data-filter="Staaken Gartenstadt">🌳 Gartenstadt</button>
     <button class="gruppe-tab" data-filter="Eltern">👨‍👩‍👧 Eltern</button>
+    <button class="gruppe-tab" data-filter="Gemeinde">🕊️ Gemeinde</button>
+    <button class="gruppe-tab" data-filter="Sonstige">🌍 Sonstige</button>
   </div>
 
   <!-- Liste -->

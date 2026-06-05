@@ -137,10 +137,40 @@ input[type="text"]:focus, select:focus { border-color: var(--primary); backgroun
 /* GRUPPE BUTTONS */
 .gruppe-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
   margin-bottom: 8px;
 }
+@media (max-width: 400px) {
+  .gruppe-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* TEAM-RANGLISTE */
+.team-rangliste-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 10px;
+}
+.team-card {
+  background: rgba(255,255,255,0.12);
+  border-radius: 12px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+}
+.team-rank {
+  font-size: 1.3rem;
+  font-weight: 900;
+  width: 28px;
+  text-align: center;
+  flex-shrink: 0;
+}
+.team-info { flex: 1; min-width: 0; }
+.team-name { font-size: 0.8rem; font-weight: 700; opacity: 0.85; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.team-avg { font-size: 1.4rem; font-weight: 900; }
+.team-count { font-size: 0.7rem; opacity: 0.6; }
 .gruppe-btn {
   padding: 16px 12px;
   border: 3px solid #e0e0e0;
