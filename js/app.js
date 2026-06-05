@@ -7,11 +7,11 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
 
 // Zitate zwischen den Fragen
 const ZITATE = [
-  { text: '„Ihr seid der Leib Christi, und jeder einzelne ist ein Glied davon.“', quelle: '1 Kor 12,27', link: 'https://www.die-bibel.de/bibeln/basisbibel/lesen/BB/1KOR.12' },
-  { text: '„Es gibt verschiedene Gaben, aber nur einen Geist.“', quelle: '1 Kor 12,4', link: 'https://www.die-bibel.de/bibeln/basisbibel/lesen/BB/1KOR.12' },
-  { text: '„Auf einmal gab es vom Himmel her ein Rauschen, wie wenn ein heftiger Sturm aufkommt.“', quelle: 'Apg 2,2', link: 'https://www.die-bibel.de/bibeln/basisbibel/lesen/BB/ACT.2' },
-  { text: '„Wenn ein Glied leidet, leiden alle anderen Glieder mit.“', quelle: '1 Kor 12,26', link: 'https://www.die-bibel.de/bibeln/basisbibel/lesen/BB/1KOR.12' },
-  { text: '„Die Liebe ist geduldig und gütig.“', quelle: '1 Kor 13,4', link: 'https://www.die-bibel.de/bibeln/basisbibel/lesen/BB/1KOR.13' },
+  { text: '„Ihr seid der Leib Christi, und jeder einzelne ist ein Glied davon.”', quelle: '1 Kor 12,27', link: 'https://www.die-bibel.de/bibel/BB/1CO.12.27-1CO.12.27' },
+  { text: '„Es gibt verschiedene Gaben, aber nur einen Geist.”', quelle: '1 Kor 12,4', link: 'https://www.die-bibel.de/bibel/BB/1CO.12.4-1CO.12.4' },
+  { text: '„Auf einmal gab es vom Himmel her ein Rauschen, wie wenn ein heftiger Sturm aufkommt.”', quelle: 'Apg 2,2', link: 'https://www.die-bibel.de/bibel/BB/ACT.2.2-ACT.2.2' },
+  { text: '„Wenn ein Glied leidet, leiden alle anderen Glieder mit.”', quelle: '1 Kor 12,26', link: 'https://www.die-bibel.de/bibel/BB/1CO.12.26-1CO.12.26' },
+  { text: '„Die Liebe ist geduldig und gütig.”', quelle: '1 Kor 13,4', link: 'https://www.die-bibel.de/bibel/BB/1CO.13.4-1CO.13.4' },
 ];
 
 let state = {
