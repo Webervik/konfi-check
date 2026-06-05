@@ -5,13 +5,14 @@
 const SUPABASE_URL = 'https://jhelduwnmjpomzrowgmr.supabase.co';
 const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpoZWxkdXdubWpwb216cm93Z21yIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAxNzQ4NDEsImV4cCI6MjA5NTc1MDg0MX0.-Mv6TRBTgJhqjaLARs3hvLm6vvMcnQ2mlfubgLvriyU';
 
-// Zitate zwischen den Fragen
+// Fallback-Zitate (wenn kein themenspezifischer Pool vorhanden)
 const ZITATE = [
-  { text: '„Ihr seid der Leib Christi, und jeder einzelne ist ein Glied davon.”', quelle: '1 Kor 12,27', link: 'https://www.die-bibel.de/bibel/BB/1CO.12.27-1CO.12.27' },
-  { text: '„Es gibt verschiedene Gaben, aber nur einen Geist.”', quelle: '1 Kor 12,4', link: 'https://www.die-bibel.de/bibel/BB/1CO.12.4-1CO.12.4' },
-  { text: '„Auf einmal gab es vom Himmel her ein Rauschen, wie wenn ein heftiger Sturm aufkommt.”', quelle: 'Apg 2,2', link: 'https://www.die-bibel.de/bibel/BB/ACT.2.2-ACT.2.2' },
-  { text: '„Wenn ein Glied leidet, leiden alle anderen Glieder mit.”', quelle: '1 Kor 12,26', link: 'https://www.die-bibel.de/bibel/BB/1CO.12.26-1CO.12.26' },
+  { text: '„Gott ist die Liebe.”', quelle: '1 Joh 4,16', link: 'https://www.die-bibel.de/bibel/BB/1JN.4.16-1JN.4.16' },
   { text: '„Die Liebe ist geduldig und gütig.”', quelle: '1 Kor 13,4', link: 'https://www.die-bibel.de/bibel/BB/1CO.13.4-1CO.13.4' },
+  { text: '„Ich bin das Licht der Welt.”', quelle: 'Joh 8,12', link: 'https://www.die-bibel.de/bibel/BB/JHN.8.12-JHN.8.12' },
+  { text: '„Liebt einander, wie ich euch geliebt habe.”', quelle: 'Joh 15,12', link: 'https://www.die-bibel.de/bibel/BB/JHN.15.12-JHN.15.12' },
+  { text: '„Bei Gott ist kein Ding unmöglich.”', quelle: 'Lk 1,37', link: 'https://www.die-bibel.de/bibel/BB/LUK.1.37-LUK.1.37' },
+  { text: '„Bittet, so wird euch gegeben.”', quelle: 'Mt 7,7', link: 'https://www.die-bibel.de/bibel/BB/MAT.7.7-MAT.7.7' },
 ];
 
 let state = {
@@ -23,7 +24,22 @@ let state = {
   punkte: 0,
   antworten: [],
   showZitat: false,
+  letzterZitatIdx: -1,
 };
+
+// Antworten zufällig mischen, richtig-Index mitführen
+function mischeAntworten(frage) {
+  const indices = [0, 1, 2, 3].slice(0, frage.antworten.length);
+  for (let i = indices.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [indices[i], indices[j]] = [indices[j], indices[i]];
+  }
+  return {
+    ...frage,
+    antworten: indices.map(i => frage.antworten[i]),
+    richtig: indices.indexOf(frage.richtig),
+  };
+}
 
 let alleScores = [];
 
@@ -124,6 +140,11 @@ function renderFrage() {
   }
   state.showZitat = false;
 
+  // Antworten zufällig mischen (außer Lückentext — dort ist Reihenfolge egal)
+  if (frage.typ !== 'luecke') {
+    frage = mischeAntworten(frage);
+  }
+
   const card = document.getElementById('quiz-card');
   card.innerHTML = '';
 
@@ -219,7 +240,14 @@ function antwortGewählt(index, frage, grid) {
 
 function renderZitat(naechsteFrage) {
   const pool = (state.thema.zitate && state.thema.zitate.length > 0) ? state.thema.zitate : ZITATE;
-  const zitat = pool[Math.floor(Math.random() * pool.length)];
+  let idx;
+  let versuche = 0;
+  do {
+    idx = Math.floor(Math.random() * pool.length);
+    versuche++;
+  } while (idx === state.letzterZitatIdx && pool.length > 1 && versuche < 10);
+  state.letzterZitatIdx = idx;
+  const zitat = pool[idx];
   const card = document.getElementById('quiz-card');
   card.innerHTML = `
     <div style="text-align:center; margin-bottom:20px; font-size:2rem">✨</div>
