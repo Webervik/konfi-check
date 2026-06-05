@@ -218,7 +218,8 @@ function antwortGewählt(index, frage, grid) {
 }
 
 function renderZitat(naechsteFrage) {
-  const zitat = ZITATE[Math.floor(Math.random() * ZITATE.length)];
+  const pool = (state.thema.zitate && state.thema.zitate.length > 0) ? state.thema.zitate : ZITATE;
+  const zitat = pool[Math.floor(Math.random() * pool.length)];
   const card = document.getElementById('quiz-card');
   card.innerHTML = `
     <div style="text-align:center; margin-bottom:20px; font-size:2rem">✨</div>

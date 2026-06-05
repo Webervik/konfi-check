@@ -120,6 +120,23 @@
           "bibelstelle": "Mt 28,19",
           "bibellink": "https://www.die-bibel.de/bibel/BB/MAT.28.19-MAT.28.19"
         }
+      ],
+      "zitate": [
+        {
+          "text": "„Auf einmal gab es vom Himmel her ein Rauschen, wie wenn ein heftiger Sturm aufkommt.“",
+          "quelle": "Apg 2,2",
+          "link": "https://www.die-bibel.de/bibel/BB/ACT.2.2-ACT.2.2"
+        },
+        {
+          "text": "„Sie wurden alle vom Heiligen Geist erfüllt.“",
+          "quelle": "Apg 2,4",
+          "link": "https://www.die-bibel.de/bibel/BB/ACT.2.4-ACT.2.4"
+        },
+        {
+          "text": "„Ich werde meinen Geist über alle Menschen ausgießen.“",
+          "quelle": "Apg 2,17",
+          "link": "https://www.die-bibel.de/bibel/BB/ACT.2.17-ACT.2.17"
+        }
       ]
     },
     {
@@ -242,6 +259,23 @@
           "bibelstelle": "1 Kor 13,1",
           "bibellink": "https://www.die-bibel.de/bibel/BB/1CO.13.1-1CO.13.1"
         }
+      ],
+      "zitate": [
+        {
+          "text": "„Ihr seid der Leib Christi, und jeder einzelne ist ein Glied davon.“",
+          "quelle": "1 Kor 12,27",
+          "link": "https://www.die-bibel.de/bibel/BB/1CO.12.27-1CO.12.27"
+        },
+        {
+          "text": "„Wenn ein Glied leidet, leiden alle anderen Glieder mit.“",
+          "quelle": "1 Kor 12,26",
+          "link": "https://www.die-bibel.de/bibel/BB/1CO.12.26-1CO.12.26"
+        },
+        {
+          "text": "„Die Liebe ist geduldig und gütig.“",
+          "quelle": "1 Kor 13,4",
+          "link": "https://www.die-bibel.de/bibel/BB/1CO.13.4-1CO.13.4"
+        }
       ]
     },
     {
@@ -361,6 +395,23 @@
           "erklaerung": "»Kanon« (griech. »Maßstab«) bezeichnet die Bücher, die die Kirche als heilige Schrift anerkannt hat. Über manche Bücher wurde jahrhundertelang diskutiert.",
           "bibelstelle": null,
           "bibellink": null
+        }
+      ],
+      "zitate": [
+        {
+          "text": "„Dein Wort ist meines Fußes Leuchte und ein Licht auf meinem Weg.“",
+          "quelle": "Ps 119,105",
+          "link": "https://www.die-bibel.de/bibel/BB/PSA.119.105-PSA.119.105"
+        },
+        {
+          "text": "„Am Anfang schuf Gott Himmel und Erde.“",
+          "quelle": "Gen 1,1",
+          "link": "https://www.die-bibel.de/bibel/BB/GEN.1.1-GEN.1.1"
+        },
+        {
+          "text": "„Das Wort Gottes ist lebendig und wirksam.“",
+          "quelle": "Hebr 4,12",
+          "link": "https://www.die-bibel.de/bibel/BB/HEB.4.12-HEB.4.12"
         }
       ]
     }
