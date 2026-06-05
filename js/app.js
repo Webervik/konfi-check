@@ -141,25 +141,23 @@ function renderFrage() {
   state.showZitat = false;
 
   // Antworten zufällig mischen (außer Lückentext — dort ist Reihenfolge egal)
-  if (frage.typ !== 'luecke') {
-    frage = mischeAntworten(frage);
-  }
+  const frageAnzeige = (frage.typ !== 'luecke') ? mischeAntworten(frage) : frage;
 
   const card = document.getElementById('quiz-card');
   card.innerHTML = '';
 
   // Schwierigkeit
   const sw = document.createElement('div');
-  sw.className = `schwierigkeit s${frage.schwierigkeit}`;
-  const sterne = '★'.repeat(frage.schwierigkeit) + '☆'.repeat(3 - frage.schwierigkeit);
-  sw.innerHTML = `${sterne} ${['', 'Leicht', 'Mittel', 'Schwer'][frage.schwierigkeit]}`;
+  sw.className = `schwierigkeit s${frageAnzeige.schwierigkeit}`;
+  const sterne = '★'.repeat(frageAnzeige.schwierigkeit) + '☆'.repeat(3 - frageAnzeige.schwierigkeit);
+  sw.innerHTML = `${sterne} ${['', 'Leicht', 'Mittel', 'Schwer'][frageAnzeige.schwierigkeit]}`;
   card.appendChild(sw);
 
   // Bild (wenn vorhanden)
-  if (frage.typ === 'bild' && frage.bild) {
+  if (frageAnzeige.typ === 'bild' && frageAnzeige.bild) {
     const img = document.createElement('img');
-    img.src = frage.bild;
-    img.alt = frage.bildalt || '';
+    img.src = frageAnzeige.bild;
+    img.alt = frageAnzeige.bildalt || '';
     img.className = 'frage-bild';
     img.onerror = () => img.style.display = 'none';
     card.appendChild(img);
@@ -169,10 +167,10 @@ function renderFrage() {
   const frageEl = document.createElement('div');
   frageEl.className = 'frage-text';
 
-  if (frage.typ === 'luecke') {
-    frageEl.innerHTML = frage.frage.replace('___', '<span class="luecke">___</span>');
+  if (frageAnzeige.typ === 'luecke') {
+    frageEl.innerHTML = frageAnzeige.frage.replace('___', '<span class="luecke">___</span>');
   } else {
-    frageEl.textContent = frage.frage;
+    frageEl.textContent = frageAnzeige.frage;
   }
   card.appendChild(frageEl);
 
@@ -181,11 +179,11 @@ function renderFrage() {
   grid.className = 'antworten-grid';
   const labels = ['A', 'B', 'C', 'D'];
 
-  frage.antworten.forEach((antwort, i) => {
+  frageAnzeige.antworten.forEach((antwort, i) => {
     const btn = document.createElement('button');
     btn.className = 'antwort-btn';
     btn.innerHTML = `<span class="antwort-label">${labels[i]}</span> ${antwort}`;
-    btn.onclick = () => antwortGewählt(i, frage, grid);
+    btn.onclick = () => antwortGewählt(i, frageAnzeige, grid);
     grid.appendChild(btn);
   });
   card.appendChild(grid);
