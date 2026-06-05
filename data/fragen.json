@@ -1404,7 +1404,7 @@
             "Tradition"
           ],
           "richtig": 2,
-          "erklaerung": "Sola scriptura, sola gratia, sola fide — diese drei Solas kennzeichnen evangelisches Denken bis heute. Diese drei Solas sind keine Abgrenzung gegen andere — sie sind ein Bekenntnis. Der Mensch kann sich Gottes Gnade nicht verdienen. Sie ist Geschenk. Das befreit.",
+          "erklaerung": "Sola scriptura, sola gratia, sola fide, solus Christus — vier Solas kennzeichnen evangelisches Denken. Allein die Schrift, allein die Gnade, allein der Glaube, allein Christus: Vier Aussagen, die zusammengehören.",
           "bibelstelle": "Röm 1,17",
           "bibellink": "https://www.die-bibel.de/bibel/BB/ROM.1.17-ROM.1.17"
         },
@@ -1420,7 +1420,7 @@
             "Nur das Abendmahl"
           ],
           "richtig": 2,
-          "erklaerung": "Luther reduzierte auf zwei: Taufe und Abendmahl — nur diese wurden von Jesus selbst eingesetzt. Die Diskussion, was ein Sakrament ist, war heftig. Zwingli und Luther stritten darüber, was beim Abendmahl wirklich passiert — und kamen nie zu einer Einigung.",
+          "erklaerung": "Luther reduzierte auf zwei: Taufe und Abendmahl — nur diese wurden von Jesus selbst eingesetzt. Besonders heftig war der Streit über das Abendmahl: Beim Marburger Gespräch 1529 prallten Luther und Zwingli aufeinander. Luther bestand auf der realen Gegenwart Christi im Brot, Zwingli sah es als Gedächtnismahl. Sie trennten sich unversöhnt.",
           "bibelstelle": null,
           "bibellink": null
         },
@@ -1471,6 +1471,300 @@
           "erklaerung": "Durch die Taufe sind alle Christen Priester. Niemand braucht einen Mittler zwischen sich und Gott — das hat die Kirchenstruktur revolutioniert. Das Priestertum aller Gläubigen bedeutet auch: Du kannst für andere beten, anderen das Evangelium weitersagen, Trost spenden. Das ist nicht dem Pfarramt vorbehalten.",
           "bibelstelle": "1 Petr 2,9",
           "bibellink": "https://www.die-bibel.de/bibel/BB/1PE.2.9-1PE.2.9"
+        }
+      ]
+    },
+    {
+      "id": "eltern",
+      "titel": "Eltern",
+      "icon": "👨‍👩‍👧",
+      "farbe": "#e91e63",
+      "zitate": [
+        {
+          "text": "Ehre deinen Vater und deine Mutter.",
+          "quelle": "Ex 20,12",
+          "link": "https://www.die-bibel.de/bibel/BB/EXO.20.12-EXO.20.12"
+        },
+        {
+          "text": "Ein Kind, das weise ist, erfreut seinen Vater.",
+          "quelle": "Spr 10,1",
+          "link": "https://www.die-bibel.de/bibel/BB/PRO.10.1-PRO.10.1"
+        },
+        {
+          "text": "Zieht eure Kinder auf in der Zucht und Ermahnung des Herrn.",
+          "quelle": "Eph 6,4",
+          "link": "https://www.die-bibel.de/bibel/BB/EPH.6.4-EPH.6.4"
+        },
+        {
+          "text": "Lasst die Kinder zu mir kommen.",
+          "quelle": "Mk 10,14",
+          "link": "https://www.die-bibel.de/bibel/BB/MRK.10.14-MRK.10.14"
+        },
+        {
+          "text": "Gott ist die Liebe.",
+          "quelle": "1 Joh 4,16",
+          "link": "https://www.die-bibel.de/bibel/BB/1JN.4.16-1JN.4.16"
+        }
+      ],
+      "fragen": [
+        {
+          "id": "el1",
+          "typ": "multiple-choice",
+          "schwierigkeit": 1,
+          "frage": "Was bedeutet das Wort Konfirmation?",
+          "antworten": [
+            "Abschluss der Schulzeit",
+            "Bestätigung der Taufe",
+            "Aufnahme ins Ehrenamt",
+            "Erstkommunion"
+          ],
+          "richtig": 1,
+          "erklaerung": "Konfirmation kommt von lat. confirmare = bestätigen. Die Konfirmanden bestätigen als Jugendliche das, was ihre Eltern bei der Taufe für sie versprochen haben. Ein Versprechen wird zu einer eigenen Entscheidung.",
+          "bibelstelle": "Apg 2,38",
+          "bibellink": "ACT.2.38-ACT.2.38"
+        },
+        {
+          "id": "el2",
+          "typ": "multiple-choice",
+          "schwierigkeit": 1,
+          "frage": "Welches der Zehn Gebote betrifft direkt das Familienleben?",
+          "antworten": [
+            "Du sollst nicht stehlen",
+            "Du sollst nicht ehebrechen",
+            "Ehre deinen Vater und deine Mutter",
+            "Halte den Sabbat heilig"
+          ],
+          "richtig": 2,
+          "erklaerung": "Das vierte Gebot ist das einzige, das sich direkt an Kinder richtet — und gleichzeitig soziale Verantwortung füreinander beschreibt. Luther: Es gilt auch umgekehrt — Eltern schulden ihren Kindern Fürsorge.",
+          "bibelstelle": "Ex 20,12",
+          "bibellink": "EXO.20.12-EXO.20.12"
+        },
+        {
+          "id": "el3",
+          "typ": "luecke",
+          "schwierigkeit": 2,
+          "frage": "Im Vaterunser beten wir: Vergib uns unsere ___, wie auch wir vergeben unseren Schuldigern.",
+          "antworten": [
+            "Sünden",
+            "Schuld",
+            "Fehler",
+            "Schwächen"
+          ],
+          "richtig": 1,
+          "erklaerung": "Vergebung ist im Vaterunser kein Privatanliegen — sie ist direkt verknüpft mit unserer eigenen Bereitschaft zu vergeben. Ein Satz, der im Familienalltag oft herausfordernd ist.",
+          "bibelstelle": "Mt 6,12",
+          "bibellink": "MAT.6.12-MAT.6.12"
+        },
+        {
+          "id": "el4",
+          "typ": "multiple-choice",
+          "schwierigkeit": 2,
+          "frage": "Was feiern Christen an Ostern?",
+          "antworten": [
+            "Jesu Geburt",
+            "Die Auferstehung Jesu",
+            "Die Ausgießung des Heiligen Geistes",
+            "Das letzte Abendmahl"
+          ],
+          "richtig": 1,
+          "erklaerung": "Ostern ist das Herzstück des christlichen Glaubens — und der Grund, weshalb Christen am Sonntag und nicht am Sabbat zusammenkommen. Alles andere folgt aus dieser Nachricht: Er ist auferstanden.",
+          "bibelstelle": "Mt 28,6",
+          "bibellink": "MAT.28.6-MAT.28.6"
+        },
+        {
+          "id": "el5",
+          "typ": "multiple-choice",
+          "schwierigkeit": 2,
+          "frage": "Was ist ein Kirchenvorstand?",
+          "antworten": [
+            "Der Bürgermeister der Kirchengemeinde",
+            "Das gewählte Leitungsgremium der Gemeinde aus ehrenamtlichen Gemeindegliedern",
+            "Ein kirchlicher Beamter",
+            "Der Assistent des Pfarrers"
+          ],
+          "richtig": 1,
+          "erklaerung": "Gemeindeglieder leiten mit — das ist ein reformatorisches Erbe. Im Kirchenvorstand sitzen gewählte Laien, keine Amtsleute. Jede und jeder ab 16 kann kandidieren — vielleicht auch du irgendwann.",
+          "bibelstelle": null,
+          "bibellink": null
+        },
+        {
+          "id": "el6",
+          "typ": "multiple-choice",
+          "schwierigkeit": 3,
+          "frage": "Was bedeutet es, dass die Kirche das Evangelium in Wort und Sakrament verwaltet?",
+          "antworten": [
+            "Sie besitzt das Copyright auf die Bibel",
+            "Sie hat die alleinige Vollmacht, Gott zu interpretieren",
+            "Sie ist der Ort, wo Gottes Botschaft hörbar und sichtbar wird",
+            "Sie entscheidet, wer gerettet wird"
+          ],
+          "richtig": 2,
+          "erklaerung": "Kirche ist nicht Selbstzweck. Sie ist Ort der Verkündigung und der Sakramente — dort begegnet Gott den Menschen konkret. Das macht sie wichtig, aber nicht unfehlbar.",
+          "bibelstelle": null,
+          "bibellink": null
+        },
+        {
+          "id": "el7",
+          "typ": "multiple-choice",
+          "schwierigkeit": 3,
+          "frage": "Wozu hat die Kirche nach lutherischem Verständnis die Schlüsselgewalt?",
+          "antworten": [
+            "Um Kirchensteuern einzutreiben",
+            "Um Sünden zu vergeben oder zu behalten im Namen Gottes",
+            "Um über Glaubensfragen endgültig zu entscheiden",
+            "Um politische Macht auszuüben"
+          ],
+          "richtig": 1,
+          "erklaerung": "Mt 16,19: Was du auf Erden bindest, soll im Himmel gebunden sein. Luther verstand das als Vollmacht zur Verkündigung von Vergebung — nicht als Herrschaft über Seelen. Die Schlüsselgewalt liegt in der Predigt des Evangeliums.",
+          "bibelstelle": "Mt 16,19",
+          "bibellink": "MAT.16.19-MAT.16.19"
+        }
+      ]
+    },
+    {
+      "id": "nur-fuer-profis",
+      "titel": "Nur für Profis",
+      "icon": "🧠",
+      "farbe": "#1a1a2e",
+      "zitate": [
+        {
+          "text": "Wir sehen jetzt durch einen Spiegel in einem dunklen Wort.",
+          "quelle": "1 Kor 13,12",
+          "link": "https://www.die-bibel.de/bibel/BB/1CO.13.12-1CO.13.12"
+        },
+        {
+          "text": "Meine Gedanken sind nicht eure Gedanken.",
+          "quelle": "Jes 55,8",
+          "link": "https://www.die-bibel.de/bibel/BB/ISA.55.8-ISA.55.8"
+        },
+        {
+          "text": "Wer bist du, Mensch, dass du mit Gott rechten willst?",
+          "quelle": "Röm 9,20",
+          "link": "https://www.die-bibel.de/bibel/BB/ROM.9.20-ROM.9.20"
+        },
+        {
+          "text": "Die Weisheit dieser Welt ist Torheit vor Gott.",
+          "quelle": "1 Kor 3,19",
+          "link": "https://www.die-bibel.de/bibel/BB/1CO.3.19-1CO.3.19"
+        },
+        {
+          "text": "Gott hat die Weisheit dieser Welt zur Torheit gemacht.",
+          "quelle": "1 Kor 1,20",
+          "link": "https://www.die-bibel.de/bibel/BB/1CO.1.20-1CO.1.20"
+        }
+      ],
+      "fragen": [
+        {
+          "id": "pr1",
+          "typ": "multiple-choice",
+          "schwierigkeit": 3,
+          "frage": "Was beschreibt das Konzil von Chalcedon (451) über Jesus Christus?",
+          "antworten": [
+            "Jesus war nur ein Mensch",
+            "Jesus war nur Gott",
+            "Jesus ist wahrhaft Gott und wahrhaft Mensch in einer Person, unvermischt und ungetrennt",
+            "Jesus hatte einen menschlichen Körper aber eine göttliche Seele"
+          ],
+          "richtig": 2,
+          "erklaerung": "Die Formel von Chalcedon ist das klassische christologische Bekenntnis: zwei Naturen, eine Person. Weder Vermischung noch Trennung. Diese Formel war das Ergebnis jahrhundertelanger heftiger Debatten — und sie bleibt ein Paradox, das den Verstand herausfordert.",
+          "bibelstelle": null,
+          "bibellink": null
+        },
+        {
+          "id": "pr2",
+          "typ": "multiple-choice",
+          "schwierigkeit": 3,
+          "frage": "Was meint der Begriff Hypostatische Union?",
+          "antworten": [
+            "Die Vereinigung von Christen verschiedener Konfessionen",
+            "Die Einheit von göttlicher und menschlicher Natur in der einen Person Jesu Christi",
+            "Die Verbindung von Seele und Körper beim Menschen",
+            "Die Trinität Gottes"
+          ],
+          "richtig": 1,
+          "erklaerung": "Hypostasis (griech.) = Person. Die Lehre besagt: Göttlichkeit und Menschheit Jesu existieren in einer einzigen göttlichen Person. Kein Nebeneinander zweier Personen, kein Gemisch — sondern Einheit in Zweiheit. Theologisch einer der komplexesten Begriffe überhaupt.",
+          "bibelstelle": null,
+          "bibellink": null
+        },
+        {
+          "id": "pr3",
+          "typ": "multiple-choice",
+          "schwierigkeit": 3,
+          "frage": "Was meint apophatische Theologie?",
+          "antworten": [
+            "Theologie, die Gott durch Bibelzitate beschreibt",
+            "Theologie, die Gott nur durch Verneinung beschreibt: was Gott nicht ist",
+            "Theologie, die Gott als Vater betont",
+            "Theologie ohne Gebet"
+          ],
+          "richtig": 1,
+          "erklaerung": "Via negativa: Da Gott jenseits aller menschlichen Begriffe ist, kann man nur sagen, was er nicht ist — nicht endlich, nicht leidend, nicht unwissend. Diese Tradition reicht von Pseudo-Dionysius bis zu modernen Theologen wie Dorothee Sölle.",
+          "bibelstelle": null,
+          "bibellink": null
+        },
+        {
+          "id": "pr4",
+          "typ": "multiple-choice",
+          "schwierigkeit": 3,
+          "frage": "Was meint Karl Barths Begriff des Deus absconditus in seiner Umformung?",
+          "antworten": [
+            "Gott ist verborgen hinter der Natur",
+            "Gott ist nur im gekreuzigten Christus offenbar — gerade in seiner Verborgenheit",
+            "Gott hat sich in der Moderne zurückgezogen",
+            "Gott ist das ganz Andere, über das man schweigen muss"
+          ],
+          "richtig": 1,
+          "erklaerung": "Barth wendet Luther um: Der verborgene Gott ist nicht hinter der Offenbarung, sondern in ihr — im Kreuz. Gott offenbart sich gerade in dem, was dem Menschen schwach und töricht erscheint. Das ist Barths Anti-Natürliche-Theologie.",
+          "bibelstelle": null,
+          "bibellink": null
+        },
+        {
+          "id": "pr5",
+          "typ": "multiple-choice",
+          "schwierigkeit": 3,
+          "frage": "Was versteht man unter Perikhorese in der Trinitätslehre?",
+          "antworten": [
+            "Die Abfolge der Heilsgeschichte",
+            "Das gegenseitige Inwohnen der drei göttlichen Personen ineinander",
+            "Die Ausgießung des Geistes an Pfingsten",
+            "Die Einheit von Schöpfung und Erlösung"
+          ],
+          "richtig": 1,
+          "erklaerung": "Perikhorese (griech. = Umtanz / gegenseitiges Durchdringen): Vater, Sohn und Geist durchdringen einander vollständig — sie sind unterschieden, aber nicht getrennt. Dieses Bild betont Gottes inneres Leben als Beziehung und Gemeinschaft.",
+          "bibelstelle": null,
+          "bibellink": null
+        },
+        {
+          "id": "pr6",
+          "typ": "multiple-choice",
+          "schwierigkeit": 3,
+          "frage": "Was ist der Unterschied zwischen Exegese und Eisegese?",
+          "antworten": [
+            "Exegese ist alt, Eisegese modern",
+            "Exegese legt aus, was im Text steht; Eisegese trägt eigene Meinungen in den Text hinein",
+            "Exegese ist evangelisch, Eisegese katholisch",
+            "Beide bezeichnen dasselbe"
+          ],
+          "richtig": 1,
+          "erklaerung": "Hermeneutisch korrekt ist Exegese: den Text aus sich selbst heraus verstehen, in seinem historischen und literarischen Kontext. Eisegese ist die Versuchung jeder Predigt: den Text für eigene Zwecke einzuspannen. Die Grenze ist fließend — und deshalb so wichtig.",
+          "bibelstelle": null,
+          "bibellink": null
+        },
+        {
+          "id": "pr7",
+          "typ": "multiple-choice",
+          "schwierigkeit": 3,
+          "frage": "Was meint Luthers Unterscheidung von Gesetz und Evangelium?",
+          "antworten": [
+            "Gesetz = AT, Evangelium = NT",
+            "Gesetz entlarvt Sünde und treibt zur Verzweiflung; Evangelium schenkt Gnade und befreit",
+            "Gesetz ist für Böse, Evangelium für Gute",
+            "Gesetz ist Moral, Evangelium ist Mystik"
+          ],
+          "richtig": 1,
+          "erklaerung": "Das ist Luthers hermeneutischer Schlüssel: Nicht zwei historische Abschnitte, sondern zwei Wirkweisen Gottes. Das Gesetz zeigt uns, was wir nicht sind — das Evangelium, was wir trotzdem sind: geliebt und angenommen. Diese Unterscheidung ist das Herzstück lutherischer Theologie.",
+          "bibelstelle": "Röm 3,28",
+          "bibellink": "ROM.3.28-ROM.3.28"
         }
       ]
     }
