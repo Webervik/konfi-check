@@ -336,6 +336,7 @@ function renderScores(filterGruppe) {
         <div class="score-detail">${escapeHtml(s.gruppe)} · ${datum} <span class="score-thema-badge">${themaIcon} ${s.thema}</span></div>
       </div>
       <div class="score-punkte">${s.punkte}/${s.gesamt}</div>
+      <button class="delete-btn" onclick="loescheEintrag('${s.id}')" style="display:none; align-items:center; justify-content:center; width:28px; height:28px; border-radius:50%; border:none; background:#e74c3c; color:#fff; font-size:1rem; cursor:pointer; margin-left:8px; flex-shrink:0;">×</button>
     `;
     list.appendChild(item);
   });
@@ -365,19 +366,22 @@ function initScoresTabs() {
   });
   document.getElementById('btn-back-scores').onclick = () => showScreen('start');
 
-  document.getElementById('btn-eintraege-entfernen').onclick = async () => {
-    const name = prompt('Welchen Namen möchtest du entfernen?');
-    if (!name || !name.trim()) return;
+  let loeschModus = false;
+  document.getElementById('btn-eintraege-entfernen').onclick = () => {
+    loeschModus = !loeschModus;
+    document.getElementById('score-list').querySelectorAll('.delete-btn').forEach(btn => {
+      btn.style.display = loeschModus ? 'flex' : 'none';
+    });
+  };
+
+  window.loescheEintrag = async (id) => {
+    if (!confirm('Diesen Eintrag löschen?')) return;
     const res = await fetch(
-      `${SUPABASE_URL}/rest/v1/scores?name=eq.${encodeURIComponent(name.trim())}`,
+      `${SUPABASE_URL}/rest/v1/scores?id=eq.${id}`,
       { method: 'DELETE', headers: SB_HEADERS }
     );
-    if (res.ok) {
-      alert(`Einträge für „${name.trim()}" wurden entfernt.`);
-      ladeScores();
-    } else {
-      alert('Fehler beim Entfernen.');
-    }
+    if (res.ok) ladeScores();
+    else alert('Fehler beim Löschen.');
   };
 }
 
