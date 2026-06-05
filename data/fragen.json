@@ -123,19 +123,19 @@
       ],
       "zitate": [
         {
-          "text": "„Auf einmal gab es vom Himmel her ein Rauschen, wie wenn ein heftiger Sturm aufkommt.“",
-          "quelle": "Apg 2,2",
-          "link": "https://www.die-bibel.de/bibel/BB/ACT.2.2-ACT.2.2"
+          "text": "Der Geist weht, wo er will.",
+          "quelle": "Joh 3,8",
+          "link": "https://www.die-bibel.de/bibel/BB/JHN.3.8-JHN.3.8"
         },
         {
-          "text": "„Sie wurden alle vom Heiligen Geist erfüllt.“",
-          "quelle": "Apg 2,4",
-          "link": "https://www.die-bibel.de/bibel/BB/ACT.2.4-ACT.2.4"
+          "text": "Wo der Geist des Herrn ist, da ist Freiheit.",
+          "quelle": "2 Kor 3,17",
+          "link": "https://www.die-bibel.de/bibel/BB/2CO.3.17-2CO.3.17"
         },
         {
-          "text": "„Ich werde meinen Geist über alle Menschen ausgießen.“",
-          "quelle": "Apg 2,17",
-          "link": "https://www.die-bibel.de/bibel/BB/ACT.2.17-ACT.2.17"
+          "text": "Die Frucht des Geistes ist Liebe, Freude, Friede.",
+          "quelle": "Gal 5,22",
+          "link": "https://www.die-bibel.de/bibel/BB/GAL.5.22-GAL.5.22"
         }
       ]
     },
@@ -262,19 +262,19 @@
       ],
       "zitate": [
         {
-          "text": "„Ihr seid der Leib Christi, und jeder einzelne ist ein Glied davon.“",
-          "quelle": "1 Kor 12,27",
-          "link": "https://www.die-bibel.de/bibel/BB/1CO.12.27-1CO.12.27"
+          "text": "Einer trage des anderen Last.",
+          "quelle": "Gal 6,2",
+          "link": "https://www.die-bibel.de/bibel/BB/GAL.6.2-GAL.6.2"
         },
         {
-          "text": "„Wenn ein Glied leidet, leiden alle anderen Glieder mit.“",
-          "quelle": "1 Kor 12,26",
-          "link": "https://www.die-bibel.de/bibel/BB/1CO.12.26-1CO.12.26"
-        },
-        {
-          "text": "„Die Liebe ist geduldig und gütig.“",
+          "text": "Die Liebe ist geduldig und gütig.",
           "quelle": "1 Kor 13,4",
           "link": "https://www.die-bibel.de/bibel/BB/1CO.13.4-1CO.13.4"
+        },
+        {
+          "text": "Seid freundlich zueinander und vergebt einander.",
+          "quelle": "Eph 4,32",
+          "link": "https://www.die-bibel.de/bibel/BB/EPH.4.32-EPH.4.32"
         }
       ]
     },
@@ -399,17 +399,17 @@
       ],
       "zitate": [
         {
-          "text": "„Dein Wort ist meines Fußes Leuchte und ein Licht auf meinem Weg.“",
-          "quelle": "Ps 119,105",
-          "link": "https://www.die-bibel.de/bibel/BB/PSA.119.105-PSA.119.105"
+          "text": "Das Wort des Herrn bleibt in Ewigkeit.",
+          "quelle": "1 Petr 1,25",
+          "link": "https://www.die-bibel.de/bibel/BB/1PE.1.25-1PE.1.25"
         },
         {
-          "text": "„Am Anfang schuf Gott Himmel und Erde.“",
-          "quelle": "Gen 1,1",
-          "link": "https://www.die-bibel.de/bibel/BB/GEN.1.1-GEN.1.1"
+          "text": "Alle Schrift ist von Gott eingegeben.",
+          "quelle": "2 Tim 3,16",
+          "link": "https://www.die-bibel.de/bibel/BB/2TIM.3.16-2TIM.3.16"
         },
         {
-          "text": "„Das Wort Gottes ist lebendig und wirksam.“",
+          "text": "Das Wort Gottes ist lebendig und wirksam.",
           "quelle": "Hebr 4,12",
           "link": "https://www.die-bibel.de/bibel/BB/HEB.4.12-HEB.4.12"
         }
@@ -422,14 +422,19 @@
       "farbe": "#2980b9",
       "zitate": [
         {
-          "text": "„Der kam nach Nazareth, wo er aufgewachsen war.“",
-          "quelle": "Lk 4,16",
-          "link": "https://www.die-bibel.de/bibel/BB/LUK.4.16-LUK.4.16"
+          "text": "Das Wort wurde Fleisch und wohnte unter uns.",
+          "quelle": "Joh 1,14",
+          "link": "https://www.die-bibel.de/bibel/BB/JHN.1.14-JHN.1.14"
         },
         {
-          "text": "„Johannes taufte Jesus im Jordan.“",
-          "quelle": "Mk 1,9",
-          "link": "https://www.die-bibel.de/bibel/BB/MRK.1.9-MRK.1.9"
+          "text": "Jesus zog umher und tat Gutes.",
+          "quelle": "Apg 10,38",
+          "link": "https://www.die-bibel.de/bibel/BB/ACT.10.38-ACT.10.38"
+        },
+        {
+          "text": "Jesus Christus ist derselbe gestern, heute und in Ewigkeit.",
+          "quelle": "Hebr 13,8",
+          "link": "https://www.die-bibel.de/bibel/BB/HEB.13.8-HEB.13.8"
         }
       ],
       "fragen": [
@@ -554,14 +559,19 @@
       "farbe": "#c0392b",
       "zitate": [
         {
-          "text": "„Ich bin die Auferstehung und das Leben.“",
-          "quelle": "Joh 11,25",
-          "link": "https://www.die-bibel.de/bibel/BB/JHN.11.25-JHN.11.25"
-        },
-        {
-          "text": "„Gott hat die Welt so sehr geliebt, dass er seinen einzigen Sohn gab.“",
+          "text": "Gott hat die Welt so sehr geliebt, dass er seinen einzigen Sohn gab.",
           "quelle": "Joh 3,16",
           "link": "https://www.die-bibel.de/bibel/BB/JHN.3.16-JHN.3.16"
+        },
+        {
+          "text": "Jesus Christus ist derselbe gestern, heute und in Ewigkeit.",
+          "quelle": "Hebr 13,8",
+          "link": "https://www.die-bibel.de/bibel/BB/HEB.13.8-HEB.13.8"
+        },
+        {
+          "text": "Ich bin das Licht der Welt.",
+          "quelle": "Joh 8,12",
+          "link": "https://www.die-bibel.de/bibel/BB/JHN.8.12-JHN.8.12"
         }
       ],
       "fragen": [
@@ -686,19 +696,19 @@
       "farbe": "#16a085",
       "zitate": [
         {
-          "text": "„Ich bin der Weg, die Wahrheit und das Leben.“",
-          "quelle": "Joh 14,6",
-          "link": "https://www.die-bibel.de/bibel/BB/JHN.14.6-JHN.14.6"
-        },
-        {
-          "text": "„Kommt her zu mir, alle die ihr mühselig und beladen seid.“",
+          "text": "Kommt her zu mir, alle die ihr mühselig und beladen seid.",
           "quelle": "Mt 11,28",
           "link": "https://www.die-bibel.de/bibel/BB/MAT.11.28-MAT.11.28"
         },
         {
-          "text": "„Was ihr dem Geringsten meiner Geschwister getan habt, das habt ihr mir getan.“",
-          "quelle": "Mt 25,40",
-          "link": "https://www.die-bibel.de/bibel/BB/MAT.25.40-MAT.25.40"
+          "text": "Liebt einander, wie ich euch geliebt habe.",
+          "quelle": "Joh 15,12",
+          "link": "https://www.die-bibel.de/bibel/BB/JHN.15.12-JHN.15.12"
+        },
+        {
+          "text": "Ich bin das Licht der Welt.",
+          "quelle": "Joh 8,12",
+          "link": "https://www.die-bibel.de/bibel/BB/JHN.8.12-JHN.8.12"
         }
       ],
       "fragen": [
@@ -823,14 +833,19 @@
       "farbe": "#d35400",
       "zitate": [
         {
-          "text": "„Er heilte viele, die an allerlei Krankheiten litten.“",
-          "quelle": "Mk 1,34",
-          "link": "https://www.die-bibel.de/bibel/BB/MRK.1.34-MRK.1.34"
+          "text": "Bei Gott ist kein Ding unmöglich.",
+          "quelle": "Lk 1,37",
+          "link": "https://www.die-bibel.de/bibel/BB/LUK.1.37-LUK.1.37"
         },
         {
-          "text": "„Dein Glaube hat dir geholfen.“",
-          "quelle": "Mk 10,52",
-          "link": "https://www.die-bibel.de/bibel/BB/MRK.10.52-MRK.10.52"
+          "text": "Jesus Christus ist derselbe gestern, heute und in Ewigkeit.",
+          "quelle": "Hebr 13,8",
+          "link": "https://www.die-bibel.de/bibel/BB/HEB.13.8-HEB.13.8"
+        },
+        {
+          "text": "Gott ist die Liebe.",
+          "quelle": "1 Joh 4,16",
+          "link": "https://www.die-bibel.de/bibel/BB/1JN.4.16-1JN.4.16"
         }
       ],
       "fragen": [
@@ -955,19 +970,19 @@
       "farbe": "#27ae60",
       "zitate": [
         {
-          "text": "„Das Himmelreich gleicht einem Senfkorn.“",
+          "text": "Das Himmelreich gleicht einem Senfkorn.",
           "quelle": "Mt 13,31",
           "link": "https://www.die-bibel.de/bibel/BB/MAT.13.31-MAT.13.31"
         },
         {
-          "text": "„Wer Ohren hat, der höre.“",
+          "text": "Wer Ohren hat, der höre.",
           "quelle": "Mk 4,9",
           "link": "https://www.die-bibel.de/bibel/BB/MRK.4.9-MRK.4.9"
         },
         {
-          "text": "„Der Vater sah ihn schon von weitem kommen und lief ihm entgegen.“",
-          "quelle": "Lk 15,20",
-          "link": "https://www.die-bibel.de/bibel/BB/LUK.15.20-LUK.15.20"
+          "text": "Gott ist die Liebe.",
+          "quelle": "1 Joh 4,16",
+          "link": "https://www.die-bibel.de/bibel/BB/1JN.4.16-1JN.4.16"
         }
       ],
       "fragen": [
@@ -1092,19 +1107,19 @@
       "farbe": "#7f8c8d",
       "zitate": [
         {
-          "text": "„Selig, die arm sind vor Gott — ihnen gehört das Himmelreich.“",
-          "quelle": "Mt 5,3",
-          "link": "https://www.die-bibel.de/bibel/BB/MAT.5.3-MAT.5.3"
+          "text": "Gott ist die Liebe.",
+          "quelle": "1 Joh 4,16",
+          "link": "https://www.die-bibel.de/bibel/BB/1JN.4.16-1JN.4.16"
         },
         {
-          "text": "„Ihr seid das Salz der Erde.“",
-          "quelle": "Mt 5,13",
-          "link": "https://www.die-bibel.de/bibel/BB/MAT.5.13-MAT.5.13"
+          "text": "Liebt einander, wie ich euch geliebt habe.",
+          "quelle": "Joh 15,12",
+          "link": "https://www.die-bibel.de/bibel/BB/JHN.15.12-JHN.15.12"
         },
         {
-          "text": "„Alles, was ihr von anderen erwartet: Tut es auch ihnen.“",
-          "quelle": "Mt 7,12",
-          "link": "https://www.die-bibel.de/bibel/BB/MAT.7.12-MAT.7.12"
+          "text": "Bittet, so wird euch gegeben; suchet, so werdet ihr finden.",
+          "quelle": "Mt 7,7",
+          "link": "https://www.die-bibel.de/bibel/BB/MAT.7.7-MAT.7.7"
         }
       ],
       "fragen": [
@@ -1229,19 +1244,19 @@
       "farbe": "#8e44ad",
       "zitate": [
         {
-          "text": "„Hier stehe ich, ich kann nicht anders. Gott helfe mir.“",
+          "text": "Hier stehe ich, ich kann nicht anders. Gott helfe mir.",
           "quelle": "Martin Luther, Worms 1521",
           "link": "https://www.die-bibel.de/bibel/BB/ROM.1.17-ROM.1.17"
         },
         {
-          "text": "„Der Gerechte wird aus Glauben leben.“",
+          "text": "Der Gerechte wird aus Glauben leben.",
           "quelle": "Röm 1,17",
           "link": "https://www.die-bibel.de/bibel/BB/ROM.1.17-ROM.1.17"
         },
         {
-          "text": "Allein die Gnade, allein der Glaube, allein die Schrift.",
-          "quelle": "Reformatorische Grundprinzipien",
-          "link": "https://www.die-bibel.de/bibel/BB/EPH.2.8-EPH.2.8"
+          "text": "Wo der Geist des Herrn ist, da ist Freiheit.",
+          "quelle": "2 Kor 3,17",
+          "link": "https://www.die-bibel.de/bibel/BB/2CO.3.17-2CO.3.17"
         }
       ],
       "fragen": [
