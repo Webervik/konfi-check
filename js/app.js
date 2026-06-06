@@ -377,8 +377,8 @@ function renderScores(filterGruppe) {
 
 function renderTeamRangliste() {
   const gruppen = [
-    { name: 'Staaken Dorfkirche', icon: '⛪' },
-    { name: 'Staaken Gartenstadt', icon: '🌳' },
+    { name: 'Konfis Dorfkirche', icon: '⛪' },
+    { name: 'Konfis Gartenstadt', icon: '🌳' },
     { name: 'Eltern', icon: '👨‍👩‍👧' },
     { name: 'Gemeinde', icon: '🕊️' },
     { name: 'Sonstige', icon: '🌍' },
