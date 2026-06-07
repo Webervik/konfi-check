@@ -28,6 +28,9 @@ const MOTIVATIONEN = [
   { icon: '👨‍👩‍👧', text: 'Idee: Komm doch mal wieder mit deiner Familie zu einem Familiengottesdienst.' },
   { icon: '☀️', text: 'Du sollst den Feiertag heiligen — das bedeutet: Nimm dir eine Pause. Geh in einen Gottesdienst. Tu dir etwas Gutes.' },
   { icon: '💚', text: 'Brauchst du jemanden zum Zuhören? Dein Pfarrer oder deine Pfarrerin hat ein offenes Ohr. Sprich sie an.' },
+  { icon: '🌐', text: 'Mehr über unsere Gemeinden, Veranstaltungen und Gottesdienste findest du auf <a href="https://www.staaken-evangelisch.de" target="_blank" rel="noopener noreferrer" onclick="window.open(this.href,\'_blank\');return false;" style="color:#a8e6cf;font-weight:700;">staaken-evangelisch.de</a> 👋', isHtml: true },
+  { icon: '📸', text: 'Folg uns auf Instagram — wir zeigen, was in der Gemeinde los ist: <a href="https://www.instagram.com/staakenevangelisch" target="_blank" rel="noopener noreferrer" onclick="window.open(this.href,\'_blank\');return false;" style="color:#a8e6cf;font-weight:700;">@staakenevangelisch</a>', isHtml: true },
+  { icon: '📬', text: 'Bleib auf dem Laufenden: Melde dich für unseren <a href="https://forms.churchdesk.com/f/HyEu5z7zB" target="_blank" rel="noopener noreferrer" onclick="window.open(this.href,\'_blank\');return false;" style="color:#a8e6cf;font-weight:700;">Newsletter</a> an — damit du nichts verpasst.', isHtml: true },
 ];
 
 let state = {
