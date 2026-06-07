@@ -429,28 +429,30 @@ function renderTeamRangliste() {
     { name: 'Sonstige', icon: '🌍' },
   ];
 
-  const mitWerten = gruppen.map(g => {
+  const alleGruppen = gruppen.map(g => {
     const scores = alleScores.filter(s => s.gruppe === g.name);
     const avg = scores.length > 0
       ? Math.round(scores.reduce((sum, s) => sum + (s.punkte / s.gesamt), 0) / scores.length * 100)
       : null;
     return { ...g, avg, count: scores.length };
-  }).filter(g => g.avg !== null)
-    .sort((a, b) => b.avg - a.avg);
+  }).sort((a, b) => {
+    if (a.avg === null && b.avg === null) return 0;
+    if (a.avg === null) return 1;
+    if (b.avg === null) return -1;
+    return b.avg - a.avg;
+  });
 
   const container = document.getElementById('team-rangliste');
-  if (mitWerten.length === 0) { container.innerHTML = ''; return; }
-
   const rankIcons = ['🥇','🥈','🥉','4.','5.'];
   container.innerHTML = `<div class="team-rangliste-grid">
-    ${mitWerten.map((g, i) => `
-      <div class="team-card">
-        <div class="team-rank">${rankIcons[i] || (i+1)+'.'}
+    ${alleGruppen.map((g, i) => `
+      <div class="team-card${g.avg === null ? ' team-card-leer' : ''}">
+        <div class="team-rank">${g.avg !== null ? (rankIcons[alleGruppen.filter(x=>x.avg!==null).indexOf(g)] || '') : '–'}
         </div>
         <div class="team-info">
           <div class="team-name">${g.icon} ${g.name}</div>
-          <div class="team-avg">${g.avg}%</div>
-          <div class="team-count">${g.count} Spiel${g.count !== 1 ? 'e' : ''}</div>
+          <div class="team-avg">${g.avg !== null ? g.avg + '%' : '–'}</div>
+          <div class="team-count">${g.count > 0 ? g.count + ' Spiel' + (g.count !== 1 ? 'e' : '') : 'noch kein Spiel'}</div>
         </div>
       </div>`).join('')}
   </div>`;

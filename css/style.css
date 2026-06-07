@@ -171,6 +171,7 @@ input[type="text"]:focus, select:focus { border-color: var(--primary); backgroun
 .team-name { font-size: 0.8rem; font-weight: 700; opacity: 0.85; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .team-avg { font-size: 1.4rem; font-weight: 900; }
 .team-count { font-size: 0.7rem; opacity: 0.6; }
+.team-card-leer { opacity: 0.45; }
 .gruppe-btn {
   padding: 16px 12px;
   border: 3px solid #e0e0e0;
