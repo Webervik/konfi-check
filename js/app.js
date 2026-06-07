@@ -254,7 +254,7 @@ function antwortGewählt(index, frage, grid) {
   erkBox.className = 'erklaerung-box' + (richtig ? '' : ' wrong');
   let html = `<p>${frage.erklaerung}</p>`;
   if (frage.bibelstelle && frage.bibellink) {
-    html += `<a href="${frage.bibellink}" target="_blank" rel="noopener">📖 ${frage.bibelstelle} in der Basisbibel →</a>`;
+    html += `<a href="${frage.bibellink}" target="_blank" rel="noopener noreferrer" onclick="window.open(this.href,'_blank');return false;">📖 ${frage.bibelstelle} in der Basisbibel →</a>`;
   }
   erkBox.innerHTML = html;
 
@@ -276,7 +276,7 @@ function renderZitat(naechsteFrage) {
     <div style="text-align:center; margin-bottom:20px; font-size:2rem">✨</div>
     <div class="zitat-text">${zitat.text}</div>
     <div class="zitat-quelle">
-      <a href="${zitat.link}" target="_blank" rel="noopener" class="zitat-link">📖 ${zitat.quelle}</a>
+      <a href="${zitat.link}" target="_blank" rel="noopener noreferrer" class="zitat-link" onclick="window.open(this.href,'_blank');return false;">📖 ${zitat.quelle}</a>
     </div>
     <button class="weiter-btn" style="display:block; margin-top:24px" onclick="state.showZitat=true; renderFrage()">Weiter →</button>
   `;
