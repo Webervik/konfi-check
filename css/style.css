@@ -576,6 +576,16 @@ input[type="text"]:focus, select:focus { border-color: var(--primary); backgroun
   text-decoration: none;
   font-weight: 700;
 }
+.belohnung-box {
+  margin: 20px 0 8px;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, #f39c12, #e67e22);
+  color: #fff;
+  border-radius: 14px;
+  font-size: 1rem;
+  line-height: 1.6;
+  text-align: center;
+}
 .motiv-text {
   font-size: 1.1rem;
   line-height: 1.7;
