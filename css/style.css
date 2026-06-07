@@ -575,6 +575,12 @@ input[type="text"]:focus, select:focus { border-color: var(--primary); backgroun
   text-decoration: none;
   font-weight: 700;
 }
+.motiv-text {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  text-align: center;
+  opacity: 0.95;
+}
 
 /* RESPONSIVE */
 @media (max-width: 480px) {

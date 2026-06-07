@@ -7,12 +7,27 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
 
 // Fallback-Zitate (wenn kein themenspezifischer Pool vorhanden)
 const ZITATE = [
-  { text: '„Gott ist die Liebe.”', quelle: '1 Joh 4,16', link: 'https://www.die-bibel.de/bibel/BB/1JN.4.16-1JN.4.16' },
-  { text: '„Die Liebe ist geduldig und gütig.”', quelle: '1 Kor 13,4', link: 'https://www.die-bibel.de/bibel/BB/1CO.13.4-1CO.13.4' },
-  { text: '„Ich bin das Licht der Welt.”', quelle: 'Joh 8,12', link: 'https://www.die-bibel.de/bibel/BB/JHN.8.12-JHN.8.12' },
-  { text: '„Liebt einander, wie ich euch geliebt habe.”', quelle: 'Joh 15,12', link: 'https://www.die-bibel.de/bibel/BB/JHN.15.12-JHN.15.12' },
-  { text: '„Bei Gott ist kein Ding unmöglich.”', quelle: 'Lk 1,37', link: 'https://www.die-bibel.de/bibel/BB/LUK.1.37-LUK.1.37' },
-  { text: '„Bittet, so wird euch gegeben.”', quelle: 'Mt 7,7', link: 'https://www.die-bibel.de/bibel/BB/MAT.7.7-MAT.7.7' },
+  { text: '„Gott ist die Liebe.“', quelle: '1 Joh 4,16', link: 'https://www.die-bibel.de/bibel/BB/1JN.4.16-1JN.4.16' },
+  { text: '„Die Liebe ist geduldig und gütig.“', quelle: '1 Kor 13,4', link: 'https://www.die-bibel.de/bibel/BB/1CO.13.4-1CO.13.4' },
+  { text: '„Ich bin das Licht der Welt.“', quelle: 'Joh 8,12', link: 'https://www.die-bibel.de/bibel/BB/JHN.8.12-JHN.8.12' },
+  { text: '„Liebt einander, wie ich euch geliebt habe.“', quelle: 'Joh 15,12', link: 'https://www.die-bibel.de/bibel/BB/JHN.15.12-JHN.15.12' },
+  { text: '„Bei Gott ist kein Ding unmöglich.“', quelle: 'Lk 1,37', link: 'https://www.die-bibel.de/bibel/BB/LUK.1.37-LUK.1.37' },
+  { text: '„Bittet, so wird euch gegeben.“', quelle: 'Mt 7,7', link: 'https://www.die-bibel.de/bibel/BB/MAT.7.7-MAT.7.7' },
+];
+
+// Motivations-Einschübe (nach jeder 2. Frage, abwechselnd mit Bibelzitaten)
+const MOTIVATIONEN = [
+  { icon: '📖', text: 'Fun Fact: Die Bibel ist das meistgedruckte Buch der Welt — und enthält noch viel mehr als diese 7 Fragen.' },
+  { icon: '⛪', text: 'Im Gottesdienst bist du immer herzlich willkommen. Einfach vorbeikommen — du kennst den Weg. 🙂' },
+  { icon: '📚', text: 'In der Bibel steckt mehr Spannung als in so mancher Serie. Einfach mal reinlesen — sie ist kostenlos auf die-bibel.de.' },
+  { icon: '🎶', text: 'Übrigens: Alles, worüber ihr hier gequizzt habt, gibt’s am Sonntag im Gottesdienst noch einmal mit Musik.' },
+  { icon: '✨', text: 'Ein Vers, der heute noch nichts sagt, kann morgen genau das Richtige sein.' },
+  { icon: '🔗', text: 'Die Bibelstellen im Quiz lassen sich alle direkt nachschlagen — einfach auf den Link klicken.' },
+  { icon: '🤝', text: 'Kirche ist kein Gebäude. Kirche ist, wenn Menschen füreinander da sind — lasst uns dazu zusammenkommen, z. B. in einem Gottesdienst.' },
+  { icon: '🙏', text: 'Viele Menschen schwören darauf: Ein Gottesdienstbesuch tut ihrer Seele gut.' },
+  { icon: '👨‍👩‍👧', text: 'Idee: Komm doch mal wieder mit deiner Familie zu einem Familiengottesdienst.' },
+  { icon: '☀️', text: 'Du sollst den Feiertag heiligen — das bedeutet: Nimm dir eine Pause. Geh in einen Gottesdienst. Tu dir etwas Gutes.' },
+  { icon: '💚', text: 'Brauchst du jemanden zum Zuhören? Dein Pfarrer oder deine Pfarrerin hat ein offenes Ohr. Sprich sie an.' },
 ];
 
 let state = {
@@ -25,6 +40,8 @@ let state = {
   antworten: [],
   showZitat: false,
   letzterZitatIdx: -1,
+  pauseCount: 0,       // zählt Pausen (Zitat oder Motivation)
+  letzterMotivIdx: -1, // verhindert Wiederholung bei Motivationen
 };
 
 // Antworten zufällig mischen, richtig-Index mitführen
@@ -68,6 +85,9 @@ function initStart() {
     state.aktuelleIndex = 0;
     state.punkte = 0;
     state.antworten = [];
+    state.pauseCount = 0;
+    state.letzterZitatIdx = -1;
+    state.letzterMotivIdx = -1;
 
     startQuiz();
   };
@@ -132,10 +152,15 @@ function renderFrage() {
   document.getElementById('progress-fill').style.width = `${(idx / total) * 100}%`;
   document.getElementById('quiz-meta').textContent = `${state.name} · ${state.thema.titel} · Frage ${idx + 1} von ${total}`;
 
-  // Zitat alle 2 Fragen (außer erste)
+  // Nach jeder 2. Frage: abwechselnd Bibelzitat und Motivationsspruch
   if (idx > 0 && idx % 2 === 0 && !state.showZitat) {
     state.showZitat = true;
-    renderZitat(frage);
+    state.pauseCount++;
+    if (state.pauseCount % 2 === 1) {
+      renderZitat(frage);
+    } else {
+      renderMotivation();
+    }
     return;
   }
   state.showZitat = false;
@@ -255,8 +280,27 @@ function renderZitat(naechsteFrage) {
     </div>
     <button class="weiter-btn" style="display:block; margin-top:24px" onclick="state.showZitat=true; renderFrage()">Weiter →</button>
   `;
-  // Ersetze card mit Zitat-Card-Styling
   card.style.background = 'linear-gradient(135deg, #8e44ad, #6c3483)';
+  card.style.color = '#fff';
+  setTimeout(() => { card.style.background = ''; card.style.color = ''; }, 0);
+}
+
+function renderMotivation() {
+  let idx;
+  let versuche = 0;
+  do {
+    idx = Math.floor(Math.random() * MOTIVATIONEN.length);
+    versuche++;
+  } while (idx === state.letzterMotivIdx && MOTIVATIONEN.length > 1 && versuche < 10);
+  state.letzterMotivIdx = idx;
+  const motiv = MOTIVATIONEN[idx];
+  const card = document.getElementById('quiz-card');
+  card.innerHTML = `
+    <div style="text-align:center; margin-bottom:16px; font-size:2.5rem">${motiv.icon}</div>
+    <div class="motiv-text">${motiv.text}</div>
+    <button class="weiter-btn" style="display:block; margin-top:24px" onclick="state.showZitat=true; renderFrage()">Weiter →</button>
+  `;
+  card.style.background = 'linear-gradient(135deg, #1a6b4a, #0d4a33)';
   card.style.color = '#fff';
   setTimeout(() => { card.style.background = ''; card.style.color = ''; }, 0);
 }
