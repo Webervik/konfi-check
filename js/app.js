@@ -364,6 +364,7 @@ async function speichereScore(name, gruppe, thema, punkte, gesamt) {
 }
 
 async function ladeScores() {
+  window.loeschenErlaubt = false; // Löschen erst nach geheimem Button-Klick erlaubt
   const list = document.getElementById('score-list');
   list.innerHTML = '<div class="loading"><div class="spinner"></div>Lade Ergebnisse…</div>';
 
@@ -466,9 +467,13 @@ function initScoresTabs() {
   });
   document.getElementById('btn-back-scores').onclick = () => showScreen('start');
 
-  document.getElementById('btn-eintraege-entfernen').onclick = () => {}; // versteckt, nicht mehr nötig
+  document.getElementById('btn-eintraege-entfernen').onclick = () => {
+    window.loeschenErlaubt = true;
+    renderScores(document.querySelector('.gruppe-tab.active')?.dataset.filter || 'alle');
+  };
 
   window.loescheEintrag = async (id) => {
+    if (!window.loeschenErlaubt) return;
     if (!confirm('Diesen Eintrag löschen?')) return;
     const res = await fetch(
       `${SUPABASE_URL}/rest/v1/scores?id=eq.${id}`,
