@@ -162,11 +162,13 @@ input.validation-fehler { border-color: #e74c3c !important; }
 .gruppe-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 6px;
+  gap: 4px;
   margin-bottom: 8px;
+  width: 100%;
+  box-sizing: border-box;
 }
 @media (max-width: 480px) {
-  .gruppe-grid { grid-template-columns: repeat(5, 1fr); }
+  .gruppe-grid { grid-template-columns: repeat(5, 1fr); gap: 3px; }
 }
 
 /* TEAM-RANGLISTE */
@@ -197,11 +199,11 @@ input.validation-fehler { border-color: #e74c3c !important; }
 .team-count { font-size: 0.7rem; opacity: 0.6; }
 .team-card-leer { opacity: 0.45; }
 .gruppe-btn {
-  padding: 8px 4px;
+  padding: 6px 2px;
   border: 2px solid #e0e0e0;
   border-radius: 10px;
   background: #fff;
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.2s;
@@ -212,7 +214,10 @@ input.validation-fehler { border-color: #e74c3c !important; }
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 3px;
+  gap: 2px;
+  min-width: 0;
+  overflow: hidden;
+  word-break: break-word;
 }
 .gruppe-btn .gruppe-icon { font-size: 1.5rem; }
 .gruppe-btn:hover { border-color: var(--secondary); transform: translateY(-2px); }
