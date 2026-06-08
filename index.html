@@ -140,6 +140,40 @@
 
 </div>
 
+<!-- Footer -->
+<footer class="app-footer">
+  <button class="footer-link" onclick="document.getElementById('impressum-modal').style.display='flex'">Impressum</button>
+</footer>
+
+<!-- Impressum Modal -->
+<div id="impressum-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:9999; align-items:center; justify-content:center; padding:20px;">
+  <div style="background:#fff; border-radius:16px; padding:28px; max-width:480px; width:100%; max-height:80vh; overflow-y:auto; position:relative;">
+    <button onclick="document.getElementById('impressum-modal').style.display='none'" style="position:absolute; top:12px; right:14px; background:none; border:none; font-size:1.5rem; cursor:pointer; color:#888;">✕</button>
+    <h2 style="margin:0 0 16px; color:#1a1a2e; font-size:1.2rem;">Impressum</h2>
+    <p style="margin:0 0 8px; font-size:0.9rem; color:#333;">
+      <strong>Ev. Kirchengemeinde Staaken</strong><br>
+      Pillnitzer Weg 8<br>
+      13593 Berlin
+    </p>
+    <p style="margin:0 0 8px; font-size:0.9rem; color:#333;">
+      <strong>Telefon:</strong> +49 30 322 944 510<br>
+      <strong>E-Mail:</strong> <a href="mailto:info@kirchengemeinde-staaken.de" style="color:#8e44ad;">info@kirchengemeinde-staaken.de</a>
+    </p>
+    <p style="margin:0 0 8px; font-size:0.9rem; color:#333;">
+      <strong>Verantwortlich für den Inhalt:</strong><br>
+      Pfr. Viktor Weber
+    </p>
+    <p style="margin:0 0 8px; font-size:0.9rem; color:#333;">
+      <strong>Aufsichtsbehörde:</strong><br>
+      Evangelische Kirche Berlin-Brandenburg-schlesische Oberlausitz (EKBO)<br>
+      Georgenkirchstr. 69, 10249 Berlin
+    </p>
+    <p style="margin:0; font-size:0.8rem; color:#999;">
+      Diese App dient ausschließlich dem gemeindepädagogischen Einsatz. Es werden keine Cookies gesetzt. Im Scoreboard gespeicherte Namen können jederzeit auf Anfrage gelöscht werden.
+    </p>
+  </div>
+</div>
+
 <!-- Konfetti-Container -->
 <div class="konfetti" id="konfetti"></div>
 

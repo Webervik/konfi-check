@@ -661,3 +661,20 @@ input.validation-fehler { border-color: #e74c3c !important; }
   margin: 0 auto 16px;
 }
 @keyframes spin { to { transform: rotate(360deg); } }
+
+/* FOOTER & IMPRESSUM */
+.app-footer {
+  text-align: center;
+  padding: 16px 0 24px;
+  margin-top: 8px;
+}
+.footer-link {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.4);
+  font-size: 0.75rem;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 4px 8px;
+}
+.footer-link:hover { color: rgba(255,255,255,0.7); }
