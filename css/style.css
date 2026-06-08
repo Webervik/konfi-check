@@ -161,12 +161,12 @@ input.validation-fehler { border-color: #e74c3c !important; }
 /* GRUPPE BUTTONS */
 .gruppe-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 10px;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
   margin-bottom: 8px;
 }
-@media (max-width: 400px) {
-  .gruppe-grid { grid-template-columns: 1fr 1fr; }
+@media (max-width: 480px) {
+  .gruppe-grid { grid-template-columns: repeat(5, 1fr); }
 }
 
 /* TEAM-RANGLISTE */
@@ -197,22 +197,30 @@ input.validation-fehler { border-color: #e74c3c !important; }
 .team-count { font-size: 0.7rem; opacity: 0.6; }
 .team-card-leer { opacity: 0.45; }
 .gruppe-btn {
-  padding: 16px 12px;
-  border: 3px solid #e0e0e0;
-  border-radius: 12px;
+  padding: 8px 4px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
   background: #fff;
-  font-size: 0.95rem;
+  font-size: 0.65rem;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.2s;
   text-align: center;
   line-height: 1.3;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
 }
-.gruppe-btn:hover { border-color: var(--secondary); }
+.gruppe-btn .gruppe-icon { font-size: 1.5rem; }
+.gruppe-btn:hover { border-color: var(--secondary); transform: translateY(-2px); }
 .gruppe-btn.selected {
   border-color: var(--secondary);
   background: linear-gradient(135deg, #f3e5f5, #ede7f6);
   color: var(--secondary);
+  box-shadow: 0 4px 12px rgba(142,68,173,0.25);
 }
 
 /* QUIZ SCREEN */
