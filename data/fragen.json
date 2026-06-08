@@ -2261,7 +2261,7 @@
     },
     {
       "id": "gemeinde-geschichte",
-      "titel": "Gemeinde – Geschichte",
+      "titel": "Geschichte",
       "icon": "🏛️",
       "farbe": "#7f8c8d",
       "zitate": [
@@ -2466,7 +2466,7 @@
     },
     {
       "id": "gemeinde-aktuell",
-      "titel": "Gemeinde (Staaken)",
+      "titel": "Aktuelles",
       "icon": "🕊️",
       "farbe": "#27ae60",
       "zitate": [

@@ -126,7 +126,7 @@ function initStart() {
 
   const gruppen = [
     { label: 'Glaubenswissen', ids: ['pfingsten','bibel','jesus-historisch','jesus-christus','jesu-worte','jesu-taten','gleichnisse','gebote-bergpredigt','evangelische-kirche','gemeinde'] },
-    { label: 'Gemeindekunde', ids: ['gemeinde-geschichte','gemeinde-aktuell'] },
+    { label: 'Gemeindekunde Ev. Kirchengemeinde Staaken', ids: ['gemeinde-geschichte','gemeinde-aktuell'] },
     { label: 'Sonstiges', ids: ['nur-fuer-profis'] },
   ];
 
