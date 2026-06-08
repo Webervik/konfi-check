@@ -600,6 +600,13 @@ input.validation-fehler { border-color: #e74c3c !important; }
   text-decoration: none;
   font-weight: 700;
 }
+.btn-share {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  color: #fff;
+  width: 100%;
+  margin-top: 8px;
+}
+.btn-share:hover { opacity: 0.9; }
 .belohnung-box {
   margin: 20px 0 8px;
   padding: 16px 20px;

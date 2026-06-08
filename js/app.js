@@ -386,6 +386,24 @@ function showErgebnis() {
     ladeScores();
     showScreen('scores');
   };
+
+  // Share-Button
+  document.getElementById('btn-share').onclick = async () => {
+    const prozent = Math.round((state.punkte / state.fragen.length) * 100);
+    const shareData = {
+      title: 'Konfi-Check ✓',
+      text: `Ich hab beim Konfi-Check ${state.punkte}/${state.fragen.length} Punkte (${prozent}%) im Thema „${state.thema.titel}" erreicht! Schaffst du das auch?`,
+      url: 'https://webervik.github.io/konfi-check/'
+    };
+    if (navigator.share) {
+      try { await navigator.share(shareData); } catch (e) { /* abgebrochen */ }
+    } else {
+      await navigator.clipboard.writeText(shareData.text + '\n' + shareData.url);
+      const btn = document.getElementById('btn-share');
+      btn.textContent = '✅ Link kopiert!';
+      setTimeout(() => btn.innerHTML = '📤 Quiz teilen', 2000);
+    }
+  };
 }
 
 // ---- SCORES ----
@@ -420,7 +438,7 @@ async function ladeScores() {
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 6000);
     const res = await fetch(
-      `${SUPABASE_URL}/rest/v1/scores?select=*&order=erstellt_am.desc&limit=100`,
+      `${SUPABASE_URL}/rest/v1/scores?select=*&order=erstellt_am.desc&limit=1000`,
       { headers: SB_HEADERS, signal: controller.signal }
     );
     clearTimeout(timeout);
