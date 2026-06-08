@@ -119,6 +119,54 @@
           "erklaerung": "Vater, Sohn, Heiliger Geist — drei Personen, ein Gott. Das Trinitätsdogma wurde im 4. Jh. formuliert. Die Dreieinigkeit ist kein mathematisches Rätsel, sondern eine Aussage über Gottes Wesen: Gott ist Beziehung. Vater, Sohn und Geist stehen in ewiger Gemeinschaft.",
           "bibelstelle": "Mt 28,19",
           "bibellink": "https://www.die-bibel.de/bibel/BB/MAT.28.19-MAT.28.19"
+        },
+        {
+          "id": "pf8",
+          "typ": "multiple-choice",
+          "schwierigkeit": 2,
+          "frage": "Woher kamen die Menschen, die die Jünger an Pfingsten in ihrer Sprache reden hörten?",
+          "antworten": [
+            "Nur aus Jerusalem und den umliegenden Dörfern Judäas",
+            "Aus vielen Völkern der Welt: Parthern, Medern, Ägyptern und anderen",
+            "Aus den drei großen Städten: Rom, Athen und Alexandria",
+            "Aus den zwölf Stämmen Israels, die zum Fest nach Jerusalem gepilgert waren"
+          ],
+          "richtig": 1,
+          "erklaerung": "Lukas listet in Apg 2 eine beeindruckende Völkerliste auf: Parther, Meder, Elamiter, Bewohner Mesopotamiens, Judäas, Kappadoziens, Ägyptens, Libyens, Roms, Kretas, Arabiens... Das unterstreicht: Die Botschaft des Evangeliums ist von Anfang an für alle Völker bestimmt.",
+          "bibelstelle": "Apg 2,9-11",
+          "bibellink": "https://www.die-bibel.de/bibel/BB/ACT.2.9-ACT.2.11"
+        },
+        {
+          "id": "pf9",
+          "typ": "multiple-choice",
+          "schwierigkeit": 2,
+          "frage": "Was tat Petrus unmittelbar nach dem Pfingstgeschehen?",
+          "antworten": [
+            "Er zog sich in den Tempel zurück, um in Stille zu beten",
+            "Er hielt eine öffentliche Predigt und erklärte das Geschehen als Erfüllung der Prophetie",
+            "Er schrieb einen Brief an die Gemeinden in den umliegenden Städten",
+            "Er lud die Menge ein, am nächsten Morgen wiederzukommen"
+          ],
+          "richtig": 1,
+          "erklaerung": "Petrus — der wenige Wochen zuvor Jesus dreimal verleugnet hatte — trat nun mutig vor die Menge und predigte. Er zitierte den Propheten Joel und rief: Jesus von Nazareth ist der verheißene Christus, auferstanden und erhöht! Rund 3.000 Menschen ließen sich daraufhin taufen. (Apg 2,14–41)",
+          "bibelstelle": "Apg 2,14-41",
+          "bibellink": "https://www.die-bibel.de/bibel/BB/ACT.2.14-ACT.2.41"
+        },
+        {
+          "id": "pf10",
+          "typ": "multiple-choice",
+          "schwierigkeit": 3,
+          "frage": "Was versteht die Theologie unter »Glossolalie«?",
+          "antworten": [
+            "Das stille, meditative Beten ohne Worte in der Gemeinschaft",
+            "Das laute, gemeinsame Vorlesen der Heiligen Schrift im Gottesdienst",
+            "Das Reden in unverständlichen Zungen als besondere Gabe des Heiligen Geistes",
+            "Das gemeinschaftliche Sprechen des Glaubensbekenntnisses in der Liturgie"
+          ],
+          "richtig": 2,
+          "erklaerung": "Glossolalie (griech. glossa = Zunge, lalein = reden) bezeichnet das ekstatische Reden in unverständlichen Lauten als Zeichen des Heiligen Geistes. Paulus kennt diese Gabe, mahnt aber: Im Gottesdienst soll jemand übersetzen, damit alle etwas davon haben (1 Kor 14). Beim Pfingstgeschehen dagegen verstehen alle in ihrer eigenen Sprache — das ist etwas anderes.",
+          "bibelstelle": "1 Kor 14,2",
+          "bibellink": "https://www.die-bibel.de/bibel/BB/1CO.14.2-1CO.14.2"
         }
       ],
       "zitate": [
@@ -146,6 +194,16 @@
           "text": "Nicht durch Heer und Kraft, sondern durch meinen Geist.",
           "quelle": "Sach 4,6",
           "link": "https://www.die-bibel.de/bibel/BB/ZEC.4.6-ZEC.4.6"
+        },
+        {
+          "text": "„Berauscht euch nicht mit Wein — sondern lasst euch vom Geist erfüllen und redet miteinander in Psalmen, Hymnen und geistlichen Liedern.\"",
+          "quelle": "Eph 5,18-19",
+          "link": "https://www.die-bibel.de/bibel/BB/EPH.5.18-EPH.5.19"
+        },
+        {
+          "text": "„Ihr werdet die Kraft des Heiligen Geistes empfangen — und meine Zeugen sein.\"",
+          "quelle": "Apg 1,8",
+          "link": "https://www.die-bibel.de/bibel/BB/ACT.1.8-ACT.1.8"
         }
       ]
     },
@@ -268,6 +326,54 @@
           "erklaerung": "1 Kor 13 folgt direkt: Alle Charismen ohne Liebe sind nichts. Die Liebe ist das Band, das den Leib zusammenhält. Paulus schreibt: Auch wenn ich Berge versetzen könnte, ohne Liebe bin ich nichts. Das ist eine radikale Aussage — und eine Einladung.",
           "bibelstelle": "1 Kor 13,1",
           "bibellink": "https://www.die-bibel.de/bibel/BB/1CO.13.1-1CO.13.1"
+        },
+        {
+          "id": "ge8",
+          "typ": "multiple-choice",
+          "schwierigkeit": 1,
+          "frage": "Was sind die zwei Sakramente der evangelischen Kirche?",
+          "antworten": [
+            "Taufe und Abendmahl",
+            "Taufe und Konfirmation",
+            "Abendmahl und Beichte",
+            "Taufe und kirchliche Trauung"
+          ],
+          "richtig": 0,
+          "erklaerung": "Die evangelische Kirche kennt zwei Sakramente: Taufe und Abendmahl. Luther orientierte sich daran, dass Jesus diese beiden Handlungen selbst eingesetzt hat. Die katholische Kirche kennt sieben Sakramente — z. B. auch Firmung, Beichte, Ehe, Priesterweihe und Krankensalbung.",
+          "bibelstelle": null,
+          "bibellink": null
+        },
+        {
+          "id": "ge9",
+          "typ": "multiple-choice",
+          "schwierigkeit": 2,
+          "frage": "Was bedeutet das Wort »Ökumene«?",
+          "antworten": [
+            "Die Einheit aller evangelischen Kirchengemeinden Deutschlands",
+            "Die Gemeinschaft aller christlichen Kirchen und Konfessionen weltweit",
+            "Der Dialog zwischen Christentum und anderen Weltreligionen",
+            "Die Zusammenarbeit von Kirche und Staat in sozialen Fragen"
+          ],
+          "richtig": 1,
+          "erklaerung": "Ökumene kommt vom griechischen oikoumene — die bewohnte Erde. Es bezeichnet die Bewegung zur Einheit aller Christen über Konfessionsgrenzen hinweg: evangelisch, katholisch, orthodox. Der Ökumenische Rat der Kirchen (gegründet 1948 in Amsterdam) ist heute mit über 350 Mitgliedskirchen das wichtigste Forum.",
+          "bibelstelle": null,
+          "bibellink": null
+        },
+        {
+          "id": "ge10",
+          "typ": "multiple-choice",
+          "schwierigkeit": 3,
+          "frage": "Was ist der Unterschied zwischen »Ortsgemeinde« und »Kirche« im theologischen Sinn?",
+          "antworten": [
+            "Die Ortsgemeinde feiert Gottesdienst; die Kirche ist das Gebäude, in dem sie sich trifft",
+            "Die Ortsgemeinde ist eine konkrete Gemeinschaft vor Ort; Kirche (griech. ekklesia) meint die weltweite Gemeinschaft aller Glaubenden",
+            "Die Ortsgemeinde gehört zum Kirchenkreis; Kirche ist die übergeordnete Landeskirche",
+            "Die Ortsgemeinde besteht aus Gemeindemitgliedern; Kirche umfasst nur die ordinierten Amtsträger"
+          ],
+          "richtig": 1,
+          "erklaerung": "Ekklesia (griech.) bedeutet »die Herausgerufenen«. Im NT meint es sowohl die konkrete Gemeinde vor Ort als auch die universale Kirche Jesu Christi. Martin Luther betonte: Die Kirche ist »das Volk Gottes« — alle Getauften, nicht eine Institution. Jede Ortsgemeinde ist deshalb »ganze Kirche« an einem bestimmten Ort.",
+          "bibelstelle": null,
+          "bibellink": null
         }
       ],
       "zitate": [
@@ -295,6 +401,16 @@
           "text": "„Wo zwei oder drei in meinem Namen versammelt sind, bin ich mitten unter ihnen.“",
           "quelle": "Mt 18,20",
           "link": "https://www.die-bibel.de/bibel/BB/MAT.18.20-MAT.18.20"
+        },
+        {
+          "text": "„Niemand lebe für sich selbst.\"",
+          "quelle": "Röm 14,7",
+          "link": "https://www.die-bibel.de/bibel/BB/ROM.14.7-ROM.14.7"
+        },
+        {
+          "text": "„Bemüht euch, die Einheit des Geistes zu bewahren durch das Band des Friedens.\"",
+          "quelle": "Eph 4,3",
+          "link": "https://www.die-bibel.de/bibel/BB/EPH.4.3-EPH.4.3"
         }
       ]
     },
@@ -415,6 +531,54 @@
           "erklaerung": "»Kanon« (griech. »Maßstab«) bezeichnet die Bücher, die die Kirche als heilige Schrift anerkannt hat. Über manche Bücher wurde jahrhundertelang diskutiert. Evangelische und katholische Kirche haben unterschiedliche Kanons — Katholiken haben 7 Bücher mehr (die sog. Deuterokanonischen). Die Frage, welche Bücher dazugehören, war jahrhundertelang umstritten.",
           "bibelstelle": null,
           "bibellink": null
+        },
+        {
+          "id": "bi8",
+          "typ": "multiple-choice",
+          "schwierigkeit": 1,
+          "frage": "Wie viele Bücher hat die Bibel in der evangelischen Zählung?",
+          "antworten": [
+            "39 Bücher im Alten und Neuen Testament zusammen",
+            "54 Bücher, davon 27 im Alten und 27 im Neuen Testament",
+            "66 Bücher: 39 im Alten und 27 im Neuen Testament",
+            "73 Bücher: 46 im Alten und 27 im Neuen Testament"
+          ],
+          "richtig": 2,
+          "erklaerung": "Die evangelische Bibel umfasst 66 Bücher: 39 im Alten Testament und 27 im Neuen Testament. Die katholische Bibel enthält zusätzlich 7 sogenannte deuterokanonische Bücher (z. B. Judit, Tobias, 1. und 2. Makkabäer), die Protestanten als »Apokryphen« bezeichnen. Die Zählung unterscheidet sich also je nach Konfession.",
+          "bibelstelle": null,
+          "bibellink": null
+        },
+        {
+          "id": "bi9",
+          "typ": "multiple-choice",
+          "schwierigkeit": 2,
+          "frage": "Wer schrieb die meisten Briefe im Neuen Testament?",
+          "antworten": [
+            "Johannes, der Lieblingsjünger Jesu",
+            "Petrus, der erste unter den Aposteln",
+            "Paulus, der Apostel der Völker",
+            "Jakobus, der Bruder Jesu"
+          ],
+          "richtig": 2,
+          "erklaerung": "Paulus verfasste mindestens 13 der 27 neutestamentlichen Schriften — Briefe an Gemeinden in Korinth, Rom, Galatien, Philippi u. a. Paulus war ursprünglich Verfolger der Christen, wurde durch eine Erscheinung des Auferstandenen bekehrt und wurde zum bedeutendsten Missionar der frühen Kirche.",
+          "bibelstelle": null,
+          "bibellink": null
+        },
+        {
+          "id": "bi10",
+          "typ": "multiple-choice",
+          "schwierigkeit": 3,
+          "frage": "Was ist die Septuaginta?",
+          "antworten": [
+            "Die lateinische Übersetzung der gesamten Bibel, entstanden ca. 400 n. Chr.",
+            "Die aramäische Übersetzung der Psalmen für den Synagogengottesdienst",
+            "Die griechische Übersetzung des Alten Testaments, entstanden ca. 250 v. Chr.",
+            "Die hebräische Neuschrift des Alten Testaments mit Vokalzeichen, ca. 500 n. Chr."
+          ],
+          "richtig": 2,
+          "erklaerung": "Die Septuaginta (lat. für 70, abgekürzt LXX) entstand ab ca. 250 v. Chr. in Alexandria für jüdische Gemeinden, die kein Hebräisch mehr sprachen. Der Legende nach übersetzten 70 Gelehrte unabhängig voneinander und kamen zum selben Ergebnis. Das Neue Testament zitiert das Alte Testament meistens nach der Septuaginta.",
+          "bibelstelle": null,
+          "bibellink": null
         }
       ],
       "zitate": [
@@ -442,6 +606,16 @@
           "text": "Der Mensch lebt nicht vom Brot allein, sondern von jedem Wort Gottes.",
           "quelle": "Lk 4,4",
           "link": "https://www.die-bibel.de/bibel/BB/LUK.4.4-LUK.4.4"
+        },
+        {
+          "text": "„Das Wort ist dir sehr nahe — in deinem Mund und in deinem Herzen.\"",
+          "quelle": "5 Mo 30,14",
+          "link": "https://www.die-bibel.de/bibel/BB/DEU.30.14-DEU.30.14"
+        },
+        {
+          "text": "„Lass das Wort Christi reichlich unter euch wohnen.\"",
+          "quelle": "Kol 3,16",
+          "link": "https://www.die-bibel.de/bibel/BB/COL.3.16-COL.3.16"
         }
       ]
     },
@@ -475,6 +649,16 @@
           "text": "„Ich muss in dem sein, was meines Vaters ist.“",
           "quelle": "Lk 2,49",
           "link": "https://www.die-bibel.de/bibel/BB/LUK.2.49-LUK.2.49"
+        },
+        {
+          "text": "„Er kam in sein Eigentum, und die Seinen nahmen ihn nicht auf.\"",
+          "quelle": "Joh 1,11",
+          "link": "https://www.die-bibel.de/bibel/BB/JHN.1.11-JHN.1.11"
+        },
+        {
+          "text": "„Die Zeit ist erfüllt — das Reich Gottes ist nah. Kehrt um und glaubt dem Evangelium!\"",
+          "quelle": "Mk 1,15",
+          "link": "https://www.die-bibel.de/bibel/BB/MRK.1.15-MRK.1.15"
         }
       ],
       "fragen": [
@@ -589,6 +773,54 @@
           "erklaerung": "Jesus selbst schrieb nichts auf. Alles was wir wissen, stammt aus Überlieferungen. Historiker prüfen diese kritisch. Historiker unterscheiden zwischen dem historischen Jesus und dem Christus des Glaubens. Beides ist wichtig — und beides gehört zusammen, wenn man Jesus verstehen will.",
           "bibelstelle": null,
           "bibellink": null
+        },
+        {
+          "id": "jh8",
+          "typ": "multiple-choice",
+          "schwierigkeit": 1,
+          "frage": "Wie alt war Jesus ungefähr, als er seinen öffentlichen Dienst begann?",
+          "antworten": [
+            "Etwa 20 Jahre alt",
+            "Etwa 30 Jahre alt",
+            "Etwa 40 Jahre alt",
+            "Etwa 50 Jahre alt"
+          ],
+          "richtig": 1,
+          "erklaerung": "Laut Lk 3,23 begann Jesus seinen Dienst »mit ungefähr 30 Jahren«. Das Alter 30 hatte im Judentum symbolische Bedeutung — Leviten traten ihren Tempeldienst mit 30 an (4. Mose 4,3). Historisch ist das exakte Alter nicht gesichert; auch das Geburtsjahr Jesu ist umstritten (wahrscheinlich zwischen 7 und 4 v. Chr.).",
+          "bibelstelle": "Lk 3,23",
+          "bibellink": "https://www.die-bibel.de/bibel/BB/LUK.3.23-LUK.3.23"
+        },
+        {
+          "id": "jh9",
+          "typ": "multiple-choice",
+          "schwierigkeit": 2,
+          "frage": "Was bedeutet der Titel »Rabbi«, mit dem Jesus oft angesprochen wurde?",
+          "antworten": [
+            "Heiliger / Gesalbter des Herrn",
+            "Lehrer / Meister",
+            "Wundertäter / Heiler",
+            "Sohn Gottes / Messias"
+          ],
+          "richtig": 1,
+          "erklaerung": "Rabbi (hebr.) bedeutet wörtlich »mein Großer« und war ein Ehrentitel für angesehene jüdische Lehrer. Jesus wurde so angesprochen, obwohl er keine offizielle Rabbiner-Ausbildung hatte — was manche verwunderte: »Woher hat dieser die Weisheit?« (Mt 13,54). Er lehrte »mit Vollmacht, nicht wie die Schriftgelehrten« (Mk 1,22).",
+          "bibelstelle": null,
+          "bibellink": null
+        },
+        {
+          "id": "jh10",
+          "typ": "multiple-choice",
+          "schwierigkeit": 3,
+          "frage": "Was ist die Bergpredigt — und wo gibt es bei Lukas eine Parallelversion?",
+          "antworten": [
+            "Jesu Abschiedsrede an die Jünger (Joh 14–17); keine Parallele in anderen Evangelien",
+            "Jesu zentrale Lehrrede (Mt 5–7); bei Lukas gibt es eine kürzere »Feldrede« (Lk 6,17–49)",
+            "Jesu erste Predigt in Nazareth (Lk 4); bei Matthäus als Synagogenpredigt erzählt",
+            "Jesu Predigt im Tempel vor der Passion (Mt 21); bei Markus als Streitgespräch"
+          ],
+          "richtig": 1,
+          "erklaerung": "Die Bergpredigt (Mt 5–7) ist Jesu umfangreichste Lehrrede, gehalten auf einem Berg in Galiläa. Bei Lukas gibt es eine kürzere Parallelversion — die »Feldrede« (Lk 6,17–49), gehalten auf einer ebenen Fläche. Wichtig: Das Vaterunser fehlt in der Feldrede — bei Lukas steht es an anderer Stelle (Lk 11,1–4), als Antwort auf eine Frage der Jünger.",
+          "bibelstelle": "Mt 5,1-7,29",
+          "bibellink": "https://www.die-bibel.de/bibel/BB/MAT.5.1-MAT.7.29"
         }
       ]
     },
@@ -622,6 +854,16 @@
           "text": "Wer mich sieht, der sieht den Vater.",
           "quelle": "Joh 14,9",
           "link": "https://www.die-bibel.de/bibel/BB/JHN.14.9-JHN.14.9"
+        },
+        {
+          "text": "„Tod, wo ist dein Stachel? Hölle, wo ist dein Sieg?\"",
+          "quelle": "1 Kor 15,55",
+          "link": "https://www.die-bibel.de/bibel/BB/1CO.15.55-1CO.15.55"
+        },
+        {
+          "text": "„Ich bin überzeugt, dass weder Tod noch Leben uns scheiden kann von der Liebe Gottes.\"",
+          "quelle": "Röm 8,38-39",
+          "link": "https://www.die-bibel.de/bibel/BB/ROM.8.38-ROM.8.39"
         }
       ],
       "fragen": [
@@ -736,6 +978,54 @@
           "erklaerung": "Kerygma (griech. = Verkündigung): Jesus ist gestorben und auferstanden. Nicht nur Bericht — sondern Anruf zur Entscheidung. Das Kerygma ist älter als die Evangelien. Paulus zitiert in 1 Kor 15 eine Formel, die schon vor seinen Briefen existierte — ein Zeugnis aus den Anfängen der Christenheit.",
           "bibelstelle": null,
           "bibellink": null
+        },
+        {
+          "id": "jc8",
+          "typ": "multiple-choice",
+          "schwierigkeit": 1,
+          "frage": "Was feiern Christen an Weihnachten?",
+          "antworten": [
+            "Die Taufe Jesu im Jordan durch Johannes den Täufer",
+            "Die Menschwerdung Gottes — die Geburt Jesu von Nazareth",
+            "Die Auferstehung Jesu von den Toten am dritten Tag",
+            "Den Einzug Jesu in Jerusalem auf einem Esel"
+          ],
+          "richtig": 1,
+          "erklaerung": "Weihnachten feiert die Geburt Jesu — also die Menschwerdung Gottes. Der 25. Dezember ist nicht Jesu historischer Geburtstag. Die frühe Kirche legte das Fest auf dieses Datum, das im römischen Kalender mit der Wintersonnenwende zusammenfiel und dem Fest Sol Invictus (»Unbesiegte Sonne«) entsprach. Jesus als »Licht der Welt« — das passte theologisch perfekt.",
+          "bibelstelle": null,
+          "bibellink": null
+        },
+        {
+          "id": "jc9",
+          "typ": "multiple-choice",
+          "schwierigkeit": 2,
+          "frage": "Was ist Christi Himmelfahrt?",
+          "antworten": [
+            "Das Fest der Taufe Jesu, am ersten Sonntag nach Epiphanias",
+            "Das Fest der Auferstehung Jesu, 50 Tage vor Pfingsten",
+            "Das Fest der Rückkehr Jesu zum Vater, 40 Tage nach Ostern",
+            "Das Fest der Geburt Jesu, am 25. Dezember"
+          ],
+          "richtig": 2,
+          "erklaerung": "Christi Himmelfahrt wird 40 Tage nach Ostern gefeiert (immer ein Donnerstag). Jesus erschien nach der Auferstehung noch 40 Tage seinen Jüngern — dann »wurde er vor ihren Augen emporgehoben« (Apg 1,9). Theologisch bedeutet es: Jesus ist nicht mehr lokal gebunden, sondern »zur Rechten des Vaters« — überall und für alle erreichbar.",
+          "bibelstelle": "Apg 1,9",
+          "bibellink": "https://www.die-bibel.de/bibel/BB/ACT.1.9-ACT.1.9"
+        },
+        {
+          "id": "jc10",
+          "typ": "multiple-choice",
+          "schwierigkeit": 3,
+          "frage": "Was meint »Präexistenz« Jesu?",
+          "antworten": [
+            "Jesus existierte nach seiner Auferstehung weiter bei Gott im Himmel",
+            "Jesus existierte schon vor seiner Geburt als Mensch von Ewigkeit her bei Gott",
+            "Jesus wurde von Maria empfangen, bevor sie mit Josef zusammenlebte",
+            "Jesus kannte als Gottessohn alle zukünftigen Ereignisse schon im Voraus"
+          ],
+          "richtig": 1,
+          "erklaerung": "Das Johannesevangelium beginnt: »Im Anfang war das Wort — und das Wort war Gott« (Joh 1,1). Diese Aussage löste heftige Debatten aus: Der Theologe Arius (4. Jh.) lehrte, Jesus sei eine Schöpfung Gottes. Das Konzil von Nicäa (325) entschied dagegen: Jesus ist »wesensgleich« mit dem Vater (griech. homoousios) — ewig, nicht geschaffen. Die Christologie bleibt bis heute ein zentrales Diskussionsfeld der Theologie.",
+          "bibelstelle": "Joh 1,1",
+          "bibellink": "https://www.die-bibel.de/bibel/BB/JHN.1.1-JHN.1.1"
         }
       ]
     },
@@ -769,6 +1059,16 @@
           "text": "„Der Friede sei mit euch.“",
           "quelle": "Joh 20,19",
           "link": "https://www.die-bibel.de/bibel/BB/JHN.20.19-JHN.20.19"
+        },
+        {
+          "text": "„Ich nenne euch nicht mehr Knechte, sondern Freunde.\"",
+          "quelle": "Joh 15,15",
+          "link": "https://www.die-bibel.de/bibel/BB/JHN.15.15-JHN.15.15"
+        },
+        {
+          "text": "„Ich bin bei euch alle Tage bis ans Ende der Welt.\"",
+          "quelle": "Mt 28,20",
+          "link": "https://www.die-bibel.de/bibel/BB/MAT.28.20-MAT.28.20"
         }
       ],
       "fragen": [
@@ -883,6 +1183,54 @@
           "erklaerung": "Nur wer in Jesus bleibt, trägt Frucht. Getrennt von ihm: nichts. Eine der stärksten Aussagen über Spiritualität im NT. Reben, die vom Stock abgetrennt sind, verdorren. Das Bild zeigt: Spiritualität ist keine Privatangelegenheit. Sie braucht die lebendige Verbindung zu Christus — und zur Gemeinschaft.",
           "bibelstelle": "Joh 15,1",
           "bibellink": "https://www.die-bibel.de/bibel/BB/JHN.15.1-JHN.15.1"
+        },
+        {
+          "id": "jw8",
+          "typ": "multiple-choice",
+          "schwierigkeit": 1,
+          "frage": "Was sind die »Ich bin«-Worte Jesu im Johannesevangelium?",
+          "antworten": [
+            "Gebete Jesu, in denen er sich an Gott als seinen Vater wendet",
+            "Selbstaussagen Jesu wie »Ich bin das Licht«, »der Weg«, »die Wahrheit«, »das Leben«",
+            "Gleichnisse, in denen Jesus von Weinstock, Brot und Hirten spricht",
+            "Aufrufe Jesu an die Jünger: »Ich bin gesandt — ihr werdet es auch sein«"
+          ],
+          "richtig": 1,
+          "erklaerung": "Im Johannesevangelium gibt es sieben »Ich bin«-Worte Jesu: »Ich bin das Brot des Lebens«, »das Licht der Welt«, »die Tür«, »der gute Hirte«, »die Auferstehung und das Leben«, »der Weg, die Wahrheit und das Leben« und »der wahre Weinstock«. Sie erinnern an den Gottesnamen »Ich bin, der ich bin« (2. Mose 3,14) — eine hohe Aussage über Jesus.",
+          "bibelstelle": null,
+          "bibellink": null
+        },
+        {
+          "id": "jw9",
+          "typ": "multiple-choice",
+          "schwierigkeit": 2,
+          "frage": "Was meinte Jesus mit »Selig sind die Sanftmütigen, denn sie werden das Erdreich besitzen«?",
+          "antworten": [
+            "Wer körperlich schwach ist, bekommt von Gott besondere Fürsorge und Schutz",
+            "Wer nicht auf Gewalt setzt, sondern auf Gott vertraut, gehört zu Gottes Reich",
+            "Wer auf seinen Besitz verzichtet, wird im Jenseits mit Reichtum belohnt",
+            "Wer bescheiden auftritt und wenig redet, wird von Menschen respektiert"
+          ],
+          "richtig": 1,
+          "erklaerung": "»Sanftmut« ist im biblischen Sinne nicht Schwäche, sondern bewusster Gewaltverzicht und Vertrauen auf Gott statt auf Macht. »Das Erdreich besitzen« nimmt Ps 37,11 auf: Die Sanftmütigen, nicht die Mächtigen, werden am Ende das Land erben. Jesus dreht die Wertemaßstäbe der Welt um — eine der kühnsten Aussagen der Bergpredigt.",
+          "bibelstelle": "Mt 5,5",
+          "bibellink": "https://www.die-bibel.de/bibel/BB/MAT.5.5-MAT.5.5"
+        },
+        {
+          "id": "jw10",
+          "typ": "multiple-choice",
+          "schwierigkeit": 3,
+          "frage": "Was meinte Jesus mit dem Gleichnis vom Schalksknecht (Mt 18,23–35)?",
+          "antworten": [
+            "Wer Schulden macht, soll das Gericht fürchten und seine Pflichten erfüllen",
+            "Wer selbst Vergebung empfangen hat und sie anderen verweigert, handelt gegen Gottes Wesen",
+            "Wer seinem König treu dient, wird am Ende reich belohnt und freigelassen",
+            "Wer anderen vergibt, muss selbst keine Strafe mehr fürchten und wird frei"
+          ],
+          "richtig": 1,
+          "erklaerung": "Der Knecht wird von seinem König von einer riesigen Schuld befreit — und lässt dann seinen eigenen Schuldner ins Gefängnis werfen. Das empört sogar die Mitknechte. Jesus schließt: Wer die empfangene Vergebung nicht weitergibt, versteht Gottes Gnade nicht. Direkt anlass der Frage des Petrus: »Wie oft soll ich vergeben?« — »Nicht siebenmal, sondern siebenundsiebzigmal.«",
+          "bibelstelle": "Mt 18,23-35",
+          "bibellink": "https://www.die-bibel.de/bibel/BB/MAT.18.23-MAT.18.35"
         }
       ]
     },
@@ -916,6 +1264,16 @@
           "text": "„Ich will es tun — sei rein!“",
           "quelle": "Mk 1,41",
           "link": "https://www.die-bibel.de/bibel/BB/MRK.1.41-MRK.1.41"
+        },
+        {
+          "text": "„Was bei Menschen unmöglich ist, ist bei Gott möglich.\"",
+          "quelle": "Lk 18,27",
+          "link": "https://www.die-bibel.de/bibel/BB/LUK.18.27-LUK.18.27"
+        },
+        {
+          "text": "„Die Blinden sehen, die Lahmen gehen — und den Armen wird das Evangelium gepredigt.\"",
+          "quelle": "Lk 7,22",
+          "link": "https://www.die-bibel.de/bibel/BB/LUK.7.22-LUK.7.22"
         }
       ],
       "fragen": [
@@ -1030,6 +1388,54 @@
           "erklaerung": "Die Tempelreinigung ist eine prophetische Zeichenhandlung. Jesus tritt auf wie die Propheten des AT — im Namen Gottes. Jesus zitiert dabei Jesaja 56: Mein Haus soll ein Bethaus für alle Völker heißen. Er stellt sich in die prophetische Tradition — und nimmt Gottes Anspruch für den Tempel selbst in Anspruch.",
           "bibelstelle": "Mk 11,15-17",
           "bibellink": "https://www.die-bibel.de/bibel/BB/MRK.11.15-MRK.11.17"
+        },
+        {
+          "id": "jt8",
+          "typ": "multiple-choice",
+          "schwierigkeit": 1,
+          "frage": "Bei welcher Hochzeit vollbrachte Jesus sein erstes Wunder?",
+          "antworten": [
+            "Bei der Hochzeit von Simon und Maria in Kapharnaum",
+            "Bei der Hochzeit in Kana in Galiläa",
+            "Bei der Hochzeit des Zachäus in Jericho",
+            "Bei der Hochzeit am Ufer des Sees Gennesaret"
+          ],
+          "richtig": 1,
+          "erklaerung": "Das erste Wunder Jesu war die Verwandlung von Wasser in Wein bei einer Hochzeit in Kana (Joh 2,1–11). Maria, die Mutter Jesu, weist ihn darauf hin, dass der Wein ausgeht. Johannes nennt es ein »Zeichen« — nicht nur ein Wunder, sondern ein Hinweis auf Jesu Herrlichkeit. Die Jünger glaubten an ihn.",
+          "bibelstelle": "Joh 2,1-11",
+          "bibellink": "https://www.die-bibel.de/bibel/BB/JHN.2.1-JHN.2.11"
+        },
+        {
+          "id": "jt9",
+          "typ": "multiple-choice",
+          "schwierigkeit": 2,
+          "frage": "Was tat Jesus, als er zum Grab des Lazarus kam und Maria weinte?",
+          "antworten": [
+            "Er betete laut und rief Gott um Kraft für das Wunder an",
+            "Er weinte selbst — und rief Lazarus dann ins Leben zurück",
+            "Er tröstete Maria mit Worten und bat die Menge, sich zu entfernen",
+            "Er forderte alle Anwesenden auf, den Stein wegzurollen"
+          ],
+          "richtig": 1,
+          "erklaerung": "»Jesus weinte« (Joh 11,35) — der kürzeste Vers der Bibel, und einer der bedeutsamsten. Er zeigt: Jesus ist nicht unbewegt, er leidet mit. Dann ruft er mit lauter Stimme: »Lazarus, komm heraus!« Die Geschichte steht im Johannesevangelium als letztes und größtes Zeichen vor dem Einzug in Jerusalem.",
+          "bibelstelle": "Joh 11,35",
+          "bibellink": "https://www.die-bibel.de/bibel/BB/JHN.11.35-JHN.11.35"
+        },
+        {
+          "id": "jt10",
+          "typ": "multiple-choice",
+          "schwierigkeit": 3,
+          "frage": "Was unterscheidet Jesu Heilungen laut den Evangelien von bloßer Magie?",
+          "antworten": [
+            "Jesus verwendete keine Zaubermittel, sondern nur Berührung und gesprochene Worte",
+            "Jesus verknüpft Heilung mit Glauben, Würde und Sündenvergebung des Menschen",
+            "Jesus vollbrachte Wunder nur im Verborgenen, ohne Zuschauer und Zeugen",
+            "Jesus lehnte alle Heilungen ab, die ihm die Menge zuzuschreiben versuchte"
+          ],
+          "richtig": 1,
+          "erklaerung": "In der Antike gab es viele Wundertäter und Magier. Das Besondere bei Jesus: Er heilt Menschen, die gesellschaftlich ausgeschlossen sind (Aussätzige, Zöllner, Frauen), spricht von Vergebung und fragt nach dem Glauben. »Dein Glaube hat dich gerettet« — das Heil ist tiefer als die körperliche Heilung. Die Wunder sind »Zeichen« des kommenden Gottesreiches.",
+          "bibelstelle": null,
+          "bibellink": null
         }
       ]
     },
@@ -1063,6 +1469,16 @@
           "text": "„Welche Frau, die zehn Silbermünzen hat, zündet nicht ein Licht an?“",
           "quelle": "Lk 15,8",
           "link": "https://www.die-bibel.de/bibel/BB/LUK.15.8-LUK.15.8"
+        },
+        {
+          "text": "„Im Himmel wird mehr Freude sein über einen Sünder, der umkehrt, als über neunundneunzig Gerechte.\"",
+          "quelle": "Lk 15,7",
+          "link": "https://www.die-bibel.de/bibel/BB/LUK.15.7-LUK.15.7"
+        },
+        {
+          "text": "„Wer Ohren hat zu hören, der höre.\"",
+          "quelle": "Mk 4,9",
+          "link": "https://www.die-bibel.de/bibel/BB/MRK.4.9-MRK.4.9"
         }
       ],
       "fragen": [
@@ -1177,6 +1593,54 @@
           "erklaerung": "Reich Gottes (griech. basileia) meint Gottes Herrschaft, kein Territorium. Sie beginnt mit Jesus, ist schon da und kommt zur Vollendung. Das Reich Gottes kommt klein und unscheinbar — wie ein Senfkorn, wie Sauerteig. Es drängt sich nicht auf. Aber es wächst. Das ist Jesu Grundvertrauen.",
           "bibelstelle": "Mk 1,15",
           "bibellink": "https://www.die-bibel.de/bibel/BB/MRK.1.15-MRK.1.15"
+        },
+        {
+          "id": "gl8",
+          "typ": "multiple-choice",
+          "schwierigkeit": 1,
+          "frage": "Im Gleichnis vom Verlorenen Sohn — was forderte der Sohn vom Vater?",
+          "antworten": [
+            "Er bat den Vater, ihm einen festen Arbeitsplatz auf dem Hof zu geben",
+            "Er forderte seinen Erbteil schon zu Lebzeiten des Vaters und zog fort",
+            "Er fragte den Vater, ob er bei seinem Bruder in der Stadt wohnen dürfe",
+            "Er bat den Vater um Geld für eine Wallfahrt nach Jerusalem"
+          ],
+          "richtig": 1,
+          "erklaerung": "Der jüngere Sohn fordert seinen Erbteil, bevor der Vater gestorben ist — eine im Judentum unerhörte Anmaßung. Er verprasst alles in der Fremde. Als er zurückkommt, erwartet er nichts — doch der Vater läuft ihm entgegen, fällt ihm um den Hals und feiert. Das Gleichnis zeigt: Gott läuft uns entgegen, er wartet nicht, bis wir ankommen.",
+          "bibelstelle": "Lk 15,11-32",
+          "bibellink": "https://www.die-bibel.de/bibel/BB/LUK.15.11-LUK.15.32"
+        },
+        {
+          "id": "gl9",
+          "typ": "multiple-choice",
+          "schwierigkeit": 2,
+          "frage": "Warum erzählte Jesus Gleichnisse statt direkter theologischer Aussagen?",
+          "antworten": [
+            "Weil er keine theologische Ausbildung hatte und nicht abstrakt denken konnte",
+            "Weil er bildhaft lehrte, damit alle Menschen — auch ohne Bildung — verstehen konnten",
+            "Weil die Römer direkte religiöse Aussagen verboten und er sich schützen musste",
+            "Weil die Jünger zu wenig Bibelwissen hatten und nur Geschichten verstanden"
+          ],
+          "richtig": 1,
+          "erklaerung": "Gleichnisse sind meisterhafte Lehrform: Sie holen Menschen dort ab, wo sie leben — auf dem Feld, beim Kochen, im Weinberg. Gleichzeitig bleiben sie offen: Wer hören will, versteht mehr; wer verschlossen ist, hört nur eine Geschichte. Jesus selbst zitiert Jesaja: »Damit sie hören und doch nicht verstehen« (Mk 4,12) — Gleichnisse fordern Bereitschaft zur Umkehr.",
+          "bibelstelle": null,
+          "bibellink": null
+        },
+        {
+          "id": "gl10",
+          "typ": "multiple-choice",
+          "schwierigkeit": 3,
+          "frage": "Was ist die Botschaft des Gleichnisses von den Arbeitern im Weinberg (Mt 20,1–16)?",
+          "antworten": [
+            "Wer früh anfängt zu arbeiten, hat Anspruch auf mehr Lohn als die anderen",
+            "Gottes Güte folgt keiner menschlichen Leistungsgerechtigkeit — alle erhalten das Gleiche",
+            "Im Reich Gottes werden die besten Plätze für die Treuesten reserviert",
+            "Arbeitgeber sollen ihre Mitarbeiter fair und nach Tarif entlohnen"
+          ],
+          "richtig": 1,
+          "erklaerung": "Alle Arbeiter — ob seit dem Morgen oder erst seit einer Stunde tätig — erhalten denselben Lohn. Das empört die Frühanfänger. Der Weinbergbesitzer antwortet: »Bin ich nicht gütig, weil ich so großzügig bin?« Die Botschaft: Gottes Gnade ist kein Lohn, den man verdient. Sie ist ein Geschenk — für alle gleich.",
+          "bibelstelle": "Mt 20,1-16",
+          "bibellink": "https://www.die-bibel.de/bibel/BB/MAT.20.1-MAT.20.16"
         }
       ]
     },
@@ -1210,6 +1674,16 @@
           "text": "„Euer Ja sei ein Ja, euer Nein ein Nein.“",
           "quelle": "Mt 5,37",
           "link": "https://www.die-bibel.de/bibel/BB/MAT.5.37-MAT.5.37"
+        },
+        {
+          "text": "„Gerechtigkeit erhöht ein Volk.\"",
+          "quelle": "Spr 14,34",
+          "link": "https://www.die-bibel.de/bibel/BB/PRO.14.34-PRO.14.34"
+        },
+        {
+          "text": "„Die Liebe ist des Gesetzes Erfüllung.\"",
+          "quelle": "Röm 13,10",
+          "link": "https://www.die-bibel.de/bibel/BB/ROM.13.10-ROM.13.10"
         }
       ],
       "fragen": [
@@ -1324,6 +1798,54 @@
           "erklaerung": "Luther erklärt alle Gebote mit dem Dreiklang fürchten, lieben, vertrauen. Das erste Gebot ist für ihn der Schlüssel zu allem. Luther schrieb den Kleinen Katechismus 1529 — für Eltern, die ihren Kindern den Glauben erklären wollten. Er ist bis heute ein wichtiges Dokument lutherischer Frömmigkeit.",
           "bibelstelle": null,
           "bibellink": null
+        },
+        {
+          "id": "gb8",
+          "typ": "multiple-choice",
+          "schwierigkeit": 1,
+          "frage": "Auf welchem Berg empfing Mose die Zehn Gebote von Gott?",
+          "antworten": [
+            "Berg Karmel in der Nähe von Haifa",
+            "Berg Sinai auf der Halbinsel Sinai",
+            "Berg Zion in Jerusalem",
+            "Berg Tabor in Galiläa"
+          ],
+          "richtig": 1,
+          "erklaerung": "Auf dem Berg Sinai (auch Horeb genannt) erschien Gott dem Mose im brennenden Dornbusch und gab ihm die Zehn Gebote auf zwei Steintafeln (2. Mose 20; 5. Mose 5). Der Berg gilt als heiliger Ort des Bundes zwischen Gott und seinem Volk. Bis heute pilgern Menschen dorthin.",
+          "bibelstelle": "2 Mo 20,1-17",
+          "bibellink": "https://www.die-bibel.de/bibel/BB/EXO.20.1-EXO.20.17"
+        },
+        {
+          "id": "gb9",
+          "typ": "multiple-choice",
+          "schwierigkeit": 2,
+          "frage": "Was sagt Jesus in der Bergpredigt über das Gebot »Du sollst nicht töten«?",
+          "antworten": [
+            "Das Gebot gilt nicht mehr, weil Jesus es durch das Liebesgebot aufgehoben hat",
+            "Wer hasst oder beleidigt, verstößt bereits gegen Gottes Willen, nicht erst wer tötet",
+            "Das Gebot bezieht sich nur auf Mord, nicht auf Krieg oder staatliche Todesstrafe",
+            "Jesus erweitert das Gebot auf alle Lebewesen — auch Tiere darf man nicht töten"
+          ],
+          "richtig": 1,
+          "erklaerung": "Jesus sagt: »Ihr habt gehört: Du sollst nicht töten. Ich aber sage euch: Wer seinem Bruder auch nur zürnt, ist dem Gericht verfallen« (Mt 5,21–22). Er radikalisiert die Gebote: Es geht nicht nur ums Äußere, sondern ums Herz. Hadern, Beleidigen, Verachten — das alles verletzt die Würde des anderen und widerspricht Gottes Willen.",
+          "bibelstelle": "Mt 5,21-22",
+          "bibellink": "https://www.die-bibel.de/bibel/BB/MAT.5.21-MAT.5.22"
+        },
+        {
+          "id": "gb10",
+          "typ": "multiple-choice",
+          "schwierigkeit": 3,
+          "frage": "Was ist der Unterschied zwischen den Zehn Geboten und dem Liebesgebot Jesu?",
+          "antworten": [
+            "Die Zehn Gebote stammen aus dem AT und gelten nicht mehr; das Liebesgebot ersetzt sie",
+            "Die Zehn Gebote nennen konkrete Regeln; das Liebesgebot fasst alle Gebote zusammen und kommt aus dem Herzen",
+            "Die Zehn Gebote richten sich an das Volk Israel; das Liebesgebot gilt nur für Christen",
+            "Die Zehn Gebote sind verbindlich für alle; das Liebesgebot ist nur eine Empfehlung"
+          ],
+          "richtig": 1,
+          "erklaerung": "Jesus hebt die Zehn Gebote nicht auf, sondern konzentriert sie: »Du sollst Gott lieben — und deinen Nächsten wie dich selbst. An diesen zwei Geboten hängt das ganze Gesetz« (Mt 22,37–40). Paulus schreibt: »Die Liebe ist des Gesetzes Erfüllung« (Röm 13,10). Die Gebote beschreiben von außen, was die Liebe von innen tut.",
+          "bibelstelle": "Mt 22,37-40",
+          "bibellink": "https://www.die-bibel.de/bibel/BB/MAT.22.37-MAT.22.40"
         }
       ]
     },
@@ -1357,6 +1879,16 @@
           "text": "„Alles vermag ich durch den, der mich stärkt.“",
           "quelle": "Phil 4,13",
           "link": "https://www.die-bibel.de/bibel/BB/PHP.4.13-PHP.4.13"
+        },
+        {
+          "text": "„Ein feste Burg ist unser Gott, ein gute Wehr und Waffen.\"",
+          "quelle": "Ps 46 — Martin Luther",
+          "link": "https://www.die-bibel.de/bibel/BB/PSA.46.2-PSA.46.2"
+        },
+        {
+          "text": "„Durch Gnade seid ihr gerettet — durch Glauben, nicht aus euch selbst.\"",
+          "quelle": "Eph 2,8",
+          "link": "https://www.die-bibel.de/bibel/BB/EPH.2.8-EPH.2.8"
         }
       ],
       "fragen": [
@@ -1471,6 +2003,54 @@
           "erklaerung": "Durch die Taufe sind alle Christen Priester. Niemand braucht einen Mittler zwischen sich und Gott — das hat die Kirchenstruktur revolutioniert. Das Priestertum aller Gläubigen bedeutet auch: Du kannst für andere beten, anderen das Evangelium weitersagen, Trost spenden. Das ist nicht dem Pfarramt vorbehalten.",
           "bibelstelle": "1 Petr 2,9",
           "bibellink": "https://www.die-bibel.de/bibel/BB/1PE.2.9-1PE.2.9"
+        },
+        {
+          "id": "ek8",
+          "typ": "multiple-choice",
+          "schwierigkeit": 1,
+          "frage": "Wo wurde Martin Luther geboren?",
+          "antworten": [
+            "In Wittenberg an der Elbe, wo er später als Professor lehrte",
+            "In Eisleben in Sachsen-Anhalt, im Jahr 1483",
+            "In Erfurt in Thüringen, wo er später Theologie studierte",
+            "In Mansfeld in Sachsen-Anhalt, wo er seine Kindheit verbrachte"
+          ],
+          "richtig": 1,
+          "erklaerung": "Luther wurde am 10. November 1483 in Eisleben geboren — und starb dort auch 1546. Aufgewachsen ist er in Mansfeld, studiert hat er in Erfurt, als Mönch lebte er in Erfurt und Wittenberg. Als Reformator wirkte er vor allem in Wittenberg, wo er die 95 Thesen veröffentlichte.",
+          "bibelstelle": null,
+          "bibellink": null
+        },
+        {
+          "id": "ek9",
+          "typ": "multiple-choice",
+          "schwierigkeit": 2,
+          "frage": "Was ist die »Confessio Augustana« von 1530?",
+          "antworten": [
+            "Luthers Bibelübersetzung ins Deutsche, entstanden auf der Wartburg",
+            "Das wichtigste Bekenntnis der lutherischen Reformation, vorgelegt dem Kaiser in Augsburg",
+            "Die Zusammenfassung von Luthers 95 Thesen in lateinischer Sprache",
+            "Der Friedensvertrag zwischen Lutheranern und Katholiken nach dem Bauernkrieg"
+          ],
+          "richtig": 1,
+          "erklaerung": "Die Confessio Augustana (Augsburger Bekenntnis) wurde 1530 auf dem Reichstag zu Augsburg Kaiser Karl V. vorgelegt. Verfasst von Philipp Melanchthon, fasst sie den evangelischen Glauben in 28 Artikeln zusammen. Sie ist bis heute das grundlegende Bekenntnis der lutherischen Kirchen weltweit.",
+          "bibelstelle": null,
+          "bibellink": null
+        },
+        {
+          "id": "ek10",
+          "typ": "multiple-choice",
+          "schwierigkeit": 3,
+          "frage": "Was bedeutet das Kürzel EKBO?",
+          "antworten": [
+            "Evangelisch-Kirchliche Bildungsorganisation",
+            "Evangelische Kirche Berlin-Brandenburg-schlesische Oberlausitz",
+            "Evangelischer Kirchenbund Ostdeutschland",
+            "Evangelische Konferenz für Bekenntnis und Ordnung"
+          ],
+          "richtig": 1,
+          "erklaerung": "Die EKBO (Evangelische Kirche Berlin-Brandenburg-schlesische Oberlausitz) ist die Landeskirche, zu der die Evangelische Kirchengemeinde Staaken gehört. Sie entstand 2004 durch Zusammenschluss zweier Landeskirchen. Die EKBO ist ihrerseits Mitglied der EKD (Evangelische Kirche in Deutschland).",
+          "bibelstelle": null,
+          "bibellink": null
         }
       ]
     },
@@ -1504,6 +2084,16 @@
           "text": "Gott hat die Weisheit dieser Welt zur Torheit gemacht.",
           "quelle": "1 Kor 1,20",
           "link": "https://www.die-bibel.de/bibel/BB/1CO.1.20-1CO.1.20"
+        },
+        {
+          "text": "„Meine Kraft vollendet sich in der Schwachheit.\"",
+          "quelle": "2 Kor 12,9",
+          "link": "https://www.die-bibel.de/bibel/BB/2CO.12.9-2CO.12.9"
+        },
+        {
+          "text": "„Wer ist so weise und verständig unter euch?\"",
+          "quelle": "Jak 3,13",
+          "link": "https://www.die-bibel.de/bibel/BB/JAS.3.13-JAS.3.13"
         }
       ],
       "fragen": [
@@ -1618,6 +2208,54 @@
           "erklaerung": "Das ist Luthers hermeneutischer Schlüssel: Nicht zwei historische Abschnitte, sondern zwei Wirkweisen Gottes. Das Gesetz zeigt uns, was wir nicht sind — das Evangelium, was wir trotzdem sind: geliebt und angenommen. Diese Unterscheidung ist das Herzstück lutherischer Theologie.",
           "bibelstelle": "Röm 3,28",
           "bibellink": "ROM.3.28-ROM.3.28"
+        },
+        {
+          "id": "np8",
+          "typ": "multiple-choice",
+          "schwierigkeit": 3,
+          "frage": "Was ist »natürliche Theologie«?",
+          "antworten": [
+            "Die Theologie, die sich ausschließlich mit Schöpfung und Ökologie befasst",
+            "Der Versuch, Gott durch Vernunft und Naturbeobachtung ohne Offenbarung zu erkennen",
+            "Die Methode, Bibelaussagen durch Naturwissenschaft zu überprüfen",
+            "Die Lehre, dass Gott sich in der Natur vollständiger zeigt als in der Bibel"
+          ],
+          "richtig": 1,
+          "erklaerung": "Natürliche Theologie fragt: Kann man Gott auch ohne Bibel erkennen — z. B. durch Vernunft oder Schöpfungsbetrachtung? Thomas von Aquin bejahte das. Karl Barth lehnte es radikal ab: Gott ist nur durch seine Selbstoffenbarung in Jesus Christus erkennbar. Der Streit ist bis heute nicht abgeschlossen.",
+          "bibelstelle": null,
+          "bibellink": null
+        },
+        {
+          "id": "np9",
+          "typ": "multiple-choice",
+          "schwierigkeit": 3,
+          "frage": "Was ist der Unterschied zwischen Orthodoxie und Orthopraxie?",
+          "antworten": [
+            "Orthodoxie bezeichnet die griechisch-orthodoxe Kirche; Orthopraxie die russisch-orthodoxe",
+            "Orthodoxie meint rechtes Denken und Bekennen; Orthopraxie meint rechtes Handeln",
+            "Orthodoxie ist die Lehre von der Auferstehung; Orthopraxie die Lehre vom Gebet",
+            "Orthodoxie bezeichnet altgläubige Christen; Orthopraxie bezeichnet die Reformierten"
+          ],
+          "richtig": 1,
+          "erklaerung": "Orthodoxie (griech. orthos = recht, doxa = Lehre) betont: Der rechte Glaube kommt im richtigen Bekennen zum Ausdruck. Orthopraxie (praxis = Handlung) betont: Der Glaube zeigt sich im richtigen Tun — in Gerechtigkeit, Barmherzigkeit, Gottesdienst. Die Reformatoren betonten: Glaube allein rettet — aber echter Glaube trägt Früchte. Jakobus 2,17: »Glaube ohne Werke ist tot.«",
+          "bibelstelle": "Jak 2,17",
+          "bibellink": "https://www.die-bibel.de/bibel/BB/JAS.2.17-JAS.2.17"
+        },
+        {
+          "id": "np10",
+          "typ": "multiple-choice",
+          "schwierigkeit": 3,
+          "frage": "Was meint »Demythologisierung« bei Rudolf Bultmann?",
+          "antworten": [
+            "Die Methode, alle Wundergeschichten der Bibel als historisch unzuverlässig zu streichen",
+            "Das Programm, den Kern des Evangeliums aus dem mythologischen Weltbild des NT herauszuschälen",
+            "Die Übersetzung biblischer Texte in moderne Sprache ohne theologische Fachbegriffe",
+            "Die These, dass die Evangelien rein symbolische und keine historischen Dokumente sind"
+          ],
+          "richtig": 1,
+          "erklaerung": "Rudolf Bultmann (1884–1976) argumentierte: Das NT ist in einem antiken Weltbild verfasst (Himmel oben, Hölle unten, Dämonen etc.), das heute niemand mehr teilt. Demythologisierung heißt: Den existenziellen Kern der Botschaft freilegen — nicht »Jesus ist aufgefahren«, sondern: Der Auferstandene begegnet mir heute. Bis heute heiß umstritten.",
+          "bibelstelle": null,
+          "bibellink": null
         }
       ]
     },
@@ -1651,6 +2289,16 @@
           "text": "„Erzählt es euren Kindern, und eure Kinder ihren Kindern.“",
           "quelle": "Joel 1,3",
           "link": "https://www.die-bibel.de/bibel/BB/JOL.1.3-JOL.1.3"
+        },
+        {
+          "text": "„Fragt nach den alten Pfaden: Welches ist der gute Weg? Und geht ihn.\"",
+          "quelle": "Jer 6,16",
+          "link": "https://www.die-bibel.de/bibel/BB/JER.6.16-JER.6.16"
+        },
+        {
+          "text": "„Wir sind Gottes Mitarbeiter; ihr seid Gottes Ackerfeld und Gottes Bau.\"",
+          "quelle": "1 Kor 3,9",
+          "link": "https://www.die-bibel.de/bibel/BB/1CO.3.9-1CO.3.9"
         }
       ],
       "fragen": [
@@ -1765,6 +2413,54 @@
           "erklaerung": "Von 2000 bis 2002 wurde die Dorfkirche Alt-Staaken umfassend renoviert und neu gestaltet — unter Leitung von Prof. Dr. Karsten Westphal. Zur Ausstattung gehören ein Wandbild 'Versöhnte Einheit' des Künstlers Gabriele Mucchi sowie Glasfenster von Helge Warme.",
           "bibelstelle": null,
           "bibellink": null
+        },
+        {
+          "id": "gg8",
+          "typ": "multiple-choice",
+          "schwierigkeit": 2,
+          "frage": "Wer weihte am 30. Mai 1971 das Gemeindehaus an der Heerstraße Nord ein?",
+          "antworten": [
+            "Superintendent Gerhard Niederstucke, der erste Pfarrer der Gemeinde",
+            "Bischof Kurt Scharf, der damalige Bischof von Berlin",
+            "Landesbischof Otto Dibelius, der frühere Bischof von Berlin",
+            "Superintendent Hans-Martin Helbich vom Kirchenkreis Spandau"
+          ],
+          "richtig": 1,
+          "erklaerung": "Bischof Kurt Scharf weihte das Gemeindehaus am Pillnitzer Weg 8 ein. Die Festpredigt hielt der Theologe Ernst Lange — nach ihm trägt das Haus heute seinen Namen. Hinweis: Diesen Namen trägt das Gebäude erst seit Kurzem; lange Zeit war es schlicht als »Gemeindehaus Heerstraße Nord« bekannt.",
+          "bibelstelle": null,
+          "bibellink": null
+        },
+        {
+          "id": "gg9",
+          "typ": "multiple-choice",
+          "schwierigkeit": 2,
+          "frage": "Was stellt das Triptychon über dem Altar in der Kirche Heerstraße Nord dar?",
+          "antworten": [
+            "Die Ausgießung des Heiligen Geistes an Pfingsten, gemalt von Siegmund Hahn",
+            "Die Kreuzigung Jesu (1950), gemalt von Arthur Degner, einem Schüler von Lovis Corinth",
+            "Das letzte Abendmahl Jesu mit seinen Jüngern, von einem Berliner Maler",
+            "Die Auferstehung Jesu am Ostermorgen, von Helge Warme wie in der Dorfkirche"
+          ],
+          "richtig": 1,
+          "erklaerung": "Das dreiteilige Altarbild zeigt die Kreuzigung Jesu und stammt von Arthur Degner (1875–1952), einem Schüler des berühmten Malers Lovis Corinth. Degner malte es 1950. Es hängt seit der Einweihung der Kirche 1976/78 über dem Altar und gehört zu den kunsthistorisch bemerkenswerten Stücken der Gemeinde.",
+          "bibelstelle": null,
+          "bibellink": null
+        },
+        {
+          "id": "gg10",
+          "typ": "multiple-choice",
+          "schwierigkeit": 3,
+          "frage": "Wann wurde der Förderverein »Dachreiter Gartenstadt-Kirche e.V.« gegründet?",
+          "antworten": [
+            "1971, anlässlich der Einweihung des Gemeindehauses Heerstraße Nord",
+            "1988; er finanzierte Restaurierungen, Orgelrenovierung und die Glockenanlage (2005)",
+            "1999, nach der Gemeindefusion zur Sicherung der Gartenstadt-Kirche",
+            "2005, anlässlich des Starts von Laib & Seele im Ernst-Lange-Haus"
+          ],
+          "richtig": 1,
+          "erklaerung": "Der Förderverein »Dachreiter Gartenstadt-Kirche e.V.« wurde 1988 gegründet und hat seitdem wichtige Projekte finanziert: die Restaurierung von Kanzel- und Altargemälden, die Orgelrenovierung, 2005 die Installation der automatischen Glockenanlage, 2021 die Erneuerung der Heizung und zuletzt die Außenrenovierung der Ziegelfugen. Ein Beispiel gelebten Ehrenamts.",
+          "bibelstelle": null,
+          "bibellink": null
         }
       ]
     },
@@ -1798,6 +2494,16 @@
           "text": "„Lasst uns Gutes tun an jedermann, allermeist aber an den Glaubensgenossen.“",
           "quelle": "Gal 6,10",
           "link": "https://www.die-bibel.de/bibel/BB/GAL.6.10-GAL.6.10"
+        },
+        {
+          "text": "„Die Gemeinde wuchs und wandelte in der Furcht des Herrn.\"",
+          "quelle": "Apg 9,31",
+          "link": "https://www.die-bibel.de/bibel/BB/ACT.9.31-ACT.9.31"
+        },
+        {
+          "text": "„Dient dem Herrn mit Freude!\"",
+          "quelle": "Ps 100,2",
+          "link": "https://www.die-bibel.de/bibel/BB/PSA.100.2-PSA.100.2"
         }
       ],
       "fragen": [
@@ -1910,6 +2616,54 @@
           ],
           "richtig": 1,
           "erklaerung": "Die 'Music and Spirit Night' findet alle 1–2 Monate freitags um 19 Uhr im Ernst-Lange-Haus statt — mit Band, Musik und einem Gast-Talk. Ein Format, das Gottesdienst und Konzert verbindet und auch Menschen anspricht, die sonst eher selten in die Kirche kommen.",
+          "bibelstelle": null,
+          "bibellink": null
+        },
+        {
+          "id": "ga8",
+          "typ": "multiple-choice",
+          "schwierigkeit": 1,
+          "frage": "Wie lautet die Adresse des Gemeindebüros?",
+          "antworten": [
+            "Nennhauser Damm 72, 13591 Berlin (Dorfkirche Alt-Staaken)",
+            "Am Kirchplatz 3a, 13591 Berlin (Kirche Gartenstadt)",
+            "Pillnitzer Weg 8, 13593 Berlin (Ernst-Lange-Haus)",
+            "Obstallee 22e, 13593 Berlin (Kirche Heerstraße Nord)"
+          ],
+          "richtig": 2,
+          "erklaerung": "Das Gemeindebüro ist im Ernst-Lange-Haus, Pillnitzer Weg 8, 13593 Berlin. Erreichbar montags bis freitags von 8 bis 13 Uhr, Tel. +49 30 322 944 510. Wer Kontakt aufnehmen möchte — z. B. wegen Taufe, Trauung, Bestattung oder einfach einem Gespräch — ist dort genau richtig.",
+          "bibelstelle": null,
+          "bibellink": null
+        },
+        {
+          "id": "ga9",
+          "typ": "multiple-choice",
+          "schwierigkeit": 2,
+          "frage": "Wann fusionierten die heutigen Gemeindeteile zur Evangelischen Kirchengemeinde Staaken?",
+          "antworten": [
+            "1990 mit der Wiedervereinigung, als Ost- und West-Berliner Gemeinden zusammenkamen",
+            "In zwei Schritten: 1999 und 2025 — erst zur »Ev. Kirchengemeinde zu Staaken«, dann mit der Gartenstadt",
+            "2005, anlässlich des 10-jährigen Bestehens von Laib & Seele im Ernst-Lange-Haus",
+            "2012, zum 30-jährigen Jubiläum der Partnerschaft mit der Gemeinde in Tansania"
+          ],
+          "richtig": 1,
+          "erklaerung": "1999 schlossen sich mehrere Gemeinden zur »Evangelischen Kirchengemeinde zu Staaken« zusammen. Daneben blieb die »Evangelische Kirchengemeinde Staaken-Gartenstadt« eigenständig. Seit 2025 gibt es nur noch eine gemeinsame Gemeinde: die »Evangelische Kirchengemeinde Staaken«. Solche Fusionen erfordern viel Vertrauen — und sind eine Chance zum Neuanfang.",
+          "bibelstelle": null,
+          "bibellink": null
+        },
+        {
+          "id": "ga10",
+          "typ": "multiple-choice",
+          "schwierigkeit": 3,
+          "frage": "Wie viele Kindertagesstätten trägt die Evangelische Kirchengemeinde Staaken?",
+          "antworten": [
+            "Zwei Kitas: Kita Arche Noah und Kita Staaken-Gartenstadt",
+            "Drei Kitas: Kita Arche Noah (mit Waldkindergruppe), Kita Regenbogen und Kita Staaken-Gartenstadt",
+            "Vier Kitas: Kita Arche Noah, Waldkindergruppe, Kita Regenbogen und Kita Staaken-Gartenstadt",
+            "Fünf Kitas mit verschiedenen pädagogischen Schwerpunkten in ganz Staaken"
+          ],
+          "richtig": 1,
+          "erklaerung": "Die Gemeinde trägt drei Kindertagesstätten: die Kita Arche Noah (zu der die Waldkindergruppe als besonderes Angebot gehört), die Kita Regenbogen und die Kita Staaken-Gartenstadt. Alle drei sind Teil des diakonischen Engagements der Gemeinde für Familien im Stadtteil — Kirche, die für die Jüngsten da ist.",
           "bibelstelle": null,
           "bibellink": null
         }

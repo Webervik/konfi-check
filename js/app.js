@@ -31,6 +31,9 @@ const MOTIVATIONEN = [
   { icon: '🌐', text: 'Mehr über unsere Gemeinden, Veranstaltungen und Gottesdienste findest du auf <a href="https://www.staaken-evangelisch.de" target="_blank" rel="noopener noreferrer" onclick="window.open(this.href,\'_blank\');return false;" style="color:#a8e6cf;font-weight:700;">staaken-evangelisch.de</a> 👋', isHtml: true },
   { icon: '📸', text: 'Folg uns auf Instagram — wir zeigen, was in der Gemeinde los ist: <a href="https://www.instagram.com/staakenevangelisch" target="_blank" rel="noopener noreferrer" onclick="window.open(this.href,\'_blank\');return false;" style="color:#a8e6cf;font-weight:700;">@staakenevangelisch</a>', isHtml: true },
   { icon: '📬', text: 'Bleib auf dem Laufenden: Melde dich für unseren <a href="https://forms.churchdesk.com/f/HyEu5z7zB" target="_blank" rel="noopener noreferrer" onclick="window.open(this.href,\'_blank\');return false;" style="color:#a8e6cf;font-weight:700;">Newsletter</a> an — damit du nichts verpasst.', isHtml: true },
+  { icon: '🔔', text: 'Wusstest du? Die Kirchenglocken läuten jeden Sonntag auch für dich — einfach mal hinhören.' },
+  { icon: '🤲', text: 'Glaube ist kein Wissen, sondern ein Vertrauen. Das kann man üben — z. B. im Gespräch mit anderen.' },
+  { icon: '📱', text: 'YouTube, Instagram, TikTok — und die Bibel. Vielleicht mal einen Vers ausprobieren?' },
 ];
 
 let state = {
