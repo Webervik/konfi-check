@@ -641,7 +641,7 @@
           "link": "https://www.die-bibel.de/bibel/BB/MRK.2.17-MRK.2.17"
         },
         {
-          "text": "„Kann aus Nazareth etwas Gutes kommen?“",
+          "text": "„Kann aus Nazareth etwas Gutes kommen?\" — Nathanael fragte das skeptisch, als Philippus ihm von Jesus erzählte. Die Antwort: „Komm und sieh!\"",
           "quelle": "Joh 1,46",
           "link": "https://www.die-bibel.de/bibel/BB/JHN.1.46-JHN.1.46"
         },
@@ -748,13 +748,13 @@
           "schwierigkeit": 3,
           "frage": "Welcher nichtchristliche Historiker erwähnt Jesus als historische Person?",
           "antworten": [
-            "Platon",
+            "Sueton",
             "Tacitus",
-            "Aristoteles",
+            "Plinius der Ältere",
             "Herodot"
           ],
           "richtig": 1,
-          "erklaerung": "Der römische Historiker Tacitus erwähnt um 116 n.Chr. die Hinrichtung Jesu unter Pilatus. Auch Flavius Josephus, ein jüdischer Historiker, nennt ihn. Tacitus schreibt in seinen Annalen: Christus wurde unter Tiberius durch den Prokurator Pontius Pilatus hingerichtet. Das ist eine der ältesten nichtchristlichen Erwähnungen Jesu.",
+          "erklaerung": "Der römische Historiker Tacitus schreibt um 116 n.Chr. in seinen »Annalen« (XV, 44): Christus wurde unter der Regierung des Tiberius durch den Prokurator Pontius Pilatus hingerichtet. Tacitus nennt die Christen nach ihm. Auch Flavius Josephus, ein jüdischer Historiker (ca. 93 n.Chr.), erwähnt Jesus — wenn auch in einem umstrittenen Textstück.",
           "bibelstelle": null,
           "bibellink": null
         },
@@ -810,10 +810,10 @@
           "id": "jh10",
           "typ": "multiple-choice",
           "schwierigkeit": 3,
-          "frage": "Was ist die Bergpredigt — und wo gibt es bei Lukas eine Parallelversion?",
+          "frage": "Was ist die Bergpredigt — und wie heißt die Parallelversion bei Lukas?",
           "antworten": [
             "Jesu Abschiedsrede an die Jünger (Joh 14–17); keine Parallele in anderen Evangelien",
-            "Jesu zentrale Lehrrede (Mt 5–7); bei Lukas gibt es eine kürzere »Feldrede« (Lk 6,17–49)",
+            "Jesu zentrale Lehrrede (Mt 5–7); die kürzere Parallelversion heißt »Feldrede« (Lk 6,17–49)",
             "Jesu erste Predigt in Nazareth (Lk 4); bei Matthäus als Synagogenpredigt erzählt",
             "Jesu Predigt im Tempel vor der Passion (Mt 21); bei Markus als Streitgespräch"
           ],
