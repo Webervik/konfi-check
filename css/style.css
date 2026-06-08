@@ -635,7 +635,7 @@ input.validation-fehler { border-color: #e74c3c !important; }
 /* RESPONSIVE */
 @media (max-width: 480px) {
   .themen-grid { grid-template-columns: repeat(4, 1fr); }
-  .gruppe-grid { grid-template-columns: 1fr; }
+  .gruppe-grid { grid-template-columns: repeat(5, 1fr); }
   .card { padding: 20px 16px; }
   .quiz-card { padding: 20px 16px; }
 }
