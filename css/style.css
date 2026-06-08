@@ -111,15 +111,15 @@ input[type="text"]:focus, select:focus { border-color: var(--primary); backgroun
 /* THEMEN GRID */
 .themen-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin-bottom: 24px;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 8px;
 }
 .thema-card {
   background: linear-gradient(135deg, #fff, #f8f9fa);
-  border: 3px solid #e0e0e0;
-  border-radius: var(--radius);
-  padding: 24px 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 10px 6px;
   text-align: center;
   cursor: pointer;
   transition: all 0.2s;
@@ -131,8 +131,22 @@ input[type="text"]:focus, select:focus { border-color: var(--primary); backgroun
   background: linear-gradient(135deg, #fff8e1, #fff3cd);
   box-shadow: 0 4px 16px rgba(243,156,18,0.25);
 }
-.thema-icon { font-size: 2.5rem; margin-bottom: 8px; }
-.thema-name { font-weight: 700; color: var(--dark); font-size: 1rem; }
+.thema-icon { font-size: 1.6rem; margin-bottom: 4px; }
+.thema-name { font-weight: 700; color: var(--dark); font-size: 0.72rem; line-height: 1.2; }
+
+/* Themen-Kategorien */
+.thema-gruppe {
+  margin-bottom: 10px;
+}
+.thema-gruppe-titel {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #888;
+  margin-bottom: 6px;
+  padding-left: 2px;
+}
 
 /* GRUPPE BUTTONS */
 .gruppe-grid {

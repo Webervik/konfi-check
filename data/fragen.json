@@ -1901,7 +1901,7 @@
           "id": "ga7",
           "typ": "multiple-choice",
           "schwierigkeit": 3,
-          "frage": "Welches besondere Gottesdienstformat bietet die Gemeinde 1–2× im Monat freitagabends an?",
+          "frage": "Welches besondere Gottesdienstformat bietet die Gemeinde alle 1–2 Monate freitagabends an?",
           "antworten": [
             "Gospel Night",
             "Music and Spirit Night",
@@ -1909,7 +1909,7 @@
             "Nightfever"
           ],
           "richtig": 1,
-          "erklaerung": "Die 'Music and Spirit Night' findet 1–2× im Monat freitags um 19 Uhr im Ernst-Lange-Haus statt — mit Band, Musik und einem Gast-Talk. Ein Format, das Gottesdienst und Konzert verbindet und auch Menschen anspricht, die sonst eher selten in die Kirche kommen.",
+          "erklaerung": "Die 'Music and Spirit Night' findet alle 1–2 Monate freitags um 19 Uhr im Ernst-Lange-Haus statt — mit Band, Musik und einem Gast-Talk. Ein Format, das Gottesdienst und Konzert verbindet und auch Menschen anspricht, die sonst eher selten in die Kirche kommen.",
           "bibelstelle": null,
           "bibellink": null
         }

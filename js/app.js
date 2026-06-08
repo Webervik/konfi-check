@@ -116,10 +116,21 @@ function initStart() {
     };
   });
 
-  // Themen aus JSON laden
-  const grid = document.getElementById('themen-grid');
-  grid.innerHTML = '';
-  window.fragenData.themen.forEach(t => {
+  // Themen aus JSON laden — gruppiert
+  const container = document.getElementById('themen-grid');
+  container.innerHTML = '';
+  container.style.display = 'block'; // Gruppen-Container, kein Grid auf oberster Ebene
+
+  const gruppen = [
+    { label: 'Jesus & Bibel', ids: ['pfingsten','bibel','jesus-historisch','jesus-christus','jesu-worte','jesu-taten','gleichnisse','gebote-bergpredigt'] },
+    { label: 'Kirche', ids: ['gemeinde','ev-kirche'] },
+    { label: 'Unsere Gemeinde', ids: ['gemeinde-geschichte','gemeinde-aktuell'] },
+    { label: 'Für Fortgeschrittene', ids: ['nur-fuer-profis'] },
+  ];
+
+  const alleThemen = window.fragenData.themen;
+
+  function themaCard(t) {
     const div = document.createElement('div');
     div.className = 'thema-card';
     div.dataset.thema = t.id;
@@ -128,7 +139,27 @@ function initStart() {
       document.querySelectorAll('.thema-card').forEach(c => c.classList.remove('selected'));
       div.classList.add('selected');
     };
-    grid.appendChild(div);
+    return div;
+  }
+
+  gruppen.forEach(gruppe => {
+    const themen = gruppe.ids.map(id => alleThemen.find(t => t.id === id)).filter(Boolean);
+    if (!themen.length) return;
+
+    const gruppeDiv = document.createElement('div');
+    gruppeDiv.className = 'thema-gruppe';
+
+    const titel = document.createElement('div');
+    titel.className = 'thema-gruppe-titel';
+    titel.textContent = gruppe.label;
+    gruppeDiv.appendChild(titel);
+
+    const grid = document.createElement('div');
+    grid.className = 'themen-grid';
+    themen.forEach(t => grid.appendChild(themaCard(t)));
+    gruppeDiv.appendChild(grid);
+
+    container.appendChild(gruppeDiv);
   });
 }
 
