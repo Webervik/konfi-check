@@ -80,9 +80,9 @@ function initStart() {
     const gruppe = document.querySelector('.gruppe-btn.selected')?.dataset.gruppe;
     const thema = document.querySelector('.thema-card.selected')?.dataset.thema;
 
-    if (!name) { shake('input-name'); return; }
-    if (!gruppe) { shake('gruppe-grid'); return; }
-    if (!thema) { shake('themen-grid'); return; }
+    if (!name) { shakeRed('input-name'); return; }
+    if (!gruppe) { shakeRed('gruppe-grid'); return; }
+    if (!thema) { shakeRed('themen-grid'); return; }
 
     state.name = name;
     state.gruppe = gruppe;
@@ -125,10 +125,9 @@ function initStart() {
   container.style.display = 'block'; // Gruppen-Container, kein Grid auf oberster Ebene
 
   const gruppen = [
-    { label: 'Jesus & Bibel', ids: ['pfingsten','bibel','jesus-historisch','jesus-christus','jesu-worte','jesu-taten','gleichnisse','gebote-bergpredigt'] },
-    { label: 'Kirche', ids: ['gemeinde','ev-kirche'] },
-    { label: 'Unsere Gemeinde', ids: ['gemeinde-geschichte','gemeinde-aktuell'] },
-    { label: 'Für Fortgeschrittene', ids: ['nur-fuer-profis'] },
+    { label: 'Glaubenswissen', ids: ['pfingsten','bibel','jesus-historisch','jesus-christus','jesu-worte','jesu-taten','gleichnisse','gebote-bergpredigt','evangelische-kirche','gemeinde'] },
+    { label: 'Gemeindekunde', ids: ['gemeinde-geschichte','gemeinde-aktuell'] },
+    { label: 'Sonstiges', ids: ['nur-fuer-profis'] },
   ];
 
   const alleThemen = window.fragenData.themen;
@@ -172,6 +171,18 @@ function shake(id) {
   el.offsetHeight;
   el.style.animation = 'shake 0.4s ease';
   setTimeout(() => el.style.animation = '', 400);
+}
+
+function shakeRed(id) {
+  const el = document.getElementById(id);
+  el.style.animation = 'none';
+  el.offsetHeight;
+  el.style.animation = 'shake 0.4s ease';
+  el.classList.add('validation-fehler');
+  setTimeout(() => el.style.animation = '', 400);
+  // Rot-Umrandung beim nächsten Klick/Eingabe entfernen
+  el.addEventListener('click', () => el.classList.remove('validation-fehler'), { once: true });
+  el.addEventListener('input', () => el.classList.remove('validation-fehler'), { once: true });
 }
 
 // ---- QUIZ ----

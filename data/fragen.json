@@ -209,7 +209,7 @@
     },
     {
       "id": "gemeinde",
-      "titel": "Gemeinde",
+      "titel": "Gemeinde (biblisch)",
       "icon": "🫀",
       "farbe": "#8e44ad",
       "fragen": [
@@ -2466,7 +2466,7 @@
     },
     {
       "id": "gemeinde-aktuell",
-      "titel": "Gemeinde – Aktuell",
+      "titel": "Gemeinde (Staaken)",
       "icon": "🕊️",
       "farbe": "#27ae60",
       "zitate": [
