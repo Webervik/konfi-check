@@ -48,7 +48,38 @@ let state = {
   letzterZitatIdx: -1,
   pauseCount: 0,       // zählt Pausen (Zitat oder Motivation)
   letzterMotivIdx: -1, // verhindert Wiederholung bei Motivationen
+  streak: 0,           // aktuelle Serie richtiger Antworten
+  bestStreak: 0,
 };
+
+// ---- SOUND ----
+let audioCtx = null;
+function spieleTon(typ) {
+  try {
+    audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+    if (typ === 'richtig') {
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(523.25, audioCtx.currentTime);
+      osc.frequency.setValueAtTime(783.99, audioCtx.currentTime + 0.1);
+      gain.gain.setValueAtTime(0.12, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.3);
+      osc.start();
+      osc.stop(audioCtx.currentTime + 0.3);
+    } else {
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(220, audioCtx.currentTime);
+      osc.frequency.setValueAtTime(160, audioCtx.currentTime + 0.12);
+      gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.25);
+      osc.start();
+      osc.stop(audioCtx.currentTime + 0.25);
+    }
+  } catch (e) { /* Audio nicht verfügbar */ }
+}
 
 // Antworten zufällig mischen, richtig-Index mitführen
 function mischeAntworten(frage) {
@@ -90,6 +121,8 @@ function initStart() {
     state.fragen = [...state.thema.fragen];
     state.aktuelleIndex = 0;
     state.punkte = 0;
+    state.streak = 0;
+    state.bestStreak = 0;
     state.antworten = [];
     state.pauseCount = 0;
     state.letzterZitatIdx = -1;
@@ -199,6 +232,14 @@ function renderFrage() {
   // Progress
   document.getElementById('progress-fill').style.width = `${(idx / total) * 100}%`;
   document.getElementById('quiz-meta').textContent = `${state.name} · ${state.thema.titel} · Frage ${idx + 1} von ${total}`;
+  const streakEl = document.getElementById('streak-anzeige');
+  if (streakEl) {
+    if (state.streak >= 2) {
+      streakEl.innerHTML = `<span class="streak-badge">🔥 ${state.streak}</span>`;
+    } else {
+      streakEl.innerHTML = '';
+    }
+  }
 
   // Nach jeder 2. Frage: abwechselnd Bibelzitat und Motivationsspruch
   if (idx > 0 && idx % 2 === 0 && !state.showZitat) {
@@ -290,10 +331,15 @@ function antwortGewählt(index, frage, grid) {
   const richtig = index === frage.richtig;
   if (richtig) {
     state.punkte++;
+    state.streak++;
+    state.bestStreak = Math.max(state.bestStreak, state.streak);
     btns[index].classList.add('richtig');
+    spieleTon('richtig');
   } else {
+    state.streak = 0;
     btns[index].classList.add('falsch');
     btns[frage.richtig].classList.add('richtig');
+    spieleTon('falsch');
   }
 
   // Erklärung einblenden
@@ -362,15 +408,23 @@ function showErgebnis() {
 
   let emoji = '😅';
   let text = 'Nicht schlecht — aber da geht noch was!';
-  if (prozent >= 85) { emoji = '🏆'; text = 'Hammer! Du kennst dich richtig gut aus!'; }
-  else if (prozent >= 60) { emoji = '🎉'; text = 'Gut gemacht! Weiter so!'; }
-  else if (prozent >= 40) { emoji = '💪'; text = 'Du hast eine Menge gelernt heute!'; }
+  let badge = '🌱 Newcomer';
+  if (prozent >= 85) { emoji = '🏆'; text = 'Hammer! Du kennst dich richtig gut aus!'; badge = '🏆 Bibel-Profi'; }
+  else if (prozent >= 60) { emoji = '🎉'; text = 'Gut gemacht! Weiter so!'; badge = '🎉 Konfi-Kenner'; }
+  else if (prozent >= 40) { emoji = '💪'; text = 'Du hast eine Menge gelernt heute!'; badge = '💪 Auf dem Weg'; }
 
   document.getElementById('ergebnis-emoji').textContent = emoji;
   document.getElementById('ergebnis-score').textContent = `${punkte} / ${total}`;
   document.getElementById('ergebnis-text').textContent = text;
+  const badgeEl = document.getElementById('ergebnis-badge');
+  if (badgeEl) {
+    badgeEl.textContent = badge;
+    if (state.bestStreak >= 4) {
+      badgeEl.textContent += ` · 🔥 Beste Serie: ${state.bestStreak}`;
+    }
+  }
 
-  if (prozent >= 70) starteKonfetti();
+  if (prozent >= 70) starteKonfetti(prozent >= 90 ? 'gold' : 'normal');
 
   // Score speichern
   speichereScore(state.name, state.gruppe, state.thema.id, punkte, total);
@@ -378,6 +432,8 @@ function showErgebnis() {
   document.getElementById('btn-nochmal').onclick = () => {
     state.aktuelleIndex = 0;
     state.punkte = 0;
+    state.streak = 0;
+    state.bestStreak = 0;
     state.fragen = [...state.thema.fragen];
     startQuiz();
   };
@@ -553,11 +609,14 @@ function initScoresTabs() {
 }
 
 // ---- KONFETTI ----
-function starteKonfetti() {
+function starteKonfetti(modus = 'normal') {
   const container = document.getElementById('konfetti');
   container.innerHTML = '';
-  const colors = ['#f39c12', '#e74c3c', '#8e44ad', '#27ae60', '#3498db', '#f1c40f'];
-  for (let i = 0; i < 80; i++) {
+  const colors = modus === 'gold'
+    ? ['#f1c40f', '#f39c12', '#ffd700', '#fff3cd']
+    : ['#f39c12', '#e74c3c', '#8e44ad', '#27ae60', '#3498db', '#f1c40f'];
+  const anzahl = modus === 'gold' ? 140 : 80;
+  for (let i = 0; i < anzahl; i++) {
     const piece = document.createElement('div');
     piece.className = 'konfetti-piece';
     piece.style.cssText = `

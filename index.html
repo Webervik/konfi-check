@@ -71,8 +71,9 @@
 
 <!-- ===== QUIZ SCREEN ===== -->
 <div id="screen-quiz" class="screen">
-  <div style="width:100%; max-width:600px;">
+  <div class="quiz-header">
     <div class="quiz-meta" id="quiz-meta"></div>
+    <div id="streak-anzeige"></div>
   </div>
   <div class="progress-bar-wrap">
     <div class="progress-bar-fill" id="progress-fill" style="width:0%"></div>
@@ -90,10 +91,14 @@
   <div class="card" style="text-align:center; max-width:420px;">
     <div class="ergebnis-emoji" id="ergebnis-emoji">🎉</div>
     <div class="ergebnis-score" id="ergebnis-score">0/7</div>
+    <div class="ergebnis-badge" id="ergebnis-badge"></div>
     <div class="ergebnis-text" id="ergebnis-text"></div>
     <div class="belohnung-box">
       🎁 <strong>Glückwunsch!</strong> Hol dir deinen Preis ab beim nächsten Gottesdienst:<br>
       Ein Kaffee oder ein Getränk deiner Wahl — samt Kuchen. ☕🍰
+    </div>
+    <div class="bookmark-hinweis">
+      🔖 <strong>Tipp:</strong> Speichere diese Seite als Lesezeichen und teile sie mit deinen Freunden — wer schafft mehr Punkte? 😉
     </div>
     <div class="ergebnis-actions">
       <button class="btn btn-primary" id="btn-scores-from-result">🏆 Scoreboard ansehen</button>

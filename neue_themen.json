@@ -1,0 +1,140 @@
+[
+  {
+    "id": "jesus-historisch",
+    "titel": "Jesus von Nazareth",
+    "icon": "🏛️",
+    "farbe": "#2980b9",
+    "zitate": [
+      {"text": "„Er kam nach Nazareth, wo er aufgewachsen war."", "quelle": "Lk 4,16", "link": "https://www.die-bibel.de/bibel/BB/LUK.4.16-LUK.4.16"},
+      {"text": "„Johannes taufte Jesus im Jordan."", "quelle": "Mk 1,9", "link": "https://www.die-bibel.de/bibel/BB/MRK.1.9-MRK.1.9"}
+    ],
+    "fragen": [
+      {"id":"jh1","typ":"multiple-choice","schwierigkeit":1,"frage":"Wo wurde Jesus geboren?","antworten":["Jerusalem","Nazareth","Bethlehem","Kafarnaum"],"richtig":2,"erklaerung":"Jesus wurde laut den Evangelien in Bethlehem geboren. Aufgewachsen ist er aber in Nazareth, weshalb er Jesus von Nazareth genannt wird.","bibelstelle":"Lk 2,4-7","bibellink":"https://www.die-bibel.de/bibel/BB/LUK.2.4-LUK.2.7"},
+      {"id":"jh2","typ":"multiple-choice","schwierigkeit":1,"frage":"Was war der Beruf von Jesu Pflegevater Josef?","antworten":["Fischer","Zimmermann","Schriftgelehrter","Händler"],"richtig":1,"erklaerung":"Josef war Zimmermann — ein Handwerker. Jesus wuchs in einfachen Verhältnissen auf, nicht in der Elite seiner Zeit.","bibelstelle":"Mt 13,55","bibellink":"https://www.die-bibel.de/bibel/BB/MAT.13.55-MAT.13.55"},
+      {"id":"jh3","typ":"multiple-choice","schwierigkeit":1,"frage":"Wer taufte Jesus im Jordan?","antworten":["Petrus","Herodes","Johannes der Täufer","Der Hohepriester"],"richtig":2,"erklaerung":"Johannes der Täufer taufte Jesus im Jordan — das war der Beginn von Jesu öffentlichem Wirken.","bibelstelle":"Mk 1,9","bibellink":"https://www.die-bibel.de/bibel/BB/MRK.1.9-MRK.1.9"},
+      {"id":"jh4","typ":"luecke","schwierigkeit":2,"frage":"Jesus wirkte vor allem in der Region ___ am See Gennesaret.","antworten":["Judäa","Samaria","Galiläa","Peräa"],"richtig":2,"erklaerung":"Der Großteil von Jesu Wirken fand in Galiläa statt. Erst gegen Ende zog er nach Jerusalem.","bibelstelle":"Mk 1,14","bibellink":"https://www.die-bibel.de/bibel/BB/MRK.1.14-MRK.1.14"},
+      {"id":"jh5","typ":"multiple-choice","schwierigkeit":2,"frage":"Unter welchem römischen Statthalter wurde Jesus hingerichtet?","antworten":["Herodes","Pontius Pilatus","Augustus","Tiberius"],"richtig":1,"erklaerung":"Pontius Pilatus war der römische Statthalter in Judäa und unterzeichnete das Todesurteil. Er ist auch in nichtchristlichen Quellen belegt.","bibelstelle":"Mt 27,24","bibellink":"https://www.die-bibel.de/bibel/BB/MAT.27.24-MAT.27.24"},
+      {"id":"jh6","typ":"multiple-choice","schwierigkeit":3,"frage":"Welcher nichtchristliche Historiker erwähnt Jesus als historische Person?","antworten":["Platon","Tacitus","Aristoteles","Herodot"],"richtig":1,"erklaerung":"Der römische Historiker Tacitus erwähnt um 116 n.Chr. die Hinrichtung Jesu unter Pilatus. Auch Flavius Josephus, ein jüdischer Historiker, nennt ihn.","bibelstelle":null,"bibellink":null},
+      {"id":"jh7","typ":"multiple-choice","schwierigkeit":3,"frage":"Was meinen Historiker mit der Jesusüberlieferung?","antworten":["Nur die vier Evangelien","Die Gesamtheit aller Quellen über das Leben Jesu","Jesu eigene Schriften","Die Briefe des Paulus"],"richtig":1,"erklaerung":"Jesus selbst schrieb nichts auf. Alles was wir wissen, stammt aus Überlieferungen. Historiker prüfen diese kritisch auf ihren Gehalt.","bibelstelle":null,"bibellink":null}
+    ]
+  },
+  {
+    "id": "jesus-christus",
+    "titel": "Jesus, der Christus",
+    "icon": "✝️",
+    "farbe": "#c0392b",
+    "zitate": [
+      {"text": "„Ich bin die Auferstehung und das Leben."", "quelle": "Joh 11,25", "link": "https://www.die-bibel.de/bibel/BB/JHN.11.25-JHN.11.25"},
+      {"text": "„Gott hat die Welt so sehr geliebt, dass er seinen einzigen Sohn gab."", "quelle": "Joh 3,16", "link": "https://www.die-bibel.de/bibel/BB/JHN.3.16-JHN.3.16"}
+    ],
+    "fragen": [
+      {"id":"jc1","typ":"luecke","schwierigkeit":1,"frage":"Christus ist kein Nachname, sondern ein Titel. Er bedeutet: der ___.","antworten":["Gerechte","Gesalbte","Auferstandene","Sohn Gottes"],"richtig":1,"erklaerung":"Christus ist die griechische Übersetzung von Messias — beides bedeutet der Gesalbte. Im AT wurden Könige und Priester gesalbt.","bibelstelle":null,"bibellink":null},
+      {"id":"jc2","typ":"multiple-choice","schwierigkeit":1,"frage":"Was feiern Christen an Ostern?","antworten":["Jesu Geburt","Die Auferstehung Jesu von den Toten","Die Himmelfahrt Jesu","Das letzte Abendmahl"],"richtig":1,"erklaerung":"Ostern ist das Herzstück des christlichen Glaubens: Gott hat Jesus vom Tod auferweckt. Das ist die Grundbotschaft — das Kerygma.","bibelstelle":"1 Kor 15,3-4","bibellink":"https://www.die-bibel.de/bibel/BB/1CO.15.3-1CO.15.4"},
+      {"id":"jc3","typ":"multiple-choice","schwierigkeit":2,"frage":"Was ist das Apostolische Glaubensbekenntnis?","antworten":["Eine Liste der 12 Apostel","Ein zentrales Bekenntnis zu Gott, Jesus und dem Heiligen Geist","Ein Brief des Paulus","Die Bergpredigt in Kurzform"],"richtig":1,"erklaerung":"Das Apostolische Glaubensbekenntnis fasst zusammen, woran Christen glauben — gegliedert in drei Teile: Gott der Vater, Jesus Christus, Heiliger Geist.","bibelstelle":null,"bibellink":null},
+      {"id":"jc4","typ":"multiple-choice","schwierigkeit":2,"frage":"Was meint Inkarnation?","antworten":["Die Auferstehung Jesu","Das Wort Gottes wird Mensch in Jesus","Die Taufe Jesu","Die Himmelfahrt"],"richtig":1,"erklaerung":"Inkarnation bedeutet Menschwerdung (lat. caro = Fleisch). Gott wird in Jesus Mensch — das ist eine der kühnsten Aussagen des christlichen Glaubens.","bibelstelle":"Joh 1,14","bibellink":"https://www.die-bibel.de/bibel/BB/JHN.1.14-JHN.1.14"},
+      {"id":"jc5","typ":"multiple-choice","schwierigkeit":2,"frage":"Was verkündigt Paulus als Kern des Evangeliums?","antworten":["Die Bergpredigt","Jesu Tod für unsere Sünden und seine Auferstehung","Das Vaterunser","Die Zehn Gebote"],"richtig":1,"erklaerung":"Paulus nennt es selbst: Christus ist für unsere Sünden gestorben und auferweckt worden. Das ist das Kerygma — die urchristliche Kernbotschaft.","bibelstelle":"1 Kor 15,3-4","bibellink":"https://www.die-bibel.de/bibel/BB/1CO.15.3-1CO.15.4"},
+      {"id":"jc6","typ":"multiple-choice","schwierigkeit":3,"frage":"Was bedeutet Soteriologie?","antworten":["Die Lehre von der Schöpfung","Die Lehre vom Heil und der Erlösung durch Christus","Die Lehre von der Kirche","Die Lehre von den letzten Dingen"],"richtig":1,"erklaerung":"Soteriologie (von griech. soteria = Rettung/Heil) fragt: Wie rettet Gott die Menschen durch Christus? Verschiedene Bilder: Versöhnung, Freikauf, Sieg über den Tod.","bibelstelle":null,"bibellink":null},
+      {"id":"jc7","typ":"multiple-choice","schwierigkeit":3,"frage":"Was meint der Begriff Kerygma?","antworten":["Ein griechisches Gebet","Die Verkündigung der Heilsbotschaft von Tod und Auferstehung Jesu","Ein frühchristlicher Lobgesang","Die Taufformel"],"richtig":1,"erklaerung":"Kerygma (griech. = Verkündigung) bezeichnet die urchristliche Botschaft: Jesus ist gestorben und auferstanden. Diese Botschaft ist nicht nur Bericht, sondern Anruf.","bibelstelle":null,"bibellink":null}
+    ]
+  },
+  {
+    "id": "jesu-worte",
+    "titel": "Jesu Worte",
+    "icon": "💬",
+    "farbe": "#16a085",
+    "zitate": [
+      {"text": "„Ich bin der Weg, die Wahrheit und das Leben."", "quelle": "Joh 14,6", "link": "https://www.die-bibel.de/bibel/BB/JHN.14.6-JHN.14.6"},
+      {"text": "„Kommt her zu mir, alle die ihr mühselig und beladen seid."", "quelle": "Mt 11,28", "link": "https://www.die-bibel.de/bibel/BB/MAT.11.28-MAT.11.28"},
+      {"text": "„Was ihr dem Geringsten meiner Geschwister getan habt, das habt ihr mir getan."", "quelle": "Mt 25,40", "link": "https://www.die-bibel.de/bibel/BB/MAT.25.40-MAT.25.40"}
+    ],
+    "fragen": [
+      {"id":"jw1","typ":"luecke","schwierigkeit":1,"frage":"„Liebt eure ___ und betet für die, die euch verfolgen." (Mt 5,44)","antworten":["Freunde","Feinde","Nächsten","Nachbarn"],"richtig":1,"erklaerung":"Liebt eure Feinde gehört zu den radikalsten Worten Jesu. Es steht im krassen Gegensatz zur Alltagslogik — und genau das macht es so herausfordernd.","bibelstelle":"Mt 5,44","bibellink":"https://www.die-bibel.de/bibel/BB/MAT.5.44-MAT.5.44"},
+      {"id":"jw2","typ":"multiple-choice","schwierigkeit":1,"frage":"Wie beginnt das Vaterunser?","antworten":["Gepriesen sei dein Name","Unser Vater im Himmel","Herr, erbarme dich","Ich glaube an Gott"],"richtig":1,"erklaerung":"Das Vaterunser ist das bekannteste Gebet der Christen, gelehrt von Jesus selbst. Es beginnt mit einer vertrauensvollen Anrede: Unser Vater.","bibelstelle":"Mt 6,9","bibellink":"https://www.die-bibel.de/bibel/BB/MAT.6.9-MAT.6.9"},
+      {"id":"jw3","typ":"luecke","schwierigkeit":2,"frage":"„Ich bin der ___, die Wahrheit und das Leben." (Joh 14,6)","antworten":["Hirte","Weg","Weinstock","Licht"],"richtig":1,"erklaerung":"Dieses Ich-bin-Wort aus dem Johannesevangelium ist eines von sieben. Jesus bezeichnet sich darin als den einzigen Zugang zu Gott dem Vater.","bibelstelle":"Joh 14,6","bibellink":"https://www.die-bibel.de/bibel/BB/JHN.14.6-JHN.14.6"},
+      {"id":"jw4","typ":"multiple-choice","schwierigkeit":2,"frage":"Was meinte Jesus mit: Wo zwei oder drei in meinem Namen versammelt sind...?","antworten":["Dass Gemeinde mindestens 3 Mitglieder braucht","Dass er mitten unter denen ist, die sich in seinem Namen treffen","Dass Gebet nur in der Gruppe wirkt","Dass die Apostel ihn vertreten"],"richtig":1,"erklaerung":"Jesus verspricht seine Gegenwart auch in der kleinsten Gemeinschaft. Kirche beginnt nicht erst mit Gebäude und Pfarrer.","bibelstelle":"Mt 18,20","bibellink":"https://www.die-bibel.de/bibel/BB/MAT.18.20-MAT.18.20"},
+      {"id":"jw5","typ":"multiple-choice","schwierigkeit":2,"frage":"Was antwortete Jesus auf die Frage nach dem wichtigsten Gebot?","antworten":["Die Zehn Gebote halten","Gott lieben und den Nächsten wie sich selbst","Täglich beten und fasten","In die Synagoge gehen"],"richtig":1,"erklaerung":"Das Doppelgebot der Liebe fasst für Jesus das ganze Gesetz zusammen: Gott lieben aus ganzem Herzen. Und den Nächsten wie sich selbst.","bibelstelle":"Mt 22,37-39","bibellink":"https://www.die-bibel.de/bibel/BB/MAT.22.37-MAT.22.39"},
+      {"id":"jw6","typ":"luecke","schwierigkeit":3,"frage":"„Was ihr dem ___ meiner Geschwister getan habt, das habt ihr mir getan." (Mt 25,40)","antworten":["Ältesten","Stärksten","Geringsten","Glücklichsten"],"richtig":2,"erklaerung":"Jesu Worte beim Weltgericht: Die entscheidende Frage ist nicht Frömmigkeit, sondern gelebte Nächstenliebe. Christus begegnet uns im Geringsten.","bibelstelle":"Mt 25,40","bibellink":"https://www.die-bibel.de/bibel/BB/MAT.25.40-MAT.25.40"},
+      {"id":"jw7","typ":"multiple-choice","schwierigkeit":3,"frage":"Was meint Jesus mit: Ich bin der wahre Weinstock (Joh 15,1)?","antworten":["Er lobt den Wein beim Abendmahl","Die Jünger sind auf ihn angewiesen wie Reben auf den Stock","Er ist der König Israels","Er vergleicht sich mit dem Tempel"],"richtig":1,"erklaerung":"Bild für die lebendige Verbindung: Nur wer in Jesus bleibt, trägt Frucht. Das ist eine der stärksten Aussagen über Spiritualität im NT.","bibelstelle":"Joh 15,1","bibellink":"https://www.die-bibel.de/bibel/BB/JHN.15.1-JHN.15.1"}
+    ]
+  },
+  {
+    "id": "jesu-taten",
+    "titel": "Jesu Taten",
+    "icon": "🙌",
+    "farbe": "#d35400",
+    "zitate": [
+      {"text": "„Er heilte viele, die an allerlei Krankheiten litten."", "quelle": "Mk 1,34", "link": "https://www.die-bibel.de/bibel/BB/MRK.1.34-MRK.1.34"},
+      {"text": "„Da wurde es ganz still."", "quelle": "Mk 4,39", "link": "https://www.die-bibel.de/bibel/BB/MRK.4.39-MRK.4.39"},
+      {"text": "„Dein Glaube hat dir geholfen."", "quelle": "Mk 10,52", "link": "https://www.die-bibel.de/bibel/BB/MRK.10.52-MRK.10.52"}
+    ],
+    "fragen": [
+      {"id":"jt1","typ":"multiple-choice","schwierigkeit":1,"frage":"Was war Jesu erstes Wunder laut dem Johannesevangelium?","antworten":["Er heilte einen Blinden","Er verwandelte Wasser in Wein","Er speiste 5000 Menschen","Er weckte Lazarus auf"],"richtig":1,"erklaerung":"Bei der Hochzeit zu Kana verwandelte Jesus Wasser in Wein — auf Bitten seiner Mutter Maria. Johannes nennt es das erste Zeichen Jesu.","bibelstelle":"Joh 2,1-11","bibellink":"https://www.die-bibel.de/bibel/BB/JHN.2.1-JHN.2.11"},
+      {"id":"jt2","typ":"multiple-choice","schwierigkeit":1,"frage":"Wie viele Menschen speiste Jesus laut der Überlieferung mit fünf Broten und zwei Fischen?","antworten":["500","1000","5000","12"],"richtig":2,"erklaerung":"Die Speisung der 5000 ist das einzige Wunder, das in allen vier Evangelien berichtet wird. Es erinnert an Gottes Speisung Israels in der Wüste.","bibelstelle":"Mk 6,41-44","bibellink":"https://www.die-bibel.de/bibel/BB/MRK.6.41-MRK.6.44"},
+      {"id":"jt3","typ":"multiple-choice","schwierigkeit":2,"frage":"Was tat Jesus bei der Stillung des Sturms?","antworten":["Er betete stundenlang","Er sprach den Wind und den See an und es wurde still","Er ließ die Jünger allein","Er schwamm ans Ufer"],"richtig":1,"erklaerung":"Jesus spricht den Sturm an wie eine Person: Schweig, sei still! Das Naturwunder zeigt seine Autorität — und stellt die Frage: Wer ist dieser?","bibelstelle":"Mk 4,39","bibellink":"https://www.die-bibel.de/bibel/BB/MRK.4.39-MRK.4.39"},
+      {"id":"jt4","typ":"multiple-choice","schwierigkeit":2,"frage":"Wen erweckte Jesus von den Toten, bevor er selbst starb?","antworten":["Petrus Schwiegermutter","Zachäus","Lazarus","Jairus"],"richtig":2,"erklaerung":"Lazarus war bereits vier Tage tot. Jesus weinte am Grab — und rief ihn zurück ins Leben. Johannes erzählt dies als Vorzeichen der Auferstehung.","bibelstelle":"Joh 11,43-44","bibellink":"https://www.die-bibel.de/bibel/BB/JHN.11.43-JHN.11.44"},
+      {"id":"jt5","typ":"multiple-choice","schwierigkeit":2,"frage":"Was meinte Jesus, wenn er bei Heilungen sagte: Dein Glaube hat dir geholfen?","antworten":["Dass Glaube magische Kräfte hat","Dass die Beziehung zu Gott heilt, nicht nur der Körper","Dass Ungläubige nicht geheilt werden","Dass Ärzte überflüssig sind"],"richtig":1,"erklaerung":"Die Verbindung von Heilung und Glaube ist kein Automatismus. Jesus sieht den ganzen Menschen — Körper, Seele, Beziehung zu Gott.","bibelstelle":"Mk 10,52","bibellink":"https://www.die-bibel.de/bibel/BB/MRK.10.52-MRK.10.52"},
+      {"id":"jt6","typ":"multiple-choice","schwierigkeit":3,"frage":"Welchen Begriff verwendet das Johannesevangelium statt Wunder?","antworten":["Wundertat","Zeichen","Kraftwerk","Heilung"],"richtig":1,"erklaerung":"Johannes nennt Jesu Wunder Zeichen (griech. semeia). Sie verweisen auf etwas — auf wer Jesus ist und was Gott durch ihn tut.","bibelstelle":"Joh 2,11","bibellink":"https://www.die-bibel.de/bibel/BB/JHN.2.11-JHN.2.11"},
+      {"id":"jt7","typ":"multiple-choice","schwierigkeit":3,"frage":"Was zeigt Jesu Tempelreinigung über ihn?","antworten":["Dass er Kaufleute hasste","Dass er prophetische Autorität beanspruchte und das Haus Gottes schützte","Dass er politischer Revolutionär war","Dass er den Opferkult abschaffen wollte"],"richtig":1,"erklaerung":"Die Tempelreinigung ist eine prophetische Zeichenhandlung. Jesus tritt auf wie die Propheten des AT — mit dem Anspruch, im Namen Gottes zu handeln.","bibelstelle":"Mk 11,15-17","bibellink":"https://www.die-bibel.de/bibel/BB/MRK.11.15-MRK.11.17"}
+    ]
+  },
+  {
+    "id": "gleichnisse",
+    "titel": "Gleichnisse Jesu",
+    "icon": "🌱",
+    "farbe": "#27ae60",
+    "zitate": [
+      {"text": "„Das Himmelreich gleicht einem Senfkorn."", "quelle": "Mt 13,31", "link": "https://www.die-bibel.de/bibel/BB/MAT.13.31-MAT.13.31"},
+      {"text": "„Wer Ohren hat, der höre."", "quelle": "Mk 4,9", "link": "https://www.die-bibel.de/bibel/BB/MRK.4.9-MRK.4.9"},
+      {"text": "„Der Vater sah ihn schon von weitem kommen und lief ihm entgegen."", "quelle": "Lk 15,20", "link": "https://www.die-bibel.de/bibel/BB/LUK.15.20-LUK.15.20"}
+    ],
+    "fragen": [
+      {"id":"gl1","typ":"multiple-choice","schwierigkeit":1,"frage":"Was ist ein Gleichnis?","antworten":["Ein Gebet in Versform","Eine bildhafte Geschichte, die eine geistliche Wahrheit zeigt","Eine historische Erzählung","Ein Zitat aus dem AT"],"richtig":1,"erklaerung":"Jesus erzählte Gleichnisse, um schwer fassbare Wahrheiten über das Reich Gottes in Alltagsbildern greifbar zu machen.","bibelstelle":null,"bibellink":null},
+      {"id":"gl2","typ":"multiple-choice","schwierigkeit":1,"frage":"Im Gleichnis vom Verlorenen Sohn: Was tat der Vater, als er den Sohn von weitem kommen sah?","antworten":["Er schloss die Tür","Er schickte Knechte entgegen","Er lief ihm entgegen und umarmte ihn","Er wartete schweigend"],"richtig":2,"erklaerung":"Das ist das Herz des Gleichnisses: Gott wartet nicht, bis wir ankommen — er läuft uns entgegen. Ein Bild für bedingungslose Liebe.","bibelstelle":"Lk 15,20","bibellink":"https://www.die-bibel.de/bibel/BB/LUK.15.20-LUK.15.20"},
+      {"id":"gl3","typ":"multiple-choice","schwierigkeit":1,"frage":"Wer half dem Überfallenen auf dem Weg von Jerusalem nach Jericho?","antworten":["Ein Priester","Ein Levit","Ein Samariter","Ein römischer Soldat"],"richtig":2,"erklaerung":"Der Barmherzige Samariter ist eine Provokation: Samariter galten als Feinde. Genau dieser hilft — nicht die Frommen. Wer ist mein Nächster?","bibelstelle":"Lk 10,33-34","bibellink":"https://www.die-bibel.de/bibel/BB/LUK.10.33-LUK.10.34"},
+      {"id":"gl4","typ":"luecke","schwierigkeit":2,"frage":"Im Gleichnis vom Sämann fiel ein Teil des Samens auf guten ___ und brachte reiche Frucht.","antworten":["Fels","Dornstrauch","Weg","Boden"],"richtig":3,"erklaerung":"Das erste Gleichnis bei Markus erklärt, warum Gottes Wort unterschiedlich aufgenommen wird. Der gute Boden steht für aufmerksames Hören und Leben.","bibelstelle":"Mk 4,8","bibellink":"https://www.die-bibel.de/bibel/BB/MRK.4.8-MRK.4.8"},
+      {"id":"gl5","typ":"multiple-choice","schwierigkeit":2,"frage":"Wofür steht das Gleichnis vom Schatz im Acker?","antworten":["Für kluges Wirtschaften","Dafür, dass das Reich Gottes alles andere übertrifft und jedes Opfer wert ist","Für die Bedeutung von Besitz","Für das Jüngste Gericht"],"richtig":1,"erklaerung":"Der Mann verkauft alles — freudig! — um das eine zu haben. Das Reich Gottes ist kein Verlust, sondern der größte Fund des Lebens.","bibelstelle":"Mt 13,44","bibellink":"https://www.die-bibel.de/bibel/BB/MAT.13.44-MAT.13.44"},
+      {"id":"gl6","typ":"multiple-choice","schwierigkeit":3,"frage":"Was ist der Hauptpunkt des Gleichnisses vom Verlorenen Sohn?","antworten":["Gehorsam gegenüber dem Vater","Die bedingungslose Liebe Gottes, der den Umkehrenden empfängt","Die Ungerechtigkeit des älteren Bruders","Die Folgen von Verschwendung"],"richtig":1,"erklaerung":"Das Gleichnis hat einen Kern: Gott ist wie dieser Vater — er empfängt jeden, der umkehrt. Die Reaktion des älteren Bruders zeigt, wie schwer das anzunehmen ist.","bibelstelle":"Lk 15,22-24","bibellink":"https://www.die-bibel.de/bibel/BB/LUK.15.22-LUK.15.24"},
+      {"id":"gl7","typ":"multiple-choice","schwierigkeit":3,"frage":"Was meint Reich Gottes in Jesu Gleichnissen?","antworten":["Ein zukünftiges politisches Israel","Gottes Herrschaft, die in Jesus beginnt und vollendet wird","Die Kirche als Institution","Das Paradies nach dem Tod"],"richtig":1,"erklaerung":"Reich Gottes (griech. basileia) meint Gottes Herrschaft — nicht ein Territorium. Sie beginnt mit Jesus, ist jetzt schon da und kommt zur Vollendung.","bibelstelle":"Mk 1,15","bibellink":"https://www.die-bibel.de/bibel/BB/MRK.1.15-MRK.1.15"}
+    ]
+  },
+  {
+    "id": "gebote-bergpredigt",
+    "titel": "Gebote & Bergpredigt",
+    "icon": "⛰️",
+    "farbe": "#7f8c8d",
+    "zitate": [
+      {"text": "„Selig, die arm sind vor Gott — ihnen gehört das Himmelreich."", "quelle": "Mt 5,3", "link": "https://www.die-bibel.de/bibel/BB/MAT.5.3-MAT.5.3"},
+      {"text": "„Ihr seid das Salz der Erde."", "quelle": "Mt 5,13", "link": "https://www.die-bibel.de/bibel/BB/MAT.5.13-MAT.5.13"},
+      {"text": "„Alles, was ihr von anderen erwartet: Tut es auch ihnen."", "quelle": "Mt 7,12", "link": "https://www.die-bibel.de/bibel/BB/MAT.7.12-MAT.7.12"}
+    ],
+    "fragen": [
+      {"id":"gb1","typ":"multiple-choice","schwierigkeit":1,"frage":"Wie lautet das erste der Zehn Gebote?","antworten":["Du sollst nicht töten","Du sollst nicht lügen","Du sollst keine anderen Götter haben neben mir","Halte den Sabbat heilig"],"richtig":2,"erklaerung":"Das erste Gebot ist die Grundlage aller anderen: Es geht um die ausschließliche Bindung an Gott. Alles andere folgt daraus.","bibelstelle":"Ex 20,3","bibellink":"https://www.die-bibel.de/bibel/BB/EXO.20.3-EXO.20.3"},
+      {"id":"gb2","typ":"luecke","schwierigkeit":1,"frage":"„Ihr seid das ___ der Erde" und „Ihr seid das ___ der Welt." (Mt 5,13-14)","antworten":["Brot und Wasser","Salz und Licht","Feuer und Weg","Fundament und Dach"],"richtig":1,"erklaerung":"Zwei Bilder für die Berufung der Christen: Salz würzt und konserviert — Licht erhellt und führt. Beide haben eine Funktion für andere.","bibelstelle":"Mt 5,13-14","bibellink":"https://www.die-bibel.de/bibel/BB/MAT.5.13-MAT.5.14"},
+      {"id":"gb3","typ":"multiple-choice","schwierigkeit":1,"frage":"Wie beginnen die Seligpreisungen in der Bergpredigt?","antworten":["Gelobt sei...","Selig sind...","Gesegnet werden...","Heil dem, der..."],"richtig":1,"erklaerung":"Selig sind... — Jesus erklärt Menschen für gesegnet, die die Welt für Versager hält: die Trauernden, die Sanftmütigen, die Hungernden nach Gerechtigkeit.","bibelstelle":"Mt 5,3","bibellink":"https://www.die-bibel.de/bibel/BB/MAT.5.3-MAT.5.3"},
+      {"id":"gb4","typ":"multiple-choice","schwierigkeit":2,"frage":"Was meinte Jesus mit: Ihr habt gehört... ich aber sage euch?","antworten":["Er kritisiert das AT als falsch","Er vertieft und radikalisiert die Gebote über das äußere Tun hinaus","Er ersetzt Mose durch eigene Regeln","Er spricht nur zu den Aposteln"],"richtig":1,"erklaerung":"Jesus verschärft die Gebote: Nicht nur nicht töten — sondern keinen Hass im Herzen. Er geht es bis zur Wurzel. Das zeigt seine prophetische Autorität.","bibelstelle":"Mt 5,21-22","bibellink":"https://www.die-bibel.de/bibel/BB/MAT.5.21-MAT.5.22"},
+      {"id":"gb5","typ":"luecke","schwierigkeit":2,"frage":"Die Goldene Regel: „Alles, was ihr von anderen erwartet, das ___ auch ihnen." (Mt 7,12)","antworten":["schuldet","gebt","tut","sagt"],"richtig":2,"erklaerung":"Die Goldene Regel steht am Schluss der Bergpredigt. Jesus macht sie zum Herzstück christlicher Ethik.","bibelstelle":"Mt 7,12","bibellink":"https://www.die-bibel.de/bibel/BB/MAT.7.12-MAT.7.12"},
+      {"id":"gb6","typ":"multiple-choice","schwierigkeit":3,"frage":"Welches Gebot nennt Jesus das wichtigste von allen?","antworten":["Den Sabbat heiligen","Nicht töten","Gott lieben und den Nächsten wie sich selbst","Die Eltern ehren"],"richtig":2,"erklaerung":"Das Doppelgebot der Liebe fasst für Jesus das ganze Gesetz zusammen. Jesus zitiert Dtn 6,5 und Lev 19,18 und verbindet sie.","bibelstelle":"Mt 22,37-39","bibellink":"https://www.die-bibel.de/bibel/BB/MAT.22.37-MAT.22.39"},
+      {"id":"gb7","typ":"multiple-choice","schwierigkeit":3,"frage":"Was meint Luther mit: Du sollst Gott über alle Dinge fürchten, lieben und vertrauen?","antworten":["Eine Ergänzung zum Bibeltext","Die Auslegung des ersten Gebots im Kleinen Katechismus","Ein Gebet aus dem Mittelalter","Einen Satz aus der Bergpredigt"],"richtig":1,"erklaerung":"Luther erklärte alle Gebote im Kleinen Katechismus mit dem Dreiklang fürchten, lieben, vertrauen. Das erste Gebot ist für ihn der Schlüssel zu allem anderen.","bibelstelle":null,"bibellink":null}
+    ]
+  },
+  {
+    "id": "evangelische-kirche",
+    "titel": "Ev. Kirche & Reformation",
+    "icon": "🔨",
+    "farbe": "#8e44ad",
+    "zitate": [
+      {"text": "„Hier stehe ich, ich kann nicht anders. Gott helfe mir."", "quelle": "Martin Luther, Worms 1521", "link": "https://www.die-bibel.de/bibel/BB/ROM.1.17-ROM.1.17"},
+      {"text": "„Der Gerechte wird aus Glauben leben."", "quelle": "Röm 1,17", "link": "https://www.die-bibel.de/bibel/BB/ROM.1.17-ROM.1.17"},
+      {"text": "„Allein die Gnade, allein der Glaube, allein die Schrift."", "quelle": "Reformatorische Grundprinzipien", "link": "https://www.die-bibel.de/bibel/BB/EPH.2.8-EPH.2.8"}
+    ],
+    "fragen": [
+      {"id":"ek1","typ":"multiple-choice","schwierigkeit":1,"frage":"Wann veröffentlichte Martin Luther seine 95 Thesen?","antworten":["1415","1517","1555","1648"],"richtig":1,"erklaerung":"Am 31. Oktober 1517 — heute evangelischer Reformationstag — sandte Luther seine 95 Thesen an den Bischof. Sie entzündeten die Reformation.","bibelstelle":null,"bibellink":null},
+      {"id":"ek2","typ":"multiple-choice","schwierigkeit":1,"frage":"Was kritisierte Luther mit seinen 95 Thesen hauptsächlich?","antworten":["Den Papst persönlich","Den Ablasshandel — Sünden gegen Geld erlassen","Die lateinische Bibel","Die Klöster"],"richtig":1,"erklaerung":"Der Ablasshandel versprach Erlass von Sündenbußen gegen Geld. Für Luther war das eine Verfälschung des Evangeliums: Gnade ist nicht käuflich.","bibelstelle":null,"bibellink":null},
+      {"id":"ek3","typ":"luecke","schwierigkeit":2,"frage":"Das reformatorische Grundprinzip: Allein die ___, allein die Gnade, allein der Glaube.","antworten":["Kirche","Vernunft","Schrift","Tradition"],"richtig":2,"erklaerung":"Sola scriptura — allein die Schrift ist Maßstab. Dazu: sola gratia (allein die Gnade) und sola fide (allein der Glaube). Diese drei Solas kennzeichnen evangelisches Denken.","bibelstelle":"Röm 1,17","bibellink":"https://www.die-bibel.de/bibel/BB/ROM.1.17-ROM.1.17"},
+      {"id":"ek4","typ":"multiple-choice","schwierigkeit":2,"frage":"Welche Sakramente kennt die evangelische Kirche?","antworten":["Sieben wie die katholische Kirche","Drei: Taufe, Abendmahl, Beichte","Zwei: Taufe und Abendmahl","Eines: nur das Abendmahl"],"richtig":2,"erklaerung":"Luther reduzierte die Sakramente auf zwei: Taufe und Abendmahl — weil nur diese von Jesus selbst eingesetzt wurden und mit einem äußeren Zeichen verbunden sind.","bibelstelle":null,"bibellink":null},
+      {"id":"ek5","typ":"multiple-choice","schwierigkeit":2,"frage":"Was ist die EKD?","antworten":["Eine ökumenische Weltorganisation","Der Zusammenschluss evangelischer Landeskirchen in Deutschland","Die evangelische Kirche in der DDR","Ein Bibelübersetzungswerk"],"richtig":1,"erklaerung":"Die Evangelische Kirche in Deutschland (EKD) wurde 1948 gegründet. Sie ist der Dachverband von 20 evangelischen Landeskirchen — darunter die EKBO in Berlin-Brandenburg.","bibelstelle":null,"bibellink":null},
+      {"id":"ek6","typ":"multiple-choice","schwierigkeit":3,"frage":"Was besagt der Augsburger Religionsfrieden von 1555?","antworten":["Die Reformation wurde verboten","Jeder Fürst bestimmt die Religion seines Landes","Alle Deutschen wurden evangelisch","Katholiken und Protestanten einigten sich auf eine gemeinsame Bibel"],"richtig":1,"erklaerung":"Cuius regio, eius religio — wessen Land, dessen Religion. Das war ein Kompromiss: Religionsfreiheit für Fürsten, nicht für einzelne Bürger. Erst 1648 kam mehr Freiheit.","bibelstelle":null,"bibellink":null},
+      {"id":"ek7","typ":"multiple-choice","schwierigkeit":3,"frage":"Was meint das Priestertum aller Gläubigen bei Luther?","antworten":["Alle Christen sollen Pfarrer werden","Jeder Getaufte hat unmittelbaren Zugang zu Gott ohne priesterliche Vermittlung","Frauen dürfen predigen","Die Beichte ist abgeschafft"],"richtig":1,"erklaerung":"Luther: Durch die Taufe sind alle Christen Priester. Niemand braucht einen Mittler zwischen sich und Gott. Das hat die Kirchenstruktur revolutioniert.","bibelstelle":"1 Petr 2,9","bibellink":"https://www.die-bibel.de/bibel/BB/1PE.2.9-1PE.2.9"}
+    ]
+  }
+]
