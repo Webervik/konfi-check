@@ -1532,17 +1532,17 @@
         },
         {
           "id": "gl4",
-          "typ": "luecke",
+          "typ": "multiple-choice",
           "schwierigkeit": 2,
-          "frage": "Im Gleichnis vom Sämann fiel ein Teil auf guten ___ und brachte reiche Frucht.",
+          "frage": "Was unterscheidet im Gleichnis vom Sämann die vier Stellen, auf die der Same fällt?",
           "antworten": [
-            "Fels",
-            "Dornstrauch",
-            "Weg",
-            "Boden"
+            "Die Menge des ausgesäten Samens",
+            "Die Beschaffenheit des Bodens, auf den der Same fällt",
+            "Die Tageszeit der Aussaat",
+            "Die Herkunft des verwendeten Samens"
           ],
-          "richtig": 3,
-          "erklaerung": "Der gute Boden steht für aufmerksames Hören und Leben. Das Gleichnis erklärt, warum Gottes Wort unterschiedlich aufgenommen wird. Das Gleichnis gilt für jeden, der predigt oder lehrt: Nicht der Sämann versagt, wenn Samen nicht aufgeht — der Boden entscheidet. Das nimmt Druck weg.",
+          "richtig": 1,
+          "erklaerung": "Der Same ist überall derselbe — Gottes Wort. Entscheidend ist der Boden: Weg, Fels, Dornen oder guter Boden stehen für unterschiedliche Arten, wie Menschen auf das Wort reagieren. Nicht der Sämann versagt, wenn Samen nicht aufgeht — der Boden entscheidet. Das nimmt Druck weg.",
           "bibelstelle": "Mk 4,8",
           "bibellink": "https://www.die-bibel.de/bibel/BB/MRK.4.8-MRK.4.8"
         },
