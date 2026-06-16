@@ -326,7 +326,7 @@ input.validation-fehler { border-color: #e74c3c !important; }
   transform: translateX(4px);
 }
 .antwort-btn:focus { outline: none; }
-.antwort-btn:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+.antwort-btn:focus-visible { outline: none; }
 .antwort-btn .antwort-label {
   width: 32px;
   height: 32px;
