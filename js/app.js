@@ -20,7 +20,7 @@ const MOTIVATIONEN = [
   { icon: '📖', text: 'Fun Fact: Die Bibel ist das meistgedruckte Buch der Welt — und enthält noch viel mehr als diese 7 Fragen.' },
   { icon: '⛪', text: 'Im Gottesdienst bist du immer herzlich willkommen. Einfach vorbeikommen — du kennst den Weg. 🙂' },
   { icon: '📚', text: 'In der Bibel steckt mehr Spannung als in so mancher Serie. Einfach mal reinlesen — sie ist kostenlos auf die-bibel.de.' },
-  { icon: '🎶', text: 'Übrigens: Alles, worüber ihr hier gequizzt habt, gibt’s am Sonntag im Gottesdienst noch einmal mit Musik.' },
+  { icon: '🎶', text: 'Quiz beendet, aber noch Fragen? Genau dafür ist Kirche da. Sonntags, mit Musik.' },
   { icon: '✨', text: 'Ein Vers, der heute noch nichts sagt, kann morgen genau das Richtige sein.' },
   { icon: '🔗', text: 'Die Bibelstellen im Quiz lassen sich alle direkt nachschlagen — einfach auf den Link klicken.' },
   { icon: '🤝', text: 'Kirche ist kein Gebäude. Kirche ist, wenn Menschen füreinander da sind — lasst uns dazu zusammenkommen, z. B. in einem Gottesdienst.' },
@@ -62,9 +62,11 @@ function spieleTon(typ) {
     osc.connect(gain);
     gain.connect(audioCtx.destination);
     if (typ === 'richtig') {
+      // Tonhöhe steigt mit der Serie — das Ohr merkt den Lauf
+      const shift = Math.pow(2, Math.min(Math.max(state.streak - 1, 0), 9) / 12);
       osc.type = 'sine';
-      osc.frequency.setValueAtTime(523.25, audioCtx.currentTime);
-      osc.frequency.setValueAtTime(783.99, audioCtx.currentTime + 0.1);
+      osc.frequency.setValueAtTime(523.25 * shift, audioCtx.currentTime);
+      osc.frequency.setValueAtTime(783.99 * shift, audioCtx.currentTime + 0.1);
       gain.gain.setValueAtTime(0.12, audioCtx.currentTime);
       gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.3);
       osc.start();
@@ -79,6 +81,101 @@ function spieleTon(typ) {
       osc.stop(audioCtx.currentTime + 0.25);
     }
   } catch (e) { /* Audio nicht verfügbar */ }
+}
+
+// Fanfare bei voller Punktzahl (C-Dur-Arpeggio)
+function spieleFanfare() {
+  try {
+    audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
+    const noten = [523.25, 659.25, 783.99, 1046.5];
+    noten.forEach((freq, i) => {
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.type = 'triangle';
+      const t = audioCtx.currentTime + i * 0.16;
+      const laenge = i === noten.length - 1 ? 0.7 : 0.22;
+      osc.frequency.setValueAtTime(freq, t);
+      gain.gain.setValueAtTime(0.0001, t);
+      gain.gain.linearRampToValueAtTime(0.14, t + 0.02);
+      gain.gain.exponentialRampToValueAtTime(0.001, t + laenge);
+      osc.start(t);
+      osc.stop(t + laenge);
+    });
+  } catch (e) { /* Audio nicht verfügbar */ }
+}
+
+// Konfetti-Puff direkt am Element (bei richtiger Antwort)
+function puffEffekt(el) {
+  const rect = el.getBoundingClientRect();
+  const colors = ['#f39c12', '#27ae60', '#3498db', '#e74c3c', '#f1c40f'];
+  for (let i = 0; i < 10; i++) {
+    const p = document.createElement('div');
+    p.className = 'puff-piece';
+    const winkel = Math.random() * 2 * Math.PI;
+    const dist = 30 + Math.random() * 50;
+    p.style.cssText = `left:${rect.left + rect.width / 2}px; top:${rect.top + rect.height / 2}px; background:${colors[i % colors.length]}; --dx:${Math.cos(winkel) * dist}px; --dy:${Math.sin(winkel) * dist}px;`;
+    document.body.appendChild(p);
+    setTimeout(() => p.remove(), 700);
+  }
+}
+
+// Kurze Vollbild-Einblendung bei Serien-Meilensteinen
+function zeigeStreakOverlay(text) {
+  const div = document.createElement('div');
+  div.className = 'streak-overlay';
+  div.textContent = text;
+  document.body.appendChild(div);
+  setTimeout(() => div.remove(), 1100);
+}
+
+// Thema des Tages — deterministisch aus dem Datum
+function themaDesTagesId() {
+  const d = new Date().toISOString().slice(0, 10);
+  let h = 0;
+  for (const c of d) h = (h * 31 + c.charCodeAt(0)) % 997;
+  const themen = window.fragenData.themen;
+  return themen[h % themen.length].id;
+}
+
+// Konfi-Level aus allen gesammelten Sternen
+const LEVELS = [
+  { min: 0, name: 'Neuling' },
+  { min: 3, name: 'Entdecker' },
+  { min: 6, name: 'Auf dem Weg' },
+  { min: 10, name: 'Bibelkenner' },
+  { min: 15, name: 'Konfi-Ass' },
+  { min: 21, name: 'Gemeinde-Guru' },
+  { min: 28, name: 'Bibel-Profi' },
+  { min: 35, name: 'Legende von Staaken' },
+];
+function gesamtSterne() {
+  const best = ladeLokal().bestScores || {};
+  return Object.values(best).reduce((s, p) => s + sterneFuerProzent(p), 0);
+}
+function levelFuerSterne(sterne) {
+  let idx = LEVELS.length - 1;
+  while (idx > 0 && sterne < LEVELS[idx].min) idx--;
+  return idx;
+}
+function renderLevelBox() {
+  const el = document.getElementById('level-box');
+  if (!el) return;
+  const sterne = gesamtSterne();
+  const lvlIdx = levelFuerSterne(sterne);
+  const lvl = LEVELS[lvlIdx];
+  const next = LEVELS[lvlIdx + 1];
+  let pct = 100;
+  let hinweis = 'Höchstes Level erreicht! 🎉';
+  if (next) {
+    pct = Math.round(((sterne - lvl.min) / (next.min - lvl.min)) * 100);
+    hinweis = `Noch ${next.min - sterne} ⭐ bis „${next.name}"`;
+  }
+  el.innerHTML = `
+    <div class="level-zeile"><span>Level ${lvlIdx + 1} · <strong>${lvl.name}</strong></span><span>${sterne} ⭐</span></div>
+    <div class="level-bar"><div class="level-fill" style="width:${Math.max(pct, 4)}%"></div></div>
+    <div class="level-hinweis">${hinweis}</div>`;
 }
 
 // Antworten zufällig mischen, richtig-Index mitführen
@@ -170,6 +267,7 @@ function initStart() {
   // Themen aus JSON laden — gruppiert
   renderThemenGrid();
   renderStreakBanner();
+  renderLevelBox();
 }
 
 function renderThemenGrid() {
@@ -186,6 +284,8 @@ function renderThemenGrid() {
   const alleThemen = window.fragenData.themen;
   const bestScores = ladeLokal().bestScores || {};
 
+  const tagesId = themaDesTagesId();
+
   function themaCard(t) {
     const div = document.createElement('div');
     div.className = 'thema-card';
@@ -193,7 +293,13 @@ function renderThemenGrid() {
     const best = bestScores[t.id];
     const n = best !== undefined ? sterneFuerProzent(best) : 0;
     const sterne = '<span class="stern-voll">' + '★'.repeat(n) + '</span>' + '☆'.repeat(3 - n);
-    div.innerHTML = `<div class="thema-icon">${t.icon}</div><div class="thema-name">${t.titel}</div><div class="thema-sterne">${sterne}</div>`;
+    let ribbon = '';
+    if (t.id === tagesId) {
+      div.classList.add('thema-des-tages');
+      ribbon = '<div class="tages-ribbon">⭐ Heute</div>';
+    }
+    if (n === 2) div.classList.add('fast-fertig'); // Zeigarnik: ★★☆ ruft nach dem dritten Stern
+    div.innerHTML = `${ribbon}<div class="thema-icon">${t.icon}</div><div class="thema-name">${t.titel}</div><div class="thema-sterne">${sterne}</div>`;
     if (t.farbe) {
       div.style.background = `linear-gradient(160deg, #ffffff 50%, ${t.farbe}26)`;
     }
@@ -226,7 +332,7 @@ function renderThemenGrid() {
 
   const legende = document.createElement('div');
   legende.className = 'sterne-legende';
-  legende.innerHTML = 'Sammle Sterne pro Thema: <span class="stern-voll">★</span> ab 50&nbsp;% · <span class="stern-voll">★★</span> ab 75&nbsp;% · <span class="stern-voll">★★★</span> bei voller Punktzahl';
+  legende.innerHTML = 'Sammle Sterne pro Thema: <span class="stern-voll">★</span> ab 50&nbsp;% · <span class="stern-voll">★★</span> ab 75&nbsp;% · <span class="stern-voll">★★★</span> bei voller Punktzahl<br>⭐ Heute = Thema des Tages';
   container.appendChild(legende);
 }
 
@@ -323,6 +429,27 @@ function renderFrage() {
   kartenAnimation(card);
   card.innerHTML = '';
 
+  // Finale: letzte Frage golden markieren
+  card.classList.toggle('letzte-frage', idx === total - 1);
+  if (idx === total - 1) {
+    const lf = document.createElement('div');
+    lf.className = 'letzte-frage-banner';
+    lf.textContent = '🏁 Letzte Frage!';
+    card.appendChild(lf);
+  }
+
+  // Selbst-Wettbewerb: Rekord beim Einstieg zeigen
+  if (idx === 0) {
+    const rekord = (ladeLokal().bestScores || {})[state.thema.id];
+    if (rekord !== undefined) {
+      const r = document.createElement('div');
+      r.className = 'rekord-hinweis';
+      const rPunkte = Math.round(rekord / 100 * total);
+      r.innerHTML = `🏅 Dein Rekord: <strong>${rPunkte}/${total}</strong> — schlägst du dich selbst?`;
+      card.appendChild(r);
+    }
+  }
+
   // Schwierigkeit
   const sw = document.createElement('div');
   sw.className = `schwierigkeit s${frageAnzeige.schwierigkeit}`;
@@ -398,11 +525,21 @@ function antwortGewählt(index, frage, grid) {
     state.bestStreak = Math.max(state.bestStreak, state.streak);
     btns[index].classList.add('richtig');
     spieleTon('richtig');
+    puffEffekt(btns[index]);
+    if (navigator.vibrate) navigator.vibrate(35);
+    if (state.streak === 3) zeigeStreakOverlay('✨ 3er-Serie!');
+    else if (state.streak === 5) zeigeStreakOverlay('🔥 Lauf!');
+    else if (state.streak === 8) zeigeStreakOverlay('⚡ Nicht zu stoppen!');
   } else {
     state.streak = 0;
     btns[index].classList.add('falsch');
     btns[frage.richtig].classList.add('richtig');
     spieleTon('falsch');
+    if (navigator.vibrate) navigator.vibrate([30, 40, 30]);
+    const qc = document.getElementById('quiz-card');
+    qc.classList.remove('shake-falsch');
+    void qc.offsetWidth;
+    qc.classList.add('shake-falsch');
   }
 
   // Erklärung einblenden
@@ -505,7 +642,9 @@ function showErgebnis() {
   const altProzent = lokal.bestScores[state.thema.id] || 0;
   const alteSterne = sterneFuerProzent(altProzent);
   const neueSterne = sterneFuerProzent(prozent);
+  const sterneVorher = Object.values(lokal.bestScores).reduce((s, p) => s + sterneFuerProzent(p), 0);
   if (prozent > altProzent) lokal.bestScores[state.thema.id] = prozent;
+  const sterneNachher = Object.values(lokal.bestScores).reduce((s, p) => s + sterneFuerProzent(p), 0);
 
   const heute = new Date().toISOString().slice(0, 10);
   const gestern = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
@@ -517,6 +656,9 @@ function showErgebnis() {
   speichereLokal(lokal);
   renderThemenGrid();
   renderStreakBanner();
+  renderLevelBox();
+
+  if (prozent === 100) spieleFanfare();
 
   // Goal-Gradient: "fast geschafft" + neue Sterne feiern
   const nextEl = document.getElementById('ergebnis-next');
@@ -529,8 +671,16 @@ function showErgebnis() {
     ];
     const naechste = stufen.find(s => prozent < s.prozent);
     let html = '';
+    const lvlVorher = levelFuerSterne(sterneVorher);
+    const lvlNachher = levelFuerSterne(sterneNachher);
+    if (lvlNachher > lvlVorher) {
+      html += `<div class="level-up">🚀 Level-Aufstieg! Du bist jetzt <strong>Level ${lvlNachher + 1} · ${LEVELS[lvlNachher].name}</strong></div>`;
+    }
     if (neueSterne > alteSterne) {
       html += `<div class="neue-sterne">✨ Neuer Rekord in diesem Thema: ${'★'.repeat(neueSterne)}${'☆'.repeat(3 - neueSterne)}</div>`;
+    }
+    if (state.thema.id === themaDesTagesId()) {
+      html += `<div class="tages-bonus">⭐ Thema des Tages gespielt — schau morgen wieder rein, dann wartet ein neues!</div>`;
     }
     if (naechste) {
       const fehlend = Math.ceil(naechste.prozent / 100 * total) - punkte;
