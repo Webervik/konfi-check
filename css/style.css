@@ -111,7 +111,7 @@ input[type="text"]:focus, select:focus { border-color: var(--primary); backgroun
 /* THEMEN GRID */
 .themen-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 6px;
   margin-bottom: 6px;
 }
@@ -129,6 +129,8 @@ input[type="text"]:focus, select:focus { border-color: var(--primary); backgroun
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  min-width: 0;
+  overflow: hidden;
 }
 .thema-card:hover { border-color: var(--primary); transform: translateY(-2px); }
 .thema-card.selected {
@@ -161,14 +163,21 @@ input.validation-fehler { border-color: #e74c3c !important; }
 /* GRUPPE BUTTONS */
 .gruppe-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 4px;
   margin-bottom: 8px;
   width: 100%;
   box-sizing: border-box;
 }
 @media (max-width: 480px) {
-  .gruppe-grid { grid-template-columns: repeat(5, 1fr); gap: 3px; }
+  .gruppe-grid { gap: 3px; }
+  .gruppe-btn {
+    font-size: 0.52rem;
+    aspect-ratio: auto;
+    min-height: 64px;
+    line-height: 1.2;
+  }
+  .gruppe-btn .gruppe-icon { font-size: 1.2rem; }
 }
 
 /* TEAM-RANGLISTE */
@@ -217,7 +226,8 @@ input.validation-fehler { border-color: #e74c3c !important; }
   gap: 2px;
   min-width: 0;
   overflow: hidden;
-  word-break: break-word;
+  hyphens: auto;
+  overflow-wrap: break-word;
 }
 .gruppe-btn .gruppe-icon { font-size: 1.5rem; }
 .gruppe-btn:hover { border-color: var(--secondary); transform: translateY(-2px); }
@@ -797,3 +807,12 @@ input.validation-fehler { border-color: #e74c3c !important; }
 @media (prefers-reduced-motion: reduce) {
   .app-title, .card-enter, .streak-badge, .ergebnis-next .neue-sterne { animation: none !important; }
 }
+
+/* Sterne-Legende unter den Themen */
+.sterne-legende {
+  font-size: 0.7rem;
+  color: #999;
+  text-align: center;
+  margin: 4px 0 2px;
+}
+.sterne-legende .stern-voll { color: #f39c12; }

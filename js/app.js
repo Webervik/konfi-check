@@ -223,6 +223,11 @@ function renderThemenGrid() {
 
     container.appendChild(gruppeDiv);
   });
+
+  const legende = document.createElement('div');
+  legende.className = 'sterne-legende';
+  legende.innerHTML = 'Sammle Sterne pro Thema: <span class="stern-voll">★</span> ab 50&nbsp;% · <span class="stern-voll">★★</span> ab 75&nbsp;% · <span class="stern-voll">★★★</span> bei voller Punktzahl';
+  container.appendChild(legende);
 }
 
 function renderStreakBanner() {
@@ -517,10 +522,10 @@ function showErgebnis() {
   const nextEl = document.getElementById('ergebnis-next');
   if (nextEl) {
     const stufen = [
-      { prozent: 40, label: '💪 Auf dem Weg' },
-      { prozent: 60, label: '🎉 Konfi-Kenner' },
-      { prozent: 85, label: '🏆 Bibel-Profi' },
-      { prozent: 100, label: '⭐⭐⭐ 3 Sterne' },
+      { prozent: 40, ziel: 'zum Titel „Auf dem Weg" 💪' },
+      { prozent: 60, ziel: 'zum Titel „Konfi-Kenner" 🎉' },
+      { prozent: 85, ziel: 'zum Titel „Bibel-Profi" 🏆' },
+      { prozent: 100, ziel: 'zu 3 Sternen ⭐⭐⭐' },
     ];
     const naechste = stufen.find(s => prozent < s.prozent);
     let html = '';
@@ -530,7 +535,7 @@ function showErgebnis() {
     if (naechste) {
       const fehlend = Math.ceil(naechste.prozent / 100 * total) - punkte;
       if (fehlend <= 2) {
-        html += `<div class="fast-geschafft">Nur noch <strong>${fehlend} Punkt${fehlend > 1 ? 'e' : ''}</strong> bis: ${naechste.label} — gleich nochmal? 😏</div>`;
+        html += `<div class="fast-geschafft">Nur noch <strong>${fehlend} Punkt${fehlend > 1 ? 'e' : ''}</strong> bis ${naechste.ziel} — gleich nochmal? 😏</div>`;
       }
     }
     nextEl.innerHTML = html;
