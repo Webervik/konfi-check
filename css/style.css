@@ -721,3 +721,79 @@ input.validation-fehler { border-color: #e74c3c !important; }
   60% { transform: scale(1.15); }
   100% { transform: scale(1); opacity: 1; }
 }
+
+/* ===== ENGAGEMENT & OPTIK-UPGRADE ===== */
+
+/* Sterne auf Themen-Kacheln (Sammeltrieb) */
+.thema-sterne {
+  font-size: 0.55rem;
+  letter-spacing: 1px;
+  color: #c8c8c8;
+  margin-top: 2px;
+}
+.thema-sterne .stern-voll { color: #f39c12; }
+
+/* Tages-Streak-Banner auf dem Startscreen */
+.streak-banner {
+  margin: 14px auto 0;
+  padding: 8px 18px;
+  max-width: 420px;
+  background: linear-gradient(135deg, rgba(255,112,67,0.25), rgba(244,81,30,0.25));
+  border: 1px solid rgba(255,112,67,0.5);
+  border-radius: 99px;
+  color: #ffcbb8;
+  font-size: 0.9rem;
+}
+
+/* "Fast geschafft"-Box im Ergebnis (Goal-Gradient) */
+.ergebnis-next {
+  margin: 4px 0 10px;
+  font-size: 0.9rem;
+  color: #555;
+}
+.ergebnis-next .fast-geschafft {
+  padding: 10px 14px;
+  background: #fff8e1;
+  border: 1px solid #f39c12;
+  border-radius: 10px;
+  margin-top: 6px;
+}
+.ergebnis-next .neue-sterne {
+  padding: 10px 14px;
+  background: linear-gradient(135deg, #f3e5f5, #ede7f6);
+  border-radius: 10px;
+  color: #6c3483;
+  font-weight: 700;
+  animation: streakPop 0.4s ease;
+}
+
+/* Eigene Platzierung im Scoreboard */
+.dein-platz {
+  padding: 12px 16px;
+  margin-bottom: 10px;
+  background: linear-gradient(135deg, rgba(243,156,18,0.25), rgba(230,126,34,0.25));
+  border: 1px solid rgba(243,156,18,0.6);
+  border-radius: 12px;
+  color: #ffe4b8;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+/* Kartenwechsel-Animation */
+.card-enter { animation: cardIn 0.35s ease; }
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(14px) scale(0.985); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Titel "atmet" dezent */
+.app-title { animation: atmen 4s ease-in-out infinite; }
+@keyframes atmen {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.015); }
+}
+
+/* Barrierefreiheit: reduzierte Bewegung respektieren */
+@media (prefers-reduced-motion: reduce) {
+  .app-title, .card-enter, .streak-badge, .ergebnis-next .neue-sterne { animation: none !important; }
+}

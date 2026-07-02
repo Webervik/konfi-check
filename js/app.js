@@ -97,6 +97,21 @@ function mischeAntworten(frage) {
 
 let alleScores = [];
 
+// ---- LOKALER SPEICHER (Sterne & Tages-Streak) ----
+const LS_KEY = 'konfiCheck';
+function ladeLokal() {
+  try { return JSON.parse(localStorage.getItem(LS_KEY)) || {}; } catch (e) { return {}; }
+}
+function speichereLokal(daten) {
+  try { localStorage.setItem(LS_KEY, JSON.stringify(daten)); } catch (e) { /* privat-Modus */ }
+}
+function sterneFuerProzent(prozent) {
+  if (prozent >= 100) return 3;
+  if (prozent >= 75) return 2;
+  if (prozent >= 50) return 1;
+  return 0;
+}
+
 // ---- SCREENS ----
 function showScreen(id) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
@@ -153,6 +168,11 @@ function initStart() {
   });
 
   // Themen aus JSON laden — gruppiert
+  renderThemenGrid();
+  renderStreakBanner();
+}
+
+function renderThemenGrid() {
   const container = document.getElementById('themen-grid');
   container.innerHTML = '';
   container.style.display = 'block'; // Gruppen-Container, kein Grid auf oberster Ebene
@@ -164,12 +184,19 @@ function initStart() {
   ];
 
   const alleThemen = window.fragenData.themen;
+  const bestScores = ladeLokal().bestScores || {};
 
   function themaCard(t) {
     const div = document.createElement('div');
     div.className = 'thema-card';
     div.dataset.thema = t.id;
-    div.innerHTML = `<div class="thema-icon">${t.icon}</div><div class="thema-name">${t.titel}</div>`;
+    const best = bestScores[t.id];
+    const n = best !== undefined ? sterneFuerProzent(best) : 0;
+    const sterne = '<span class="stern-voll">' + '★'.repeat(n) + '</span>' + '☆'.repeat(3 - n);
+    div.innerHTML = `<div class="thema-icon">${t.icon}</div><div class="thema-name">${t.titel}</div><div class="thema-sterne">${sterne}</div>`;
+    if (t.farbe) {
+      div.style.background = `linear-gradient(160deg, #ffffff 50%, ${t.farbe}26)`;
+    }
     div.onclick = () => {
       document.querySelectorAll('.thema-card').forEach(c => c.classList.remove('selected'));
       div.classList.add('selected');
@@ -198,6 +225,25 @@ function initStart() {
   });
 }
 
+function renderStreakBanner() {
+  const el = document.getElementById('streak-banner');
+  if (!el) return;
+  const lokal = ladeLokal();
+  const heute = new Date().toISOString().slice(0, 10);
+  const gestern = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
+  // Streak nur anzeigen, wenn sie noch "lebt" (heute oder gestern gespielt)
+  const aktiv = lokal.lastPlayed === heute || lokal.lastPlayed === gestern;
+  if (aktiv && (lokal.dayStreak || 0) >= 2) {
+    el.innerHTML = `🔥 <strong>${lokal.dayStreak} Tage in Folge dabei</strong> — stark! Bleib dran.`;
+    el.style.display = 'block';
+  } else if (aktiv && lokal.dayStreak === 1 && lokal.lastPlayed === gestern) {
+    el.innerHTML = `🔥 Gestern gespielt? Spiel heute wieder und starte eine <strong>Serie</strong>!`;
+    el.style.display = 'block';
+  } else {
+    el.style.display = 'none';
+  }
+}
+
 function shake(id) {
   const el = document.getElementById(id);
   el.style.animation = 'none';
@@ -218,6 +264,13 @@ function shakeRed(id) {
   el.addEventListener('input', () => el.classList.remove('validation-fehler'), { once: true });
 }
 
+// Sanfter Einblend-Effekt beim Kartenwechsel
+function kartenAnimation(card) {
+  card.classList.remove('card-enter');
+  void card.offsetWidth; // Reflow erzwingen, damit die Animation neu startet
+  card.classList.add('card-enter');
+}
+
 // ---- QUIZ ----
 function startQuiz() {
   showScreen('quiz');
@@ -229,8 +282,12 @@ function renderFrage() {
   const total = state.fragen.length;
   const idx = state.aktuelleIndex;
 
-  // Progress
-  document.getElementById('progress-fill').style.width = `${(idx / total) * 100}%`;
+  // Progress (Farbe wandert von Rot zu Gold, je näher am Ziel)
+  const fill = document.getElementById('progress-fill');
+  const pct = (idx / total) * 100;
+  fill.style.width = `${pct}%`;
+  const hue = Math.round(pct * 0.45); // 0 = rot → 45 = gold
+  fill.style.background = `linear-gradient(90deg, hsl(${hue}, 85%, 52%), hsl(${hue + 10}, 88%, 48%))`;
   document.getElementById('quiz-meta').textContent = `${state.name} · ${state.thema.titel} · Frage ${idx + 1} von ${total}`;
   const streakEl = document.getElementById('streak-anzeige');
   if (streakEl) {
@@ -258,6 +315,7 @@ function renderFrage() {
   const frageAnzeige = (frage.typ !== 'luecke') ? mischeAntworten(frage) : frage;
 
   const card = document.getElementById('quiz-card');
+  kartenAnimation(card);
   card.innerHTML = '';
 
   // Schwierigkeit
@@ -366,6 +424,7 @@ function renderZitat(naechsteFrage) {
   state.letzterZitatIdx = idx;
   const zitat = pool[idx];
   const card = document.getElementById('quiz-card');
+  kartenAnimation(card);
   card.innerHTML = `
     <div style="text-align:center; margin-bottom:20px; font-size:2rem">✨</div>
     <div class="zitat-text">${zitat.text}</div>
@@ -389,6 +448,7 @@ function renderMotivation() {
   state.letzterMotivIdx = idx;
   const motiv = MOTIVATIONEN[idx];
   const card = document.getElementById('quiz-card');
+  kartenAnimation(card);
   card.innerHTML = `
     <div style="text-align:center; margin-bottom:16px; font-size:2.5rem">${motiv.icon}</div>
     <div class="motiv-text">${motiv.text}</div>
@@ -414,7 +474,6 @@ function showErgebnis() {
   else if (prozent >= 40) { emoji = '💪'; text = 'Du hast eine Menge gelernt heute!'; badge = '💪 Auf dem Weg'; }
 
   document.getElementById('ergebnis-emoji').textContent = emoji;
-  document.getElementById('ergebnis-score').textContent = `${punkte} / ${total}`;
   document.getElementById('ergebnis-text').textContent = text;
   const badgeEl = document.getElementById('ergebnis-badge');
   if (badgeEl) {
@@ -422,6 +481,60 @@ function showErgebnis() {
     if (state.bestStreak >= 4) {
       badgeEl.textContent += ` · 🔥 Beste Serie: ${state.bestStreak}`;
     }
+  }
+
+  // Punkte hochzählen (Count-up-Animation)
+  const scoreEl = document.getElementById('ergebnis-score');
+  const dauer = 800;
+  const startZeit = performance.now();
+  function tick(now) {
+    const f = Math.min((now - startZeit) / dauer, 1);
+    scoreEl.textContent = `${Math.round(f * punkte)} / ${total}`;
+    if (f < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+
+  // Lokalen Fortschritt speichern: Sterne + Tages-Streak
+  const lokal = ladeLokal();
+  lokal.bestScores = lokal.bestScores || {};
+  const altProzent = lokal.bestScores[state.thema.id] || 0;
+  const alteSterne = sterneFuerProzent(altProzent);
+  const neueSterne = sterneFuerProzent(prozent);
+  if (prozent > altProzent) lokal.bestScores[state.thema.id] = prozent;
+
+  const heute = new Date().toISOString().slice(0, 10);
+  const gestern = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
+  if (lokal.lastPlayed !== heute) {
+    lokal.dayStreak = (lokal.lastPlayed === gestern) ? (lokal.dayStreak || 0) + 1 : 1;
+    lokal.lastPlayed = heute;
+  }
+  lokal.name = state.name;
+  speichereLokal(lokal);
+  renderThemenGrid();
+  renderStreakBanner();
+
+  // Goal-Gradient: "fast geschafft" + neue Sterne feiern
+  const nextEl = document.getElementById('ergebnis-next');
+  if (nextEl) {
+    const stufen = [
+      { prozent: 40, label: '💪 Auf dem Weg' },
+      { prozent: 60, label: '🎉 Konfi-Kenner' },
+      { prozent: 85, label: '🏆 Bibel-Profi' },
+      { prozent: 100, label: '⭐⭐⭐ 3 Sterne' },
+    ];
+    const naechste = stufen.find(s => prozent < s.prozent);
+    let html = '';
+    if (neueSterne > alteSterne) {
+      html += `<div class="neue-sterne">✨ Neuer Rekord in diesem Thema: ${'★'.repeat(neueSterne)}${'☆'.repeat(3 - neueSterne)}</div>`;
+    }
+    if (naechste) {
+      const fehlend = Math.ceil(naechste.prozent / 100 * total) - punkte;
+      if (fehlend <= 2) {
+        html += `<div class="fast-geschafft">Nur noch <strong>${fehlend} Punkt${fehlend > 1 ? 'e' : ''}</strong> bis: ${naechste.label} — gleich nochmal? 😏</div>`;
+      }
+    }
+    nextEl.innerHTML = html;
+    nextEl.style.display = html ? 'block' : 'none';
   }
 
   if (prozent >= 70) starteKonfetti(prozent >= 90 ? 'gold' : 'normal');
@@ -448,7 +561,7 @@ function showErgebnis() {
     const prozent = Math.round((state.punkte / state.fragen.length) * 100);
     const shareData = {
       title: 'Konfi-Check ✓',
-      text: `Ich hab beim Konfi-Check ${state.punkte}/${state.fragen.length} Punkte (${prozent}%) im Thema „${state.thema.titel}" erreicht! Schaffst du das auch?`,
+      text: `🏆 Herausforderung! Ich hab beim Konfi-Check ${state.punkte}/${state.fragen.length} Punkte (${prozent}%) im Thema „${state.thema.titel}" geholt. Knackst du meinen Score?`,
       url: 'https://webervik.github.io/konfi-check/'
     };
     if (navigator.share) {
@@ -519,6 +632,18 @@ function renderScores(filterGruppe) {
   if (scores.length === 0) {
     list.innerHTML = '<div class="loading">Noch keine Einträge.</div>';
     return;
+  }
+
+  // Eigene Platzierung anzeigen (Selbstverortung)
+  const meinName = (state.name || ladeLokal().name || '').toLowerCase();
+  if (meinName) {
+    const meinIdx = scores.findIndex(s => s.name.toLowerCase() === meinName);
+    if (meinIdx >= 0) {
+      const banner = document.createElement('div');
+      banner.className = 'dein-platz';
+      banner.innerHTML = `📍 Du bist auf <strong>Platz ${meinIdx + 1} von ${scores.length}</strong>${meinIdx > 0 ? ' — da geht noch was! 😉' : ' — Spitzenplatz! 🏆'}`;
+      list.appendChild(banner);
+    }
   }
 
   scores.slice(0, 20).forEach((s, i) => {
