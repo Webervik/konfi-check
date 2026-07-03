@@ -221,11 +221,11 @@ function initStart() {
   document.getElementById('btn-start').onclick = () => {
     const name = document.getElementById('input-name').value.trim();
     const gruppe = document.querySelector('.gruppe-btn.selected')?.dataset.gruppe;
-    const thema = document.querySelector('.thema-card.selected')?.dataset.thema;
+    const thema = document.querySelector('.thema-card.selected, .pw-station.selected')?.dataset.thema;
 
     if (!name) { shakeRed('input-name'); return; }
     if (!gruppe) { shakeRed('gruppe-grid'); return; }
-    if (!thema) { shakeRed('themen-grid'); return; }
+    if (!thema) { shakeRed('thema-auswahl'); return; }
 
     state.name = name;
     state.gruppe = gruppe;
@@ -264,16 +264,22 @@ function initStart() {
     };
   });
 
+  // Ansicht-Umschalter (Pilgerweg / Liste)
+  document.getElementById('btn-ansicht-karte').onclick = () => setAnsicht('karte');
+  document.getElementById('btn-ansicht-liste').onclick = () => setAnsicht('liste');
+
   // Themen aus JSON laden — gruppiert
   renderThemenGrid();
   renderStreakBanner();
   renderLevelBox();
+  setAnsicht(ladeLokal().ansicht || 'karte');
 }
 
 function renderThemenGrid() {
   const container = document.getElementById('themen-grid');
   container.innerHTML = '';
-  container.style.display = 'block'; // Gruppen-Container, kein Grid auf oberster Ebene
+  // Sichtbarkeit richtet sich nach gewählter Ansicht (Karte oder Liste)
+  container.style.display = (ladeLokal().ansicht || 'karte') === 'liste' ? 'block' : 'none';
 
   const gruppen = [
     { label: 'Glaubenswissen', ids: ['pfingsten','bibel','jesus-historisch','jesus-christus','jesu-worte','jesu-taten','gleichnisse','gebote-bergpredigt','evangelische-kirche','gemeinde'] },
@@ -304,8 +310,10 @@ function renderThemenGrid() {
       div.style.background = `linear-gradient(160deg, #ffffff 50%, ${t.farbe}26)`;
     }
     div.onclick = () => {
-      document.querySelectorAll('.thema-card').forEach(c => c.classList.remove('selected'));
+      document.querySelectorAll('.thema-card, .pw-station').forEach(c => c.classList.remove('selected'));
       div.classList.add('selected');
+      const station = document.querySelector(`.pw-station[data-thema="${t.id}"]`);
+      if (station) station.classList.add('selected');
     };
     return div;
   }
@@ -334,6 +342,141 @@ function renderThemenGrid() {
   legende.className = 'sterne-legende';
   legende.innerHTML = 'Sammle Sterne pro Thema: <span class="stern-voll">★</span> ab 50&nbsp;% · <span class="stern-voll">★★</span> ab 75&nbsp;% · <span class="stern-voll">★★★</span> bei voller Punktzahl<br>⭐ Heute = Thema des Tages';
   container.appendChild(legende);
+
+  renderPilgerweg();
+}
+
+// ---- PILGERWEG-KARTE ----
+// Reale Stationen: von der eigenen Kirchentür bis nach Jerusalem
+const PILGERWEG = [
+  { thema: 'gemeinde-geschichte', ort: 'Dorfkirche Alt-Staaken', zone: 0 },
+  { thema: 'gemeinde',            ort: 'Kirche Gartenstadt', zone: 0 },
+  { thema: 'gemeinde-aktuell',    ort: 'Ernst-Lange-Haus', zone: 0 },
+  { thema: 'jesu-worte',          ort: 'Kirche Heerstraße Nord', zone: 0 },
+  { thema: 'gleichnisse',         ort: 'Waldhaus am Sonnenhügel', zone: 0 },
+  { thema: 'evangelische-kirche', ort: 'St. Nikolai Spandau', zone: 1 },
+  { thema: 'gebote-bergpredigt',  ort: 'Gedächtniskirche', zone: 1 },
+  { thema: 'jesus-christus',      ort: 'Berliner Dom', zone: 1 },
+  { thema: 'nur-fuer-profis',     ort: 'Konsistorium (EKBO)', zone: 1 },
+  { thema: 'bibel',               ort: 'Lutherstadt Wittenberg', zone: 2 },
+  { thema: 'jesus-historisch',    ort: 'Nazareth', zone: 3 },
+  { thema: 'jesu-taten',          ort: 'See Genezareth', zone: 3 },
+  { thema: 'pfingsten',           ort: 'Jerusalem', zone: 3 },
+];
+const PW_ZONEN = [
+  { name: 'Staaken — dein Zuhause', farbe: '#6a9c5f', deko: ['🌳', '🏡', '🌾', '🌻', '🌲'] },
+  { name: 'Spandau & Berlin', farbe: '#6f8ba8', deko: ['🐻', '🏙️', '🚇', '🕊️'] },
+  { name: 'Wittenberg', farbe: '#a8906f', deko: ['📜'] },
+  { name: 'Heiliges Land', farbe: '#c9a03c', deko: ['🌴', '⛵', '☀️'] },
+];
+
+function renderPilgerweg() {
+  const wrap = document.getElementById('pilgerweg-wrap');
+  if (!wrap) return;
+  const bestScores = ladeLokal().bestScores || {};
+  const tagesId = themaDesTagesId();
+  const themen = window.fragenData.themen;
+
+  // Layout berechnen
+  let y = 16;
+  const stationen = [];
+  const zonen = [];
+  let letzteZone = -1;
+  PILGERWEG.forEach((s, i) => {
+    if (s.zone !== letzteZone) {
+      if (letzteZone >= 0) zonen[letzteZone].ende = y + 4;
+      zonen[s.zone] = { start: y };
+      y += 46;
+      letzteZone = s.zone;
+    }
+    stationen.push({ ...s, x: i % 2 === 0 ? 85 : 290, y: y + 36, idx: i });
+    y += 102;
+  });
+  zonen[letzteZone].ende = y + 8;
+  const H = y + 20;
+
+  // Zonen-Hintergründe + Banner
+  let zonenSvg = '';
+  zonen.forEach((z, i) => {
+    zonenSvg += `<rect x="6" y="${z.start}" width="363" height="${z.ende - z.start}" rx="14" fill="${PW_ZONEN[i].farbe}" fill-opacity="0.12"/>`;
+    zonenSvg += `<rect x="67" y="${z.start + 10}" width="240" height="26" rx="13" fill="${PW_ZONEN[i].farbe}"/>`;
+    zonenSvg += `<text x="187" y="${z.start + 27}" text-anchor="middle" font-size="11" font-weight="800" fill="#fff" letter-spacing="1">${PW_ZONEN[i].name.toUpperCase()}</text>`;
+  });
+
+  // Weg (gestrichelte Pfadsegmente zwischen den Stationen)
+  let wegSvg = '';
+  for (let i = 0; i < stationen.length - 1; i++) {
+    const a = stationen[i], b = stationen[i + 1];
+    const beideBesucht = (bestScores[a.thema] || 0) >= 50 && (bestScores[b.thema] || 0) >= 50;
+    wegSvg += `<path d="M ${a.x} ${a.y} C ${a.x} ${a.y + 55}, ${b.x} ${b.y - 55}, ${b.x} ${b.y}" fill="none" stroke="${beideBesucht ? '#f39c12' : '#b39c74'}" stroke-width="4" stroke-dasharray="9 7" stroke-linecap="round" ${beideBesucht ? 'opacity="0.9"' : 'opacity="0.55"'}/>`;
+  }
+
+  // Deko-Emoji je Zone, gegenüber der Station verteilt
+  let dekoSvg = '';
+  stationen.forEach((s) => {
+    const deko = PW_ZONEN[s.zone].deko;
+    const emoji = deko[s.idx % deko.length];
+    const dx = s.x === 85 ? 335 : 40;
+    dekoSvg += `<text x="${dx}" y="${s.y + 6}" text-anchor="middle" font-size="26" opacity="0.18">${emoji}</text>`;
+  });
+
+  // Stationen
+  let statSvg = '';
+  stationen.forEach((s) => {
+    const t = themen.find(th => th.id === s.thema);
+    if (!t) return;
+    const best = bestScores[s.thema];
+    const n = best !== undefined ? sterneFuerProzent(best) : 0;
+    const istTages = s.thema === tagesId;
+    const istFinale = s.idx === stationen.length - 1;
+    const r = istFinale ? 28 : 24;
+    const ringFarbe = n === 3 ? '#f1c40f' : (t.farbe || '#b39c74');
+    const labelRechts = s.x === 85;
+    const lx = labelRechts ? s.x + 40 : s.x - 40;
+    const anchor = labelRechts ? 'start' : 'end';
+    const sterneText = `<tspan fill="#f39c12">${'★'.repeat(n)}</tspan><tspan fill="#c9baa0">${'☆'.repeat(3 - n)}</tspan>`;
+
+    statSvg += `<g class="pw-station${n === 2 ? ' pw-fastfertig' : ''}${n === 3 ? ' pw-fertig' : ''}" data-thema="${s.thema}">`;
+    if (istTages) {
+      statSvg += `<circle class="pw-tages" cx="${s.x}" cy="${s.y}" r="${r + 8}" fill="none" stroke="#f1c40f" stroke-width="2.5"/>`;
+      statSvg += `<rect x="${s.x - 32}" y="${s.y - r - 26}" width="64" height="17" rx="8.5" fill="#f1c40f"/>`;
+      statSvg += `<text x="${s.x}" y="${s.y - r - 13}" text-anchor="middle" font-size="9.5" font-weight="800" fill="#fff">⭐ HEUTE</text>`;
+    }
+    statSvg += `<circle class="pw-ring" cx="${s.x}" cy="${s.y}" r="${r + 3}" fill="none" stroke="${ringFarbe}" stroke-width="3"/>`;
+    statSvg += `<circle class="pw-node" cx="${s.x}" cy="${s.y}" r="${r}" fill="#fffdf5" stroke="#d9c9a8" stroke-width="1.5"/>`;
+    statSvg += `<text class="pw-emoji" x="${s.x}" y="${s.y + 8}" text-anchor="middle" font-size="${istFinale ? 26 : 22}">${t.icon}</text>`;
+    statSvg += `<text x="${s.x}" y="${s.y + r + 18}" text-anchor="middle" font-size="11" font-weight="700">${sterneText}</text>`;
+    statSvg += `<text x="${lx}" y="${s.y - 1}" text-anchor="${anchor}" font-size="10.5" font-weight="800" fill="#4a3b28">${s.ort}</text>`;
+    statSvg += `<text x="${lx}" y="${s.y + 13}" text-anchor="${anchor}" font-size="9" fill="#8a7a5f">${t.titel}${istFinale ? ' · 🏁 Ziel' : ''}</text>`;
+    statSvg += `</g>`;
+  });
+
+  wrap.innerHTML = `
+    <div class="pilgerweg-panel">
+      <svg viewBox="0 0 375 ${H}" xmlns="http://www.w3.org/2000/svg" role="list" aria-label="Pilgerweg: Themenauswahl als Landkarte">
+        ${zonenSvg}${wegSvg}${dekoSvg}${statSvg}
+      </svg>
+    </div>
+    <div class="pilgerweg-hinweis">Folge dem Weg von Staaken bis nach Jerusalem ↓ — tippe eine Station an</div>`;
+
+  wrap.querySelectorAll('.pw-station').forEach(g => {
+    g.addEventListener('click', () => {
+      document.querySelectorAll('.thema-card, .pw-station').forEach(el => el.classList.remove('selected'));
+      g.classList.add('selected');
+      const kachel = document.querySelector(`.thema-card[data-thema="${g.dataset.thema}"]`);
+      if (kachel) kachel.classList.add('selected');
+    });
+  });
+}
+
+function setAnsicht(a) {
+  const lokal = ladeLokal();
+  lokal.ansicht = a;
+  speichereLokal(lokal);
+  document.getElementById('pilgerweg-wrap').style.display = a === 'karte' ? 'block' : 'none';
+  document.getElementById('themen-grid').style.display = a === 'karte' ? 'none' : 'block';
+  document.getElementById('btn-ansicht-karte').classList.toggle('active', a === 'karte');
+  document.getElementById('btn-ansicht-liste').classList.toggle('active', a === 'liste');
 }
 
 function renderStreakBanner() {

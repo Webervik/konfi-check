@@ -976,3 +976,72 @@ input.validation-fehler { border-color: #e74c3c !important; }
 @media (prefers-reduced-motion: reduce) {
   .thema-des-tages, .fast-fertig, .streak-overlay, .puff-piece { animation: none !important; }
 }
+
+/* ===== PILGERWEG-KARTE ===== */
+.ansicht-toggle {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+.ansicht-btn {
+  flex: 1;
+  padding: 8px 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  background: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #888;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.ansicht-btn.active {
+  border-color: var(--primary);
+  background: linear-gradient(135deg, #fff8e1, #fff3cd);
+  color: #7a5c00;
+}
+
+.pilgerweg-panel {
+  background: linear-gradient(160deg, #faf3e3, #f2e7cf);
+  border: 1px solid #d9c9a8;
+  border-radius: 14px;
+  max-height: 58vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.pilgerweg-panel svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.pilgerweg-hinweis {
+  font-size: 0.7rem;
+  color: #999;
+  text-align: center;
+  margin: 6px 0 2px;
+}
+
+.pw-station { cursor: pointer; }
+.pw-station .pw-node { transition: fill 0.2s; }
+.pw-station:hover .pw-node { fill: #fff8e1; }
+.pw-station.selected .pw-node { fill: #fff3cd; }
+.pw-station.selected .pw-ring { stroke-width: 5.5; }
+.pw-station.pw-fertig .pw-ring {
+  filter: drop-shadow(0 0 4px rgba(241,196,15,0.7));
+}
+.pw-station.pw-fastfertig .pw-ring {
+  animation: pwGlow 3s ease-in-out infinite;
+}
+@keyframes pwGlow {
+  0%, 100% { filter: none; }
+  50% { filter: drop-shadow(0 0 5px rgba(243,156,18,0.8)); }
+}
+.pw-tages { animation: pwTagesPuls 2.5s ease-in-out infinite; }
+@keyframes pwTagesPuls {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pw-tages, .pw-station.pw-fastfertig .pw-ring { animation: none !important; }
+}

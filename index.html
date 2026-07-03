@@ -53,9 +53,14 @@
       </div>
     </div>
 
-    <div class="form-group">
+    <div class="form-group" id="thema-auswahl">
       <label>Thema wählen</label>
-      <div class="themen-grid" id="themen-grid">
+      <div class="ansicht-toggle">
+        <button type="button" id="btn-ansicht-karte" class="ansicht-btn active">🗺️ Pilgerweg</button>
+        <button type="button" id="btn-ansicht-liste" class="ansicht-btn">☰ Liste</button>
+      </div>
+      <div id="pilgerweg-wrap"></div>
+      <div class="themen-grid" id="themen-grid" style="display:none;">
         <!-- wird per JS befüllt -->
       </div>
     </div>
