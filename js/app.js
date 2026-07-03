@@ -349,11 +349,11 @@ function renderThemenGrid() {
 // ---- PILGERWEG-KARTE ----
 // Reale Stationen: von der eigenen Kirchentür bis nach Jerusalem
 const PILGERWEG = [
-  { thema: 'gemeinde-geschichte', ort: 'Dorfkirche Alt-Staaken', zone: 0 },
   { thema: 'gemeinde',            ort: 'Kirche Gartenstadt', zone: 0 },
+  { thema: 'gemeinde-geschichte', ort: 'Dorfkirche Alt-Staaken', zone: 0 },
+  { thema: 'gleichnisse',         ort: 'Waldhaus am Sonnenhügel', zone: 0 },
   { thema: 'gemeinde-aktuell',    ort: 'Ernst-Lange-Haus', zone: 0 },
   { thema: 'jesu-worte',          ort: 'Kirche Heerstraße Nord', zone: 0 },
-  { thema: 'gleichnisse',         ort: 'Waldhaus am Sonnenhügel', zone: 0 },
   { thema: 'evangelische-kirche', ort: 'St. Nikolai Spandau', zone: 1 },
   { thema: 'gebote-bergpredigt',  ort: 'Gedächtniskirche', zone: 1 },
   { thema: 'jesus-christus',      ort: 'Berliner Dom', zone: 1 },
