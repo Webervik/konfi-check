@@ -1045,3 +1045,59 @@ input.validation-fehler { border-color: #e74c3c !important; }
 @media (prefers-reduced-motion: reduce) {
   .pw-tages, .pw-station.pw-fastfertig .pw-ring { animation: none !important; }
 }
+
+/* ===== STATION-INFO & SOCIAL ===== */
+.station-info {
+  margin-top: 8px;
+  padding: 12px 16px;
+  background: #faf3e3;
+  border: 1px solid #d9c9a8;
+  border-radius: 12px;
+  animation: cardIn 0.3s ease;
+}
+.si-titel {
+  font-weight: 800;
+  font-size: 0.9rem;
+  color: #4a3b28;
+  margin-bottom: 4px;
+}
+.si-text {
+  font-size: 0.8rem;
+  color: #6b5c44;
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+.si-link {
+  display: inline-block;
+  padding: 8px 14px;
+  background: linear-gradient(135deg, #8b6f47, #6b5335);
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 700;
+  border-radius: 99px;
+  text-decoration: none;
+}
+.si-link:active { transform: scale(0.97); }
+
+.social-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.social-row a {
+  padding: 7px 14px;
+  border: 1px solid #ddd;
+  border-radius: 99px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #666;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.social-row a:hover {
+  border-color: var(--primary);
+  color: #7a5c00;
+  background: #fff8e1;
+}

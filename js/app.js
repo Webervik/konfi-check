@@ -350,10 +350,14 @@ function renderThemenGrid() {
 // Reale Stationen: von der eigenen Kirchentür bis nach Jerusalem
 const PILGERWEG = [
   { thema: 'gemeinde',            ort: 'Kirche Gartenstadt', zone: 0 },
-  { thema: 'gemeinde-geschichte', ort: 'Dorfkirche Alt-Staaken', zone: 0 },
+  { thema: 'gemeinde-geschichte', ort: 'Dorfkirche Alt-Staaken', zone: 0,
+    seite: 'https://www.staaken-evangelisch.de/mit-uns/standorte/dorfkirche-alt-staaken', rundgang: true },
   { thema: 'gleichnisse',         ort: 'Waldhaus am Sonnenhügel', zone: 0 },
   { thema: 'gemeinde-aktuell',    ort: 'Ernst-Lange-Haus', zone: 0 },
-  { thema: 'jesu-worte',          ort: 'Kirche Heerstraße Nord', zone: 0 },
+  { denkmal: true,                ort: 'Zuversichtskirche', jahre: '1966–2024', zone: 0,
+    seite: 'https://www.staaken-evangelisch.de/mit-uns/standorte/zuversichtskirche', rundgang: true },
+  { thema: 'jesu-worte',          ort: 'Kirche Heerstraße Nord', zone: 0,
+    seite: 'https://www.staaken-evangelisch.de/mit-uns/standorte/kirche-heerstr-nord', rundgang: true },
   { thema: 'evangelische-kirche', ort: 'St. Nikolai Spandau', zone: 1 },
   { thema: 'gebote-bergpredigt',  ort: 'Gedächtniskirche', zone: 1 },
   { thema: 'jesus-christus',      ort: 'Berliner Dom', zone: 1 },
@@ -404,10 +408,12 @@ function renderPilgerweg() {
   });
 
   // Weg (gestrichelte Pfadsegmente zwischen den Stationen)
+  // Denkmal-Stationen zählen als "besucht", damit sie den goldenen Weg nicht unterbrechen
+  const besucht = (s) => s.denkmal ? true : (bestScores[s.thema] || 0) >= 50;
   let wegSvg = '';
   for (let i = 0; i < stationen.length - 1; i++) {
     const a = stationen[i], b = stationen[i + 1];
-    const beideBesucht = (bestScores[a.thema] || 0) >= 50 && (bestScores[b.thema] || 0) >= 50;
+    const beideBesucht = besucht(a) && besucht(b);
     wegSvg += `<path d="M ${a.x} ${a.y} C ${a.x} ${a.y + 55}, ${b.x} ${b.y - 55}, ${b.x} ${b.y}" fill="none" stroke="${beideBesucht ? '#f39c12' : '#b39c74'}" stroke-width="4" stroke-dasharray="9 7" stroke-linecap="round" ${beideBesucht ? 'opacity="0.9"' : 'opacity="0.55"'}/>`;
   }
 
@@ -423,6 +429,20 @@ function renderPilgerweg() {
   // Stationen
   let statSvg = '';
   stationen.forEach((s) => {
+    // Erinnerungsort (kein Quiz-Thema): z.B. die abgerissene Zuversichtskirche
+    if (s.denkmal) {
+      const labelRechts = s.x === 85;
+      const lx = labelRechts ? s.x + 36 : s.x - 36;
+      const anchor = labelRechts ? 'start' : 'end';
+      statSvg += `<g class="pw-station pw-denkmal" data-idx="${s.idx}">`;
+      statSvg += `<circle class="pw-ring" cx="${s.x}" cy="${s.y}" r="${23}" fill="none" stroke="#a8906f" stroke-width="2" stroke-dasharray="5 4"/>`;
+      statSvg += `<circle class="pw-node" cx="${s.x}" cy="${s.y}" r="${20}" fill="#f5eede" stroke="#d9c9a8" stroke-width="1.5"/>`;
+      statSvg += `<text class="pw-emoji" x="${s.x}" y="${s.y + 7}" text-anchor="middle" font-size="18">🕯️</text>`;
+      statSvg += `<text x="${lx}" y="${s.y - 1}" text-anchor="${anchor}" font-size="10.5" font-weight="800" fill="#4a3b28">${s.ort}</text>`;
+      statSvg += `<text x="${lx}" y="${s.y + 13}" text-anchor="${anchor}" font-size="9" fill="#8a7a5f">${s.jahre} · virtuell begehbar</text>`;
+      statSvg += `</g>`;
+      return;
+    }
     const t = themen.find(th => th.id === s.thema);
     if (!t) return;
     const best = bestScores[s.thema];
@@ -436,7 +456,7 @@ function renderPilgerweg() {
     const anchor = labelRechts ? 'start' : 'end';
     const sterneText = `<tspan fill="#f39c12">${'★'.repeat(n)}</tspan><tspan fill="#c9baa0">${'☆'.repeat(3 - n)}</tspan>`;
 
-    statSvg += `<g class="pw-station${n === 2 ? ' pw-fastfertig' : ''}${n === 3 ? ' pw-fertig' : ''}" data-thema="${s.thema}">`;
+    statSvg += `<g class="pw-station${n === 2 ? ' pw-fastfertig' : ''}${n === 3 ? ' pw-fertig' : ''}" data-thema="${s.thema}" data-idx="${s.idx}">`;
     if (istTages) {
       statSvg += `<circle class="pw-tages" cx="${s.x}" cy="${s.y}" r="${r + 8}" fill="none" stroke="#f1c40f" stroke-width="2.5"/>`;
       statSvg += `<rect x="${s.x - 32}" y="${s.y - r - 26}" width="64" height="17" rx="8.5" fill="#f1c40f"/>`;
@@ -457,16 +477,41 @@ function renderPilgerweg() {
         ${zonenSvg}${wegSvg}${dekoSvg}${statSvg}
       </svg>
     </div>
+    <div id="station-info" class="station-info" style="display:none;"></div>
     <div class="pilgerweg-hinweis">Folge dem Weg von Staaken bis nach Jerusalem ↓ — tippe eine Station an</div>`;
 
   wrap.querySelectorAll('.pw-station').forEach(g => {
     g.addEventListener('click', () => {
-      document.querySelectorAll('.thema-card, .pw-station').forEach(el => el.classList.remove('selected'));
-      g.classList.add('selected');
-      const kachel = document.querySelector(`.thema-card[data-thema="${g.dataset.thema}"]`);
-      if (kachel) kachel.classList.add('selected');
+      const s = PILGERWEG[parseInt(g.dataset.idx, 10)];
+      if (!s.denkmal) {
+        document.querySelectorAll('.thema-card, .pw-station').forEach(el => el.classList.remove('selected'));
+        g.classList.add('selected');
+        const kachel = document.querySelector(`.thema-card[data-thema="${g.dataset.thema}"]`);
+        if (kachel) kachel.classList.add('selected');
+      }
+      zeigeStationInfo(s);
     });
   });
+}
+
+// Info-Panel unter der Karte: Rundgang-Link & Erinnerungsort-Text
+function zeigeStationInfo(s) {
+  const panel = document.getElementById('station-info');
+  if (!panel) return;
+  if (!s || !s.seite) {
+    panel.style.display = 'none';
+    return;
+  }
+  let html = '';
+  if (s.denkmal) {
+    html += `<div class="si-titel">🕯️ ${s.ort} (${s.jahre})</div>`;
+    html += `<div class="si-text">Die Kirche wurde abgerissen — an ihrer Stelle entsteht ein Begegnungszentrum. Virtuell kannst du sie weiterhin besuchen:</div>`;
+  } else {
+    html += `<div class="si-titel">⛪ ${s.ort}</div>`;
+  }
+  html += `<a class="si-link" href="${s.seite}" target="_blank" rel="noopener noreferrer" onclick="window.open(this.href,'_blank');return false;">🚶 ${s.rundgang ? 'Kirche virtuell begehen (360°)' : 'Mehr über diesen Ort'}</a>`;
+  panel.innerHTML = html;
+  panel.style.display = 'block';
 }
 
 function setAnsicht(a) {
