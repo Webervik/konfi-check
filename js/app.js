@@ -548,9 +548,9 @@ const DETEKTIV = {
       { frage: 'Was hängt über dem Mittelgang von der Decke?',
         antworten: ['Ein Schiffsmodell', 'Eine weiße Taube', 'Ein goldener Kronleuchter', 'Ein hölzernes Kreuz'], richtig: 2,
         erklaerung: 'Ein prächtiger goldener Kronleuchter mit vielen Armen — dazu zwei kleinere an den Seiten.' },
-      { frage: 'An der Wand gegenüber dem Altar sind Personen gemalt. Wer ist dort zu sehen?',
-        antworten: ['Die zwölf Apostel beim Abendmahl', 'Reformatoren wie Melanchthon und Bugenhagen', 'Die Pfarrerinnen und Pfarrer der Gemeinde', 'Engel mit Posaunen'], richtig: 1,
-        erklaerung: 'Das Wandbild „Versöhnte Einheit" von Gabriele Mucchi zeigt Gestalten der Reformation — ihre Namen stehen klein darunter. Schau beim nächsten echten Besuch genau hin!' },
+      { frage: 'Auf dem großen Wandbild sind Menschen versammelt. Wer?',
+        antworten: ['Die zwölf Apostel beim letzten Abendmahl', 'Zwölf Persönlichkeiten des 16. Jahrhunderts unter dem gekreuzigten Christus', 'Die Pfarrerinnen und Pfarrer der Gemeinde seit 1900', 'Zwölf Engel mit Posaunen und Harfen'], richtig: 1,
+        erklaerung: 'Das Wandbild „Versöhnte Einheit" des italienischen Künstlers Gabriele Mucchi versammelt zwölf Persönlichkeiten, die im 16. Jahrhundert Kirche und Weltbild erneuerten — darunter Luther, Katharina von Bora und Melanchthon, aber auch der Katholik Ignatius von Loyola, der Astronom Kopernikus und der Humanist Erasmus. Menschen aus ganz verschiedenen Lagern, vereint unter dem Kreuz. Und: Im Hintergrund ist die frühere Grenzlandschaft am Hahneberg gemalt — das Kreuz steht genau dort, wo einst die Grenze verlief. Eine Mahnung zur Versöhnung.' },
     ],
   },
   zuversicht: {
