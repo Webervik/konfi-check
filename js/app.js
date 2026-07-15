@@ -351,13 +351,13 @@ function renderThemenGrid() {
 const PILGERWEG = [
   { thema: 'gemeinde',            ort: 'Kirche Gartenstadt', zone: 0 },
   { thema: 'gemeinde-geschichte', ort: 'Dorfkirche Alt-Staaken', zone: 0,
-    seite: 'https://www.staaken-evangelisch.de/mit-uns/standorte/dorfkirche-alt-staaken', rundgang: true },
+    seite: 'https://www.staaken-evangelisch.de/mit-uns/standorte/dorfkirche-alt-staaken', rundgang: true, detektiv: 'dorfkirche' },
   { thema: 'gleichnisse',         ort: 'Waldhaus am Sonnenhügel', zone: 0 },
   { thema: 'gemeinde-aktuell',    ort: 'Ernst-Lange-Haus', zone: 0 },
   { denkmal: true,                ort: 'Zuversichtskirche', jahre: '1966–2024', zone: 0,
-    seite: 'https://www.staaken-evangelisch.de/mit-uns/standorte/zuversichtskirche', rundgang: true },
+    seite: 'https://www.staaken-evangelisch.de/mit-uns/standorte/zuversichtskirche', rundgang: true, detektiv: 'zuversicht' },
   { thema: 'jesu-worte',          ort: 'Kirche Heerstraße Nord', zone: 0,
-    seite: 'https://www.staaken-evangelisch.de/mit-uns/standorte/kirche-heerstr-nord', rundgang: true },
+    seite: 'https://www.staaken-evangelisch.de/mit-uns/standorte/kirche-heerstr-nord', rundgang: true, detektiv: 'heerstrasse' },
   { thema: 'evangelische-kirche', ort: 'St. Nikolai Spandau', zone: 1 },
   { thema: 'gebote-bergpredigt',  ort: 'Gedächtniskirche', zone: 1 },
   { thema: 'jesus-christus',      ort: 'Berliner Dom', zone: 1 },
@@ -438,6 +438,10 @@ function renderPilgerweg() {
       statSvg += `<circle class="pw-ring" cx="${s.x}" cy="${s.y}" r="${23}" fill="none" stroke="#a8906f" stroke-width="2" stroke-dasharray="5 4"/>`;
       statSvg += `<circle class="pw-node" cx="${s.x}" cy="${s.y}" r="${20}" fill="#f5eede" stroke="#d9c9a8" stroke-width="1.5"/>`;
       statSvg += `<text class="pw-emoji" x="${s.x}" y="${s.y + 7}" text-anchor="middle" font-size="18">🕯️</text>`;
+      if (s.detektiv) {
+        const dGeloest = (ladeLokal().detektiv || {})[s.detektiv];
+        statSvg += `<text x="${s.x - 26}" y="${s.y - 18}" text-anchor="middle" font-size="14"${dGeloest ? '' : ' opacity="0.4"'}>🔎</text>`;
+      }
       statSvg += `<text x="${lx}" y="${s.y - 1}" text-anchor="${anchor}" font-size="10.5" font-weight="800" fill="#4a3b28">${s.ort}</text>`;
       statSvg += `<text x="${lx}" y="${s.y + 13}" text-anchor="${anchor}" font-size="9" fill="#8a7a5f">${s.jahre} · virtuell begehbar</text>`;
       statSvg += `</g>`;
@@ -465,6 +469,10 @@ function renderPilgerweg() {
     statSvg += `<circle class="pw-ring" cx="${s.x}" cy="${s.y}" r="${r + 3}" fill="none" stroke="${ringFarbe}" stroke-width="3"/>`;
     statSvg += `<circle class="pw-node" cx="${s.x}" cy="${s.y}" r="${r}" fill="#fffdf5" stroke="#d9c9a8" stroke-width="1.5"/>`;
     statSvg += `<text class="pw-emoji" x="${s.x}" y="${s.y + 8}" text-anchor="middle" font-size="${istFinale ? 26 : 22}">${t.icon}</text>`;
+    if (s.detektiv) {
+      const dGeloest = (ladeLokal().detektiv || {})[s.detektiv];
+      statSvg += `<text x="${s.x - r - 6}" y="${s.y - r + 6}" text-anchor="middle" font-size="14"${dGeloest ? '' : ' opacity="0.4"'}>🔎</text>`;
+    }
     statSvg += `<text x="${s.x}" y="${s.y + r + 18}" text-anchor="middle" font-size="11" font-weight="700">${sterneText}</text>`;
     statSvg += `<text x="${lx}" y="${s.y - 1}" text-anchor="${anchor}" font-size="10.5" font-weight="800" fill="#4a3b28">${s.ort}</text>`;
     statSvg += `<text x="${lx}" y="${s.y + 13}" text-anchor="${anchor}" font-size="9" fill="#8a7a5f">${t.titel}${istFinale ? ' · 🏁 Ziel' : ''}</text>`;
@@ -494,11 +502,11 @@ function renderPilgerweg() {
   });
 }
 
-// Info-Panel unter der Karte: Rundgang-Link & Erinnerungsort-Text
+// Info-Panel unter der Karte: Rundgang-Link, Detektiv-Auftrag & Erinnerungsort-Text
 function zeigeStationInfo(s) {
   const panel = document.getElementById('station-info');
   if (!panel) return;
-  if (!s || !s.seite) {
+  if (!s || (!s.seite && !s.detektiv)) {
     panel.style.display = 'none';
     return;
   }
@@ -509,9 +517,188 @@ function zeigeStationInfo(s) {
   } else {
     html += `<div class="si-titel">⛪ ${s.ort}</div>`;
   }
-  html += `<a class="si-link" href="${s.seite}" target="_blank" rel="noopener noreferrer" onclick="window.open(this.href,'_blank');return false;">🚶 ${s.rundgang ? 'Kirche virtuell begehen (360°)' : 'Mehr über diesen Ort'}</a>`;
+  if (s.detektiv) {
+    const geloest = (ladeLokal().detektiv || {})[s.detektiv];
+    html += `<button class="si-link si-detektiv" onclick="startDetektiv('${s.detektiv}')">🔎 ${geloest ? 'Detektiv-Fall gelöst ✅ — nochmal spielen' : 'Detektiv-Auftrag starten'}</button>`;
+  }
+  if (s.seite) {
+    html += `<a class="si-link" href="${s.seite}" target="_blank" rel="noopener noreferrer" onclick="window.open(this.href,'_blank');return false;">🚶 ${s.rundgang ? 'Kirche virtuell begehen (360°)' : 'Mehr über diesen Ort'}</a>`;
+  }
   panel.innerHTML = html;
   panel.style.display = 'block';
+}
+
+// ---- KIRCHENDETEKTIV ----
+// Beobachtungsfragen: Die Antworten findet man nur, indem man sich im 360°-Rundgang wirklich umsieht.
+const DETEKTIV = {
+  dorfkirche: {
+    titel: 'Dorfkirche Alt-Staaken',
+    tour: 'https://www.stepinsight.de/wp-content/uploads/touren/002_dorfkirche_alt_staaken/start.html',
+    auftrag: 'Sieh dich gründlich um — im Kirchensaal UND oben im Glockenturm! Achte auf: die Glocken, die alte Kanzel, die Decke über dem Mittelgang und das große Wandbild.',
+    fragen: [
+      { frage: 'Steig hinauf in den Glockenturm: Wie viele Glocken hängen dort?',
+        antworten: ['Eine', 'Zwei', 'Drei', 'Vier'], richtig: 2,
+        erklaerung: 'Drei Glocken hängen im hölzernen Glockenstuhl des Turms.' },
+      { frage: 'Auf den Glocken steht der Name einer Stadt. Welcher?',
+        antworten: ['BERLIN', 'BOCHUM', 'DRESDEN', 'ERFURT'], richtig: 1,
+        erklaerung: 'BOCHUM — die Glocken sind Gussstahlglocken vom Bochumer Verein. Stahl statt Bronze: typisch für die Zeit nach den Weltkriegen, als Bronzeglocken eingeschmolzen worden waren.' },
+      { frage: 'Welche Farbe hat die kunstvolle alte Kanzel im Kirchensaal?',
+        antworten: ['Rot mit goldenen Ornamenten', 'Grün mit gemalten Bildern', 'Schlicht weiß gestrichen', 'Naturbelassenes dunkles Holz'], richtig: 1,
+        erklaerung: 'Die barocke Kanzel ist grün gefasst und mit gemalten Bildtafeln geschmückt.' },
+      { frage: 'Was hängt über dem Mittelgang von der Decke?',
+        antworten: ['Ein Schiffsmodell', 'Eine weiße Taube', 'Ein goldener Kronleuchter', 'Ein hölzernes Kreuz'], richtig: 2,
+        erklaerung: 'Ein prächtiger goldener Kronleuchter mit vielen Armen — dazu zwei kleinere an den Seiten.' },
+      { frage: 'An der Wand gegenüber dem Altar sind Personen gemalt. Wer ist dort zu sehen?',
+        antworten: ['Die zwölf Apostel beim Abendmahl', 'Reformatoren wie Melanchthon und Bugenhagen', 'Die Pfarrerinnen und Pfarrer der Gemeinde', 'Engel mit Posaunen'], richtig: 1,
+        erklaerung: 'Das Wandbild „Versöhnte Einheit" von Gabriele Mucchi zeigt Gestalten der Reformation — ihre Namen stehen klein darunter. Schau beim nächsten echten Besuch genau hin!' },
+    ],
+  },
+  zuversicht: {
+    titel: 'Zuversichtskirche (1966–2024)',
+    tour: 'https://www.stepinsight.de/wp-content/uploads/touren/002_zuversichtskirche/start.html',
+    auftrag: 'Diese Kirche gibt es nicht mehr — aber virtuell kannst du sie noch durchwandern! Achte auf: das Licht im Kirchsaal, den Weg zum Altar, die Sitzplätze und den Glockenturm draußen.',
+    fragen: [
+      { frage: 'Wie kommt das Tageslicht in den großen Kirchsaal?',
+        antworten: ['Durch klare, hohe Rundbogenfenster', 'Durch eine ganze Wand aus buntem Glasbeton', 'Durch Dachfenster in der Decke', 'Nur durch elektrisches Licht'], richtig: 1,
+        erklaerung: 'Die riesige Glasbetonwand mit ihren farbigen Glaseinsätzen war das Markenzeichen der Zuversichtskirche — ein Farbenmeer, wenn die Sonne schien.' },
+      { frage: 'Welche Farbe hat der Teppich, der zum Altar führt?',
+        antworten: ['Blau', 'Grün', 'Rot', 'Grau'], richtig: 2,
+        erklaerung: 'Ein roter Läufer führt durch den Mittelgang bis zu den Altarstufen.' },
+      { frage: 'Worauf sitzt die Gemeinde in der Zuversichtskirche?',
+        antworten: ['Auf weißen Holzbänken', 'Auf einzelnen Stühlen', 'Auf gepolsterten Kinosesseln', 'Auf Kissen am Boden'], richtig: 1,
+        erklaerung: 'Einzelne Stühle statt fester Bänke — typisch für den flexiblen Kirchenbau der 1960er Jahre.' },
+      { frage: 'Was hängt an der hohen weißen Wand hinter dem Altar?',
+        antworten: ['Ein großes Gemälde', 'Ein schlichtes Holzkreuz mit Lichtschein', 'Eine Orgel', 'Ein goldener Adler'], richtig: 1,
+        erklaerung: 'Ein schlichtes Holzkreuz, von hinten beleuchtet — der Lichtschein an der Wand wirkt wie ein stiller Heiligenschein.' },
+      { frage: 'Wo hängen die Glocken der Zuversichtskirche?',
+        antworten: ['Im Dachreiter auf dem Kirchdach', 'In einem freistehenden Turm neben der Kirche', 'Im Innenhof unter einem Vordach', 'Sie hat keine Glocken'], richtig: 1,
+        erklaerung: 'Der Glockenturm steht frei neben der Kirche — ein Backstein-Campanile. Er bleibt auch nach dem Abriss der Kirche erhalten.' },
+    ],
+  },
+  heerstrasse: {
+    titel: 'Kirche Heerstraße Nord',
+    tour: 'https://www.stepinsight.de/wp-content/uploads/touren/002_heerstrasse_nord/start.html',
+    auftrag: 'Sieh dich draußen UND drinnen um! Achte auf: die Form des Gebäudes, die Fenster, die Wände und die Sitzplätze.',
+    fragen: [
+      { frage: 'Welche Form hat der Kirchenraum von außen?',
+        antworten: ['Rund wie ein Zelt', 'Vieleckig mit Fensterband oben', 'Quadratisch mit Spitzturm', 'Kreuzförmig wie ein Dom'], richtig: 1,
+        erklaerung: 'Ein moderner vieleckiger Bau — unten Backstein, oben läuft ein Band aus Fenstern einmal rundherum.' },
+      { frage: 'Wo sitzen die Fenster im Kirchsaal?',
+        antworten: ['Ganz oben, unter der Decke', 'In Bodenhöhe', 'Es gibt gar keine Fenster', 'Nur in der Eingangstür'], richtig: 0,
+        erklaerung: 'Das Licht kommt von oben — durch das umlaufende Fensterband unter der Decke. Der Raum wirkt dadurch geborgen und hell zugleich.' },
+      { frage: 'Welche Farbe haben die gepolsterten Stühle?',
+        antworten: ['Rot', 'Grün', 'Violett', 'Braun'], richtig: 2,
+        erklaerung: 'Violette Polsterstühle in Reihen — schau beim nächsten Gottesdienst mal nach, ob sie noch dieselben sind!' },
+      { frage: 'Was fällt an der Backsteinwand hinter dem Altar auf?',
+        antworten: ['Sie ist bunt bemalt', 'Die Steine sind in einem kunstvollen Muster gemauert', 'Sie ist mit Holz verkleidet', 'Dort hängen viele kleine Spiegel'], richtig: 1,
+        erklaerung: 'Die Ziegel sind in einem auffälligen Flechtmuster gesetzt — mal liegend, mal stehend. Handwerkskunst der Moderne!' },
+      { frage: 'Was schmückt die Wände des Kirchsaals?',
+        antworten: ['Große, bunte moderne Bilder', 'Alte Ölgemälde mit Goldrahmen', 'Fotos früherer Pfarrer', 'Nichts — sie sind ganz leer'], richtig: 0,
+        erklaerung: 'Großformatige, farbenfrohe moderne Kunstwerke — sie geben dem schlichten Raum seine besondere Kraft.' },
+    ],
+  },
+};
+
+let detektivState = { key: null, idx: 0, punkte: 0 };
+
+window.startDetektiv = function (key) {
+  detektivState = { key, idx: 0, punkte: 0 };
+  const d = DETEKTIV[key];
+  const card = document.getElementById('detektiv-card');
+  card.innerHTML = `
+    <div class="detektiv-auftrag">
+      <div class="si-titel">🔎 Dein Auftrag: ${d.titel}</div>
+      <div class="si-text">${d.auftrag}</div>
+    </div>
+    <iframe class="detektiv-iframe" src="${d.tour}" allowfullscreen></iframe>
+    <button class="btn btn-primary" style="margin-top:12px" onclick="renderDetektivFrage()">🕵️ Ich habe mich umgesehen — zu den Fragen!</button>
+    <button class="btn" style="margin-top:8px; width:100%; background:rgba(0,0,0,0.06); color:#555;" onclick="showScreen('start')">← Zurück zur Karte</button>
+  `;
+  showScreen('detektiv');
+};
+
+window.renderDetektivFrage = function () {
+  const d = DETEKTIV[detektivState.key];
+  const idx = detektivState.idx;
+  if (idx >= d.fragen.length) { zeigeDetektivErgebnis(); return; }
+  const frage = mischeAntworten(d.fragen[idx]);
+  const card = document.getElementById('detektiv-card');
+  const labels = ['A', 'B', 'C', 'D'];
+  card.innerHTML = `
+    <div class="quiz-meta" style="color:#888; margin-bottom:10px;">🔎 ${d.titel} · Frage ${idx + 1} von ${d.fragen.length}</div>
+    <div class="frage-text">${frage.frage}</div>
+    <div class="antworten-grid" id="detektiv-antworten"></div>
+    <div class="erklaerung-box" id="detektiv-erklaerung" style="display:none;"></div>
+    <button class="weiter-btn" id="detektiv-weiter" style="display:none;">Weiter →</button>
+  `;
+  const grid = document.getElementById('detektiv-antworten');
+  frage.antworten.forEach((antwort, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'antwort-btn';
+    btn.innerHTML = `<span class="antwort-label">${labels[i]}</span> ${antwort}`;
+    btn.onclick = () => {
+      const btns = grid.querySelectorAll('.antwort-btn');
+      btns.forEach(b => b.disabled = true);
+      const richtig = i === frage.richtig;
+      if (richtig) {
+        detektivState.punkte++;
+        btn.classList.add('richtig');
+        spieleTon('richtig');
+        puffEffekt(btn);
+      } else {
+        btn.classList.add('falsch');
+        btns[frage.richtig].classList.add('richtig');
+        spieleTon('falsch');
+      }
+      const erk = document.getElementById('detektiv-erklaerung');
+      erk.innerHTML = `<p>${frage.erklaerung}</p>`;
+      erk.style.display = 'block';
+      erk.className = 'erklaerung-box' + (richtig ? '' : ' wrong');
+      const weiter = document.getElementById('detektiv-weiter');
+      weiter.style.display = 'block';
+      weiter.onclick = () => { detektivState.idx++; renderDetektivFrage(); };
+    };
+    grid.appendChild(btn);
+  });
+};
+
+function zeigeDetektivErgebnis() {
+  const d = DETEKTIV[detektivState.key];
+  const gesamt = d.fragen.length;
+  const punkte = detektivState.punkte;
+  const geloest = punkte >= gesamt - 1; // 4 von 5 reichen
+  const card = document.getElementById('detektiv-card');
+
+  let extra = '';
+  if (geloest) {
+    const lokal = ladeLokal();
+    lokal.detektiv = lokal.detektiv || {};
+    const warNeu = !lokal.detektiv[detektivState.key];
+    lokal.detektiv[detektivState.key] = true;
+    speichereLokal(lokal);
+    renderThemenGrid();
+    const alleGeloest = ['dorfkirche', 'zuversicht', 'heerstrasse'].every(k => lokal.detektiv[k]);
+    if (alleGeloest && warNeu) {
+      extra = `<div class="level-up" style="margin-top:10px;">🏆 Alle drei Fälle gelöst — du bist jetzt <strong>Meisterdetektiv von Staaken</strong>!</div>`;
+      spieleFanfare();
+    }
+    starteKonfetti(alleGeloest ? 'gold' : 'normal');
+  }
+
+  card.innerHTML = `
+    <div style="text-align:center;">
+      <div class="ergebnis-emoji">${geloest ? '🔎✅' : '🧐'}</div>
+      <div class="ergebnis-score" style="font-size:2rem;">${punkte} / ${gesamt}</div>
+      <div class="ergebnis-text">${geloest
+        ? `Fall gelöst! Du hast ${d.titel} mit Detektivaugen erkundet.`
+        : 'Fast! Sieh dich noch einmal im Rundgang um — die Antworten sind alle dort zu finden.'}</div>
+      ${extra}
+      <div class="ergebnis-actions" style="margin-top:16px;">
+        ${geloest ? '' : `<button class="btn btn-primary" onclick="startDetektiv('${detektivState.key}')">🔁 Nochmal umsehen</button>`}
+        <button class="btn btn-secondary" onclick="showScreen('start')">🗺️ Zurück zur Karte</button>
+      </div>
+    </div>
+  `;
 }
 
 function setAnsicht(a) {
