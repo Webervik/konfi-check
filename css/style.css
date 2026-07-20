@@ -623,6 +623,15 @@ input.validation-fehler { border-color: #e74c3c !important; }
   text-decoration: none;
   font-weight: 700;
 }
+.zitat-kontext {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  font-size: 0.85rem;
+  font-style: normal;
+  line-height: 1.5;
+  opacity: 0.85;
+}
 .btn-share {
   background: linear-gradient(135deg, #3498db, #2980b9);
   color: #fff;
@@ -1125,3 +1134,42 @@ input.validation-fehler { border-color: #e74c3c !important; }
   font-family: inherit;
   font-size: 0.9rem;
 }
+
+/* ===== ERGEBNIS-REDESIGN: Session & Gottesdienst-Link ===== */
+.session-info {
+  margin: 4px 0 12px;
+  padding: 10px 14px;
+  background: linear-gradient(135deg, rgba(142,68,173,0.1), rgba(142,68,173,0.05));
+  border: 1px solid rgba(142,68,173,0.3);
+  border-radius: 10px;
+  color: #6c3483;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+.belohnung-link {
+  display: inline-block;
+  margin-top: 8px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+#btn-naechstes-thema {
+  margin-top: 12px;
+}
+.ergebnis-actions-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  margin-top: 8px;
+}
+.ergebnis-actions-row .btn {
+  padding: 10px 6px;
+  font-size: 0.78rem;
+  background: rgba(0,0,0,0.06);
+  color: #444;
+  box-shadow: none;
+  white-space: nowrap;
+}
+.ergebnis-actions-row .btn:active { transform: scale(0.96); }

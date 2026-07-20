@@ -50,7 +50,12 @@ let state = {
   letzterMotivIdx: -1, // verhindert Wiederholung bei Motivationen
   streak: 0,           // aktuelle Serie richtiger Antworten
   bestStreak: 0,
+  session: { punkte: 0, gesamt: 0, themen: [] }, // sammelt Punkte über mehrere Themen hinweg
 };
+
+function neueSession() {
+  state.session = { punkte: 0, gesamt: 0, themen: [] };
+}
 
 // ---- SOUND ----
 let audioCtx = null;
@@ -948,6 +953,7 @@ function renderZitat(naechsteFrage) {
     <div class="zitat-quelle">
       <a href="${zitat.link}" target="_blank" rel="noopener noreferrer" class="zitat-link" onclick="window.open(this.href,'_blank');return false;">📖 ${zitat.quelle}</a>
     </div>
+    ${zitat.kontext ? `<div class="zitat-kontext">${zitat.kontext}</div>` : ''}
     <button class="weiter-btn" style="display:block; margin-top:24px" onclick="state.showZitat=true; renderFrage()">Weiter →</button>
   `;
   card.style.background = 'linear-gradient(135deg, #8e44ad, #6c3483)';
@@ -1072,6 +1078,26 @@ function showErgebnis() {
   // Score speichern
   speichereScore(state.name, state.gruppe, state.thema.id, punkte, total);
 
+  // Session-Punkte: sammeln über mehrere Themen hinweg (nicht nur auf 10 Punkte begrenzt)
+  state.session.punkte += punkte;
+  state.session.gesamt += total;
+  state.session.themen.push({ titel: state.thema.titel, punkte, total });
+  const sessionEl = document.getElementById('session-info');
+  if (sessionEl) {
+    if (state.session.themen.length > 1) {
+      sessionEl.innerHTML = `📊 Insgesamt heute: <strong>${state.session.punkte} Punkte</strong> aus ${state.session.themen.length} Themen`;
+      sessionEl.style.display = 'block';
+    } else {
+      sessionEl.style.display = 'none';
+    }
+  }
+
+  document.getElementById('btn-naechstes-thema').onclick = () => {
+    document.querySelectorAll('.thema-card, .pw-station').forEach(el => el.classList.remove('selected'));
+    showScreen('start');
+    document.getElementById('thema-auswahl')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   document.getElementById('btn-nochmal').onclick = () => {
     state.aktuelleIndex = 0;
     state.punkte = 0;
@@ -1080,7 +1106,11 @@ function showErgebnis() {
     state.fragen = [...state.thema.fragen];
     startQuiz();
   };
-  document.getElementById('btn-zum-start').onclick = () => showScreen('start');
+  document.getElementById('btn-zum-start').onclick = () => {
+    neueSession();
+    document.querySelectorAll('.thema-card, .pw-station').forEach(el => el.classList.remove('selected'));
+    showScreen('start');
+  };
   document.getElementById('btn-scores-from-result').onclick = () => {
     ladeScores();
     showScreen('scores');
