@@ -484,10 +484,25 @@ function renderPilgerweg() {
     statSvg += `</g>`;
   });
 
+  // Pilger-Avatar: steht an der nächsten noch offenen Station — oder am Ziel, wenn alles geschafft ist
+  const frontierIdx = stationen.findIndex(s => !besucht(s));
+  const avatarStation = frontierIdx === -1 ? stationen[stationen.length - 1] : stationen[frontierIdx];
+  const alleGeschafft = frontierIdx === -1;
+  const avLabelRechts = avatarStation.x === 85;
+  const avX = avatarStation.x + (avLabelRechts ? -1 : 1) * 46;
+  const avY = avatarStation.y;
+  const avatarSvg = `
+    <g class="pw-avatar">
+      <ellipse cx="${avX}" cy="${avY + 16}" rx="11" ry="3" fill="#000" opacity="0.15"/>
+      <text x="${avX}" y="${avY + 8}" text-anchor="middle" font-size="24" class="pw-avatar-figur">🧑‍🦱</text>
+      <rect x="${avX - 28}" y="${avY + 20}" width="56" height="16" rx="8" fill="#8e44ad"/>
+      <text x="${avX}" y="${avY + 31}" text-anchor="middle" font-size="8.5" font-weight="800" fill="#fff">${alleGeschafft ? '🏁 Am Ziel!' : 'Du bist hier'}</text>
+    </g>`;
+
   wrap.innerHTML = `
     <div class="pilgerweg-panel">
       <svg viewBox="0 0 375 ${H}" xmlns="http://www.w3.org/2000/svg" role="list" aria-label="Pilgerweg: Themenauswahl als Landkarte">
-        ${zonenSvg}${wegSvg}${dekoSvg}${statSvg}
+        ${zonenSvg}${wegSvg}${dekoSvg}${statSvg}${avatarSvg}
       </svg>
     </div>
     <div id="station-info" class="station-info" style="display:none;"></div>

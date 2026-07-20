@@ -1173,3 +1173,17 @@ input.validation-fehler { border-color: #e74c3c !important; }
   white-space: nowrap;
 }
 .ergebnis-actions-row .btn:active { transform: scale(0.96); }
+
+/* ===== PILGER-AVATAR ===== */
+.pw-avatar .pw-avatar-figur {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: avatarBob 1.6s ease-in-out infinite;
+}
+@keyframes avatarBob {
+  0%, 100% { transform: translateY(0) rotate(-3deg); }
+  50% { transform: translateY(-4px) rotate(3deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pw-avatar .pw-avatar-figur { animation: none !important; }
+}
