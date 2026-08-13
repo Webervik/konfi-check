@@ -2,21 +2,44 @@ name: Supabase Keepalive
 
 on:
   schedule:
-    # Jeden Montag und Donnerstag — verhindert die automatische Pausierung nach 7 Tagen Inaktivität
-    - cron: '0 6 * * 1,4'
+    # Jeden Montag, Mittwoch und Freitag — ein reiner Lesezugriff hat die Pausierung
+    # trotz Erfolg nicht zuverlässig verhindert, daher jetzt echter Schreibzugriff + höhere Frequenz
+    - cron: '0 6 * * 1,3,5'
   workflow_dispatch:
 
+env:
+  SUPABASE_URL: https://jhelduwnmjpomzrowgmr.supabase.co
+  SUPABASE_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpoZWxkdXdubWpwb216cm93Z21yIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAxNzQ4NDEsImV4cCI6MjA5NTc1MDg0MX0.-Mv6TRBTgJhqjaLARs3hvLm6vvMcnQ2mlfubgLvriyU
+
 jobs:
-  ping:
+  keepalive:
     runs-on: ubuntu-latest
     steps:
-      - name: Supabase anpingen
+      - name: Testeintrag anlegen (Schreibzugriff zählt zuverlässiger als Lesezugriff)
+        id: insert
         run: |
-          code=$(curl -s -o /dev/null -w "%{http_code}" \
-            "https://jhelduwnmjpomzrowgmr.supabase.co/rest/v1/scores?select=id&limit=1" \
-            -H "apikey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpoZWxkdXdubWpwb216cm93Z21yIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAxNzQ4NDEsImV4cCI6MjA5NTc1MDg0MX0.-Mv6TRBTgJhqjaLARs3hvLm6vvMcnQ2mlfubgLvriyU" \
-            -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpoZWxkdXdubWpwb216cm93Z21yIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAxNzQ4NDEsImV4cCI6MjA5NTc1MDg0MX0.-Mv6TRBTgJhqjaLARs3hvLm6vvMcnQ2mlfubgLvriyU")
-          echo "Supabase antwortete mit HTTP $code"
+          resp=$(curl -s -w "\n%{http_code}" -X POST \
+            "$SUPABASE_URL/rest/v1/scores" \
+            -H "apikey: $SUPABASE_KEY" \
+            -H "Authorization: Bearer $SUPABASE_KEY" \
+            -H "Content-Type: application/json" \
+            -H "Prefer: return=representation" \
+            -d '{"name":"__keepalive__","gruppe":"Sonstige","thema":"keepalive","punkte":0,"gesamt":0}')
+          code=$(echo "$resp" | tail -n1)
+          body=$(echo "$resp" | sed '$d')
+          echo "HTTP $code"
+          echo "$body"
           if [ "$code" -ge 400 ]; then
-            echo "::warning::Supabase-Ping fehlgeschlagen (HTTP $code) — Projekt evtl. pausiert, bitte im Dashboard prüfen."
+            echo "::warning::Supabase-Keepalive fehlgeschlagen (HTTP $code) — Projekt evtl. pausiert, bitte im Dashboard reaktivieren: https://supabase.com/dashboard/project/jhelduwnmjpomzrowgmr"
+            exit 0
           fi
+          id=$(echo "$body" | python3 -c "import json,sys; print(json.load(sys.stdin)[0]['id'])")
+          echo "id=$id" >> "$GITHUB_OUTPUT"
+
+      - name: Testeintrag wieder löschen
+        if: steps.insert.outputs.id != ''
+        run: |
+          curl -s -o /dev/null -w "Löschung: HTTP %{http_code}\n" -X DELETE \
+            "$SUPABASE_URL/rest/v1/scores?id=eq.${{ steps.insert.outputs.id }}" \
+            -H "apikey: $SUPABASE_KEY" \
+            -H "Authorization: Bearer $SUPABASE_KEY"
