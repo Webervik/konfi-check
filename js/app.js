@@ -1137,7 +1137,7 @@ function showErgebnis() {
     const shareData = {
       title: 'Konfi-Check ✓',
       text: `🏆 Herausforderung! Ich hab beim Konfi-Check ${state.punkte}/${state.fragen.length} Punkte (${prozent}%) im Thema „${state.thema.titel}" geholt. Knackst du meinen Score?`,
-      url: 'https://webervik.github.io/konfi-check/'
+      url: 'https://quiz.staaken-evangelisch.de/'
     };
     if (navigator.share) {
       try { await navigator.share(shareData); } catch (e) { /* abgebrochen */ }
