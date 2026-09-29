@@ -287,7 +287,7 @@ function renderThemenGrid() {
   container.style.display = (ladeLokal().ansicht || 'karte') === 'liste' ? 'block' : 'none';
 
   const gruppen = [
-    { label: 'Glaubenswissen', ids: ['pfingsten','bibel','jesus-historisch','jesus-christus','jesu-worte','jesu-taten','gleichnisse','gebote-bergpredigt','evangelische-kirche','gemeinde'] },
+    { label: 'Glaubenswissen', ids: ['pfingsten','bibel','jesus-historisch','jesus-christus','jesu-worte','jesu-taten','gleichnisse','gebote-bergpredigt','evangelische-kirche','gemeinde','taufe'] },
     { label: 'Gemeindekunde Ev. Kirchengemeinde Staaken', ids: ['gemeinde-geschichte','gemeinde-aktuell'] },
     { label: 'Sonstiges', ids: ['nur-fuer-profis'] },
   ];
@@ -369,6 +369,7 @@ const PILGERWEG = [
   { thema: 'nur-fuer-profis',     ort: 'Konsistorium (EKBO)', zone: 1 },
   { thema: 'bibel',               ort: 'Lutherstadt Wittenberg', zone: 2 },
   { thema: 'jesus-historisch',    ort: 'Nazareth', zone: 3 },
+  { thema: 'taufe',               ort: 'Der Jordan', zone: 3 },
   { thema: 'jesu-taten',          ort: 'See Genezareth', zone: 3 },
   { thema: 'pfingsten',           ort: 'Jerusalem', zone: 3 },
 ];
