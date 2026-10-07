@@ -1,1 +1,4 @@
 .DS_Store
+
+# Personenbezogene Daten — niemals ins oeffentliche Repo
+scoreboard-server/supabase-export.json

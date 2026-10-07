@@ -1,0 +1,26 @@
+[Unit]
+Description=Scoreboard-Endpunkt für Konfi-Check (SQLite, ersetzt Supabase)
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+ExecStart=/usr/bin/python3 /opt/konfi-check-scoreboard/server.py
+StateDirectory=konfi-check
+WorkingDirectory=/opt/konfi-check-scoreboard
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+LockPersonality=true
+Environment=ALLOWED_ORIGIN=https://quiz.staaken-evangelisch.de
+
+[Install]
+WantedBy=multi-user.target
