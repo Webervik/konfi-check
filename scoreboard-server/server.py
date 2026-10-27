@@ -19,7 +19,7 @@ import time
 import uuid
 
 HOST = "127.0.0.1"
-PORT = 8766
+PORT = 8772
 DATA_DIR = Path(os.environ.get("STATE_DIRECTORY", "/var/lib/konfi-check"))
 DB_FILE = DATA_DIR / "scores.db"
 ALLOWED_ORIGIN = os.environ.get("ALLOWED_ORIGIN", "https://quiz.staaken-evangelisch.de")

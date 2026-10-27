@@ -36,7 +36,7 @@ systemctl enable --now konfi-check-scoreboard
 systemctl status konfi-check-scoreboard --no-pager
 
 # Kurztest direkt auf dem Server (muss [] liefern):
-curl -s http://127.0.0.1:8766/scores
+curl -s http://127.0.0.1:8772/scores
 ```
 
 ## Schritt 3 — Die 323 Altdaten importieren
@@ -46,7 +46,7 @@ sudo -u www-data python3 /opt/konfi-check-scoreboard/import_supabase.py \
      /opt/konfi-check-scoreboard/supabase-export.json
 
 # Erwartete Ausgabe: "Import fertig: 323 neue Einträge, 323 insgesamt …"
-curl -s http://127.0.0.1:8766/scores | head -c 300
+curl -s http://127.0.0.1:8772/scores | head -c 300
 ```
 
 ## Schritt 4 — nginx einbinden

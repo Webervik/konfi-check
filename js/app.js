@@ -2,8 +2,7 @@
 // KONFI-CHECK App
 // =====================
 
-const SUPABASE_URL = 'https://jhelduwnmjpomzrowgmr.supabase.co';
-const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpoZWxkdXdubWpwb216cm93Z21yIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAxNzQ4NDEsImV4cCI6MjA5NTc1MDg0MX0.-Mv6TRBTgJhqjaLARs3hvLm6vvMcnQ2mlfubgLvriyU';
+const SCORE_API = 'https://konfirmation.staaken-evangelisch.de/api/konfi-check';
 
 // Fallback-Zitate (wenn kein themenspezifischer Pool vorhanden)
 const ZITATE = [
@@ -1152,19 +1151,15 @@ function showErgebnis() {
 }
 
 // ---- SCORES ----
-const SB_HEADERS = {
-  'Content-Type': 'application/json',
-  'apikey': SUPABASE_KEY,
-  'Authorization': 'Bearer ' + SUPABASE_KEY,
-};
+const SB_HEADERS = { 'Content-Type': 'application/json' };
 
 async function speichereScore(name, gruppe, thema, punkte, gesamt) {
   try {
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 5000);
-    await fetch(`${SUPABASE_URL}/rest/v1/scores`, {
+    await fetch(`${SCORE_API}/scores`, {
       method: 'POST',
-      headers: { ...SB_HEADERS, 'Prefer': 'return=minimal' },
+      headers: SB_HEADERS,
       body: JSON.stringify({ name, gruppe, thema, punkte, gesamt }),
       signal: controller.signal,
     });
@@ -1183,7 +1178,7 @@ async function ladeScores() {
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 6000);
     const res = await fetch(
-      `${SUPABASE_URL}/rest/v1/scores?select=*&order=erstellt_am.desc&limit=1000`,
+      `${SCORE_API}/scores`,
       { headers: SB_HEADERS, signal: controller.signal }
     );
     clearTimeout(timeout);
@@ -1301,7 +1296,7 @@ function initScoresTabs() {
     if (!window.loeschenErlaubt) return;
     if (!confirm('Diesen Eintrag löschen?')) return;
     const res = await fetch(
-      `${SUPABASE_URL}/rest/v1/scores?id=eq.${id}`,
+      `${SCORE_API}/scores/${id}`,
       { method: 'DELETE', headers: SB_HEADERS }
     );
     if (res.ok) ladeScores();
