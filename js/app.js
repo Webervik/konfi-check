@@ -49,6 +49,7 @@ let state = {
   letzterMotivIdx: -1, // verhindert Wiederholung bei Motivationen
   streak: 0,           // aktuelle Serie richtiger Antworten
   bestStreak: 0,
+  modus: 'normal',     // 'normal' | 'tagesrunde' | 'meister'
   session: { punkte: 0, gesamt: 0, themen: [] }, // sammelt Punkte über mehrere Themen hinweg
 };
 
@@ -217,6 +218,8 @@ function sterneFuerProzent(prozent) {
 function showScreen(id) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById('screen-' + id).classList.add('active');
+  if (id === 'start' && typeof renderStartExtras === 'function') renderStartExtras();
+  if (id !== 'quiz' && typeof stoppeMeisterTimer === 'function') stoppeMeisterTimer();
   window.scrollTo(0, 0);
 }
 
@@ -231,6 +234,8 @@ function initStart() {
     if (!gruppe) { shakeRed('gruppe-grid'); return; }
     if (!thema) { shakeRed('thema-auswahl'); return; }
 
+    speichereProfil(name, gruppe);
+    state.modus = 'normal';
     state.name = name;
     state.gruppe = gruppe;
     state.thema = window.fragenData.themen.find(t => t.id === thema);
@@ -318,6 +323,7 @@ function renderThemenGrid() {
       div.classList.add('selected');
       const station = document.querySelector(`.pw-station[data-thema="${t.id}"]`);
       if (station) station.classList.add('selected');
+      aktualisiereStartLeiste();
     };
     return div;
   }
@@ -353,24 +359,24 @@ function renderThemenGrid() {
 // ---- PILGERWEG-KARTE ----
 // Reale Stationen: von der eigenen Kirchentür bis nach Jerusalem
 const PILGERWEG = [
-  { thema: 'gemeinde',            ort: 'Kirche Gartenstadt', zone: 0 },
-  { thema: 'gemeinde-geschichte', ort: 'Dorfkirche Alt-Staaken', zone: 0,
+  { thema: 'gemeinde',            ort: 'Kirche Gartenstadt', bild: 'gartenstadt', zone: 0 },
+  { thema: 'gemeinde-geschichte', ort: 'Dorfkirche Alt-Staaken', bild: 'dorfkirche', zone: 0,
     seite: 'https://www.staaken-evangelisch.de/mit-uns/standorte/dorfkirche-alt-staaken', rundgang: true, detektiv: 'dorfkirche' },
-  { thema: 'gleichnisse',         ort: 'Waldhaus am Sonnenhügel', zone: 0 },
-  { thema: 'gemeinde-aktuell',    ort: 'Ernst-Lange-Haus', zone: 0 },
-  { denkmal: true,                ort: 'Zuversichtskirche', jahre: '1966–2024', zone: 0,
+  { thema: 'gleichnisse',         ort: 'Waldhaus am Sonnenhügel', bild: 'waldhaus', zone: 0 },
+  { thema: 'gemeinde-aktuell',    ort: 'Ernst-Lange-Haus', bild: 'elh', zone: 0 },
+  { denkmal: true,                ort: 'Zuversichtskirche', bild: 'zuversicht', jahre: '1966–2024', zone: 0,
     seite: 'https://www.staaken-evangelisch.de/mit-uns/standorte/zuversichtskirche', rundgang: true, detektiv: 'zuversicht' },
-  { thema: 'jesu-worte',          ort: 'Kirche Heerstraße Nord', zone: 0,
+  { thema: 'jesu-worte',          ort: 'Kirche Heerstraße Nord', bild: 'heerstrasse', zone: 0,
     seite: 'https://www.staaken-evangelisch.de/mit-uns/standorte/kirche-heerstr-nord', rundgang: true, detektiv: 'heerstrasse' },
-  { thema: 'evangelische-kirche', ort: 'St. Nikolai Spandau', zone: 1 },
-  { thema: 'gebote-bergpredigt',  ort: 'Gedächtniskirche', zone: 1 },
-  { thema: 'jesus-christus',      ort: 'Berliner Dom', zone: 1 },
-  { thema: 'nur-fuer-profis',     ort: 'Konsistorium (EKBO)', zone: 1 },
-  { thema: 'bibel',               ort: 'Lutherstadt Wittenberg', zone: 2 },
-  { thema: 'jesus-historisch',    ort: 'Nazareth', zone: 3 },
-  { thema: 'taufe',               ort: 'Der Jordan', zone: 3 },
-  { thema: 'jesu-taten',          ort: 'See Genezareth', zone: 3 },
-  { thema: 'pfingsten',           ort: 'Jerusalem', zone: 3 },
+  { thema: 'evangelische-kirche', ort: 'St. Nikolai Spandau', bild: 'nikolai', zone: 1 },
+  { thema: 'gebote-bergpredigt',  ort: 'Gedächtniskirche', bild: 'gedaechtnis', zone: 1 },
+  { thema: 'jesus-christus',      ort: 'Berliner Dom', bild: 'dom', zone: 1 },
+  { thema: 'nur-fuer-profis',     ort: 'Konsistorium (EKBO)', bild: 'konsistorium', zone: 1 },
+  { thema: 'bibel',               ort: 'Lutherstadt Wittenberg', bild: 'wittenberg', zone: 2 },
+  { thema: 'jesus-historisch',    ort: 'Nazareth', bild: 'nazareth', zone: 3 },
+  { thema: 'taufe',               ort: 'Der Jordan', bild: 'jordan', zone: 3 },
+  { thema: 'jesu-taten',          ort: 'See Genezareth', bild: 'genezareth', zone: 3 },
+  { thema: 'pfingsten',           ort: 'Jerusalem', bild: 'jerusalem', zone: 3 },
 ];
 const PW_ZONEN = [
   { name: 'Staaken — dein Zuhause', farbe: '#6a9c5f', deko: ['🌳', '🏡', '🌾', '🌻', '🌲'] },
@@ -442,7 +448,7 @@ function renderPilgerweg() {
       statSvg += `<g class="pw-station pw-denkmal" data-idx="${s.idx}">`;
       statSvg += `<circle class="pw-ring" cx="${s.x}" cy="${s.y}" r="${23}" fill="none" stroke="#a8906f" stroke-width="2" stroke-dasharray="5 4"/>`;
       statSvg += `<circle class="pw-node" cx="${s.x}" cy="${s.y}" r="${20}" fill="#f5eede" stroke="#d9c9a8" stroke-width="1.5"/>`;
-      statSvg += `<text class="pw-emoji" x="${s.x}" y="${s.y + 7}" text-anchor="middle" font-size="18">🕯️</text>`;
+      statSvg += ortGlyph(s.bild, s.x, s.y, 0.85) || `<text class="pw-emoji" x="${s.x}" y="${s.y + 7}" text-anchor="middle" font-size="18">🕯️</text>`;
       if (s.detektiv) {
         const dGeloest = (ladeLokal().detektiv || {})[s.detektiv];
         statSvg += `<text x="${s.x - 26}" y="${s.y - 18}" text-anchor="middle" font-size="14"${dGeloest ? '' : ' opacity="0.4"'}>🔎</text>`;
@@ -473,14 +479,17 @@ function renderPilgerweg() {
     }
     statSvg += `<circle class="pw-ring" cx="${s.x}" cy="${s.y}" r="${r + 3}" fill="none" stroke="${ringFarbe}" stroke-width="3"/>`;
     statSvg += `<circle class="pw-node" cx="${s.x}" cy="${s.y}" r="${r}" fill="#fffdf5" stroke="#d9c9a8" stroke-width="1.5"/>`;
-    statSvg += `<text class="pw-emoji" x="${s.x}" y="${s.y + 8}" text-anchor="middle" font-size="${istFinale ? 26 : 22}">${t.icon}</text>`;
+    statSvg += ortGlyph(s.bild, s.x, s.y, istFinale ? 1.15 : 1) || `<text class="pw-emoji" x="${s.x}" y="${s.y + 8}" text-anchor="middle" font-size="${istFinale ? 26 : 22}">${t.icon}</text>`;
+    if ((ladeLokal().meister || {})[s.thema]) {
+      statSvg += `<text x="${s.x + r - 2}" y="${s.y - r + 6}" text-anchor="middle" font-size="15">👑</text>`;
+    }
     if (s.detektiv) {
       const dGeloest = (ladeLokal().detektiv || {})[s.detektiv];
       statSvg += `<text x="${s.x - r - 6}" y="${s.y - r + 6}" text-anchor="middle" font-size="14"${dGeloest ? '' : ' opacity="0.4"'}>🔎</text>`;
     }
     statSvg += `<text x="${s.x}" y="${s.y + r + 18}" text-anchor="middle" font-size="11" font-weight="700">${sterneText}</text>`;
     statSvg += `<text x="${lx}" y="${s.y - 1}" text-anchor="${anchor}" font-size="10.5" font-weight="800" fill="#4a3b28">${s.ort}</text>`;
-    statSvg += `<text x="${lx}" y="${s.y + 13}" text-anchor="${anchor}" font-size="9" fill="#8a7a5f">${t.titel}${istFinale ? ' · 🏁 Ziel' : ''}</text>`;
+    statSvg += `<text x="${lx}" y="${s.y + 13}" text-anchor="${anchor}" font-size="9" fill="#8a7a5f">${t.icon} ${t.titel}${istFinale ? ' · 🏁 Ziel' : ''}</text>`;
     statSvg += `</g>`;
   });
 
@@ -518,6 +527,7 @@ function renderPilgerweg() {
         if (kachel) kachel.classList.add('selected');
       }
       zeigeStationInfo(s);
+      aktualisiereStartLeiste();
     });
   });
 }
@@ -805,7 +815,7 @@ function renderFrage() {
   }
 
   // Nach jeder 2. Frage: abwechselnd Bibelzitat und Motivationsspruch
-  if (idx > 0 && idx % 2 === 0 && !state.showZitat) {
+  if (state.modus === 'normal' && idx > 0 && idx % 2 === 0 && !state.showZitat) {
     state.showZitat = true;
     state.pauseCount++;
     if (state.pauseCount % 2 === 1) {
@@ -834,7 +844,7 @@ function renderFrage() {
   }
 
   // Selbst-Wettbewerb: Rekord beim Einstieg zeigen
-  if (idx === 0) {
+  if (idx === 0 && state.modus === 'normal') {
     const rekord = (ladeLokal().bestScores || {})[state.thema.id];
     if (rekord !== undefined) {
       const r = document.createElement('div');
@@ -907,9 +917,12 @@ function renderFrage() {
     }
   };
   card.appendChild(weiterBtn);
+
+  if (state.modus === 'meister') starteMeisterTimer(frageAnzeige, grid);
 }
 
 function antwortGewählt(index, frage, grid) {
+  stoppeMeisterTimer();
   const btns = grid.querySelectorAll('.antwort-btn');
   btns.forEach(b => b.disabled = true);
 
@@ -927,7 +940,7 @@ function antwortGewählt(index, frage, grid) {
     else if (state.streak === 8) zeigeStreakOverlay('⚡ Nicht zu stoppen!');
   } else {
     state.streak = 0;
-    btns[index].classList.add('falsch');
+    if (btns[index]) btns[index].classList.add('falsch'); // index -1 = Zeit abgelaufen
     btns[frage.richtig].classList.add('richtig');
     spieleTon('falsch');
     if (navigator.vibrate) navigator.vibrate([30, 40, 30]);
@@ -1037,9 +1050,10 @@ function showErgebnis() {
   lokal.bestScores = lokal.bestScores || {};
   const altProzent = lokal.bestScores[state.thema.id] || 0;
   const alteSterne = sterneFuerProzent(altProzent);
-  const neueSterne = sterneFuerProzent(prozent);
+  const zaehlt = state.modus === 'normal'; // Tages- und Meisterrunde vergeben keine Sterne
+  const neueSterne = zaehlt ? sterneFuerProzent(prozent) : alteSterne;
   const sterneVorher = Object.values(lokal.bestScores).reduce((s, p) => s + sterneFuerProzent(p), 0);
-  if (prozent > altProzent) lokal.bestScores[state.thema.id] = prozent;
+  if (zaehlt && prozent > altProzent) lokal.bestScores[state.thema.id] = prozent;
   const sterneNachher = Object.values(lokal.bestScores).reduce((s, p) => s + sterneFuerProzent(p), 0);
 
   const heute = new Date().toISOString().slice(0, 10);
@@ -1078,7 +1092,8 @@ function showErgebnis() {
     if (state.thema.id === themaDesTagesId()) {
       html += `<div class="tages-bonus">⭐ Thema des Tages gespielt — schau morgen wieder rein, dann wartet ein neues!</div>`;
     }
-    if (naechste) {
+    html += ergebnisZusatz(lokal, punkte, total);
+    if (naechste && zaehlt) {
       const fehlend = Math.ceil(naechste.prozent / 100 * total) - punkte;
       if (fehlend <= 2) {
         html += `<div class="fast-geschafft">Nur noch <strong>${fehlend} Punkt${fehlend > 1 ? 'e' : ''}</strong> bis ${naechste.ziel} — gleich nochmal? 😏</div>`;
@@ -1091,7 +1106,8 @@ function showErgebnis() {
   if (prozent >= 70) starteKonfetti(prozent >= 90 ? 'gold' : 'normal');
 
   // Score speichern
-  speichereScore(state.name, state.gruppe, state.thema.id, punkte, total);
+  speichereScore(state.name, state.gruppe, state.modus === 'meister' ? state.thema.id + '-meister' : state.thema.id, punkte, total)
+    .then(() => renderWochenduell(true));
 
   // Session-Punkte: sammeln über mehrere Themen hinweg (nicht nur auf 10 Punkte begrenzt)
   state.session.punkte += punkte;
@@ -1118,7 +1134,7 @@ function showErgebnis() {
     state.punkte = 0;
     state.streak = 0;
     state.bestStreak = 0;
-    state.fragen = [...state.thema.fragen];
+    state.fragen = state.modus === 'meister' ? mische([...state.thema.fragen]) : [...state.thema.fragen];
     startQuiz();
   };
   document.getElementById('btn-zum-start').onclick = () => {
@@ -1232,7 +1248,7 @@ function renderScores(filterGruppe) {
         <div class="score-detail">${escapeHtml(s.gruppe)} · ${datum} <span class="score-thema-badge">${themaIcon} ${s.thema}</span></div>
       </div>
       <div class="score-punkte">${s.punkte}/${s.gesamt}</div>
-      <button onclick="loescheEintrag('${s.id}')" title="Eintrag entfernen" style="width:28px; height:28px; border-radius:50%; border:none; background:#1a1a2e; color:#1a1a2e; font-size:1.1rem; cursor:pointer; margin-left:8px; flex-shrink:0; transition:background 0.2s, color 0.2s;" onmouseenter="this.style.background='#e74c3c';this.style.color='#fff'" onmouseleave="this.style.background='#1a1a2e';this.style.color='#1a1a2e'">×</button>
+      ${window.loeschenErlaubt ? `<button class="loesch-btn" onclick="loescheEintrag('${s.id}')" title="Eintrag entfernen">×</button>` : ''}
     `;
     list.appendChild(item);
   });
@@ -1344,6 +1360,7 @@ function init() {
   }
   initStart();
   initScoresTabs();
+  initErweiterung();
   showScreen('start');
 }
 

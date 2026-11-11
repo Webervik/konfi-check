@@ -1,0 +1,274 @@
+/* =====================================================
+   KONFI-CHECK · Pergament-Design (November 2026)
+   Eine Bildsprache für alle Bildschirme: Papier, Tinte,
+   Terrakotta. Wird nach style.css geladen und überschreibt
+   das frühere dunkelblaue Erscheinungsbild.
+   ===================================================== */
+
+:root {
+  --tinte: #3b2f20;
+  --tinte-weich: #7a6a52;
+  --papier: #efe3c6;
+  --papier-hell: #fbf6e9;
+  --rand: #d9c9a8;
+  --terrakotta: #b5532a;
+  --dark: #3b2f20;
+  --shadow: 0 6px 22px rgba(74, 59, 40, 0.14);
+  --schrift-titel: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+}
+
+body {
+  background:
+    radial-gradient(circle at 12% 8%, rgba(255, 255, 255, 0.55), transparent 42%),
+    radial-gradient(circle at 88% 92%, rgba(181, 83, 42, 0.08), transparent 45%),
+    var(--papier);
+  background-attachment: fixed;
+  color: var(--tinte);
+}
+
+/* ---------- Kopf ---------- */
+#screen-start.active { justify-content: flex-start; padding-top: 28px; }
+.app-header { margin-bottom: 20px; width: 100%; max-width: 540px; }
+.app-title {
+  font-family: var(--schrift-titel);
+  color: var(--tinte);
+  text-shadow: none;
+  letter-spacing: -0.5px;
+  font-size: clamp(2.2rem, 8vw, 3.4rem);
+}
+.app-title span { color: var(--terrakotta); }
+.app-subtitle { color: var(--tinte-weich); font-size: 1rem; margin-top: 4px; }
+
+.profil-zeile {
+  margin: 14px auto 0;
+  max-width: 420px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.92rem;
+  color: var(--tinte);
+}
+.profil-aendern {
+  background: none;
+  border: none;
+  color: var(--terrakotta);
+  font: inherit;
+  font-size: 0.82rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  padding: 4px;
+}
+
+/* ---------- Karten und Formulare ---------- */
+.card, .quiz-card {
+  background: var(--papier-hell);
+  border: 1px solid var(--rand);
+  box-shadow: var(--shadow);
+}
+.start-karte { padding-bottom: 20px; }
+label { color: var(--tinte); font-family: var(--schrift-titel); letter-spacing: 0.3px; text-transform: none; font-size: 1.05rem; }
+input[type="text"], select { background: #fffdf7; border-color: var(--rand); color: var(--tinte); }
+input[type="text"]:focus { border-color: var(--terrakotta); }
+
+.gruppe-btn, .thema-card, .ansicht-btn { border-color: var(--rand); color: var(--tinte); }
+.gruppe-btn { background: #fffdf7; }
+.gruppe-btn.selected { border-color: var(--terrakotta); background: #f6e3d3; color: var(--terrakotta); box-shadow: 0 3px 10px rgba(181, 83, 42, 0.2); }
+.ansicht-btn { background: #fffdf7; color: var(--tinte-weich); }
+.ansicht-btn.active { border-color: var(--terrakotta); background: #f6e3d3; color: var(--terrakotta); }
+.thema-gruppe-titel, .sterne-legende, .pilgerweg-hinweis { color: var(--tinte-weich); }
+
+/* ---------- Knöpfe ---------- */
+.btn-primary {
+  background: linear-gradient(135deg, #c9652f, var(--terrakotta));
+  box-shadow: 0 4px 14px rgba(181, 83, 42, 0.35);
+}
+.btn-primary:hover { box-shadow: 0 6px 18px rgba(181, 83, 42, 0.45); }
+.btn-primary.btn-wartet {
+  background: rgba(230, 219, 194, 0.94);
+  color: var(--tinte-weich);
+  box-shadow: 0 2px 8px rgba(74, 59, 40, 0.12);
+  font-size: 0.92rem;
+  padding: 10px;
+}
+.btn-leise { background: rgba(74, 59, 40, 0.07); color: var(--tinte); box-shadow: none; }
+.btn-meister {
+  width: 100%;
+  margin-top: 8px;
+  padding: 13px;
+  font-size: 1rem;
+  background: linear-gradient(135deg, #e0b23e, #c9952b);
+  color: #3b2f20;
+  box-shadow: 0 4px 14px rgba(201, 149, 43, 0.4);
+}
+.weiter-btn { background: var(--tinte); color: var(--papier-hell); }
+
+/* Startleiste bleibt am unteren Bildschirmrand sichtbar, während man die Karte entlangwandert */
+.start-leiste {
+  position: sticky;
+  bottom: 10px;
+  z-index: 20;
+  margin-top: 12px;
+}
+
+/* ---------- Pilgerweg ohne Scrollfenster ---------- */
+.pilgerweg-panel {
+  max-height: none;
+  overflow: visible;
+  background: linear-gradient(170deg, #f8efd9, #f1e5c8);
+  border-color: var(--rand);
+}
+.pw-station .pw-node { fill: #fffdf5; }
+.pw-station:hover .pw-node { fill: #fbeedd; }
+.pw-station.selected .pw-node { fill: #f6dcc6; }
+.pw-station.selected .pw-ring { stroke: var(--terrakotta); stroke-width: 5.5; }
+.pw-bild { pointer-events: none; }
+.station-info {
+  margin-top: 8px;
+  padding: 12px 14px;
+  background: #fffdf7;
+  border: 1px solid var(--rand);
+  border-radius: 12px;
+}
+
+/* ---------- Fortschritt, Level, Serie ---------- */
+.level-box {
+  background: var(--papier-hell);
+  border: 1px solid var(--rand);
+  color: var(--tinte);
+  box-shadow: var(--shadow);
+}
+.level-bar { background: rgba(74, 59, 40, 0.12); }
+.level-fill { background: linear-gradient(90deg, #c9952b, #e0b23e); }
+.streak-banner {
+  background: rgba(181, 83, 42, 0.1);
+  border-color: rgba(181, 83, 42, 0.4);
+  color: #8a3b12;
+}
+
+/* ---------- Wochenduell ---------- */
+.duell-box {
+  margin: 12px auto 0;
+  max-width: 420px;
+  padding: 14px 16px 12px;
+  background: var(--papier-hell);
+  border: 1px solid var(--rand);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  text-align: left;
+}
+.duell-kopf {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: var(--schrift-titel);
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+}
+.duell-kopf span:last-child { font-family: inherit; font-size: 0.75rem; font-weight: 400; color: var(--tinte-weich); }
+.duell-zeile { display: flex; align-items: center; gap: 10px; padding: 6px 0; }
+.duell-bild { width: 40px; height: 40px; flex-shrink: 0; }
+.duell-mitte { flex: 1; min-width: 0; }
+.duell-name { font-weight: 700; font-size: 0.9rem; }
+.duell-du {
+  font-weight: 600;
+  font-size: 0.65rem;
+  background: var(--terrakotta);
+  color: #fff;
+  padding: 1px 7px;
+  border-radius: 99px;
+  margin-left: 4px;
+  vertical-align: 1px;
+}
+.duell-balken { height: 9px; background: rgba(74, 59, 40, 0.1); border-radius: 99px; overflow: hidden; margin: 4px 0 2px; }
+.duell-fuellung { height: 100%; border-radius: 99px; transition: width 0.8s ease; }
+.duell-leute { font-size: 0.7rem; color: var(--tinte-weich); }
+.duell-punkte { font-family: var(--schrift-titel); font-size: 1.7rem; font-weight: 700; min-width: 44px; text-align: right; font-variant-numeric: tabular-nums; }
+.duell-stand { margin-top: 6px; font-size: 0.88rem; font-weight: 600; }
+.duell-letzte, .duell-regel { font-size: 0.72rem; color: var(--tinte-weich); margin-top: 2px; }
+
+/* ---------- Tagesrunde ---------- */
+.tagesrunde-box { margin: 12px auto 0; max-width: 420px; }
+.tagesrunde-btn {
+  width: 100%;
+  flex-direction: column;
+  gap: 2px;
+  padding: 13px 16px;
+  background: linear-gradient(135deg, #f5d98a, #e9bf55);
+  color: var(--tinte);
+  box-shadow: 0 4px 14px rgba(201, 149, 43, 0.35);
+}
+.tagesrunde-titel { font-family: var(--schrift-titel); font-size: 1.2rem; }
+.tagesrunde-unter { font-size: 0.78rem; font-weight: 500; opacity: 0.8; }
+.tagesrunde-fertig {
+  padding: 11px 16px;
+  background: var(--papier-hell);
+  border: 1px dashed #c9952b;
+  border-radius: 12px;
+  font-size: 0.88rem;
+  color: var(--tinte);
+}
+
+/* ---------- Quiz ---------- */
+.quiz-meta { color: var(--tinte-weich); }
+.progress-bar-wrap { background: rgba(74, 59, 40, 0.12); }
+.frage-text { font-family: var(--schrift-titel); color: var(--tinte); }
+.antwort-btn { background: #fffdf7; border-color: var(--rand); color: var(--tinte); }
+.antwort-btn:hover:not(:disabled) { border-color: var(--terrakotta); background: #fbeedd; }
+.antwort-btn .antwort-label { background: var(--terrakotta); }
+.zitat-text { font-family: var(--schrift-titel); }
+.zitat-link { color: var(--terrakotta); }
+.zitat-kontext { border-top-color: var(--rand); color: var(--tinte-weich); opacity: 1; }
+.quiz-card.letzte-frage { border-color: #c9952b; box-shadow: 0 0 22px rgba(201, 149, 43, 0.35); }
+.streak-overlay {
+  color: var(--terrakotta);
+  text-shadow: 0 0 18px rgba(255, 253, 245, 0.95), 0 0 4px rgba(255, 253, 245, 1);
+  font-family: var(--schrift-titel);
+}
+
+/* Uhr der Meisterrunde */
+.meister-uhr { height: 8px; background: rgba(74, 59, 40, 0.12); border-radius: 99px; overflow: hidden; margin-bottom: 16px; }
+.meister-uhr-fuellung { height: 100%; width: 100%; background: #c9952b; border-radius: 99px; transition: width 0.1s linear; }
+.meister-uhr-fuellung.knapp { background: #c0392b; }
+
+/* ---------- Ergebnis ---------- */
+.ergebnis-score { font-family: var(--schrift-titel); color: var(--terrakotta); }
+.ergebnis-text { color: var(--tinte); }
+.ergebnis-badge { background: linear-gradient(135deg, #c9652f, var(--terrakotta)); box-shadow: 0 3px 10px rgba(181, 83, 42, 0.3); }
+.belohnung-box { background: linear-gradient(135deg, #c9652f, var(--terrakotta)); }
+.session-info { background: rgba(74, 59, 40, 0.05); border-color: var(--rand); color: var(--tinte); }
+.bookmark-hinweis { background: rgba(74, 59, 40, 0.04); border-color: var(--rand); color: var(--tinte-weich); }
+.ergebnis-actions-row .btn { background: rgba(74, 59, 40, 0.07); color: var(--tinte); }
+
+/* ---------- Scoreboard ---------- */
+.team-card { background: var(--papier-hell); border: 1px solid var(--rand); color: var(--tinte); }
+.gruppe-tab { background: rgba(74, 59, 40, 0.08); color: var(--tinte-weich); }
+.gruppe-tab.active { background: var(--tinte); color: var(--papier-hell); }
+.score-item { background: var(--papier-hell); border: 1px solid var(--rand); }
+.score-name { color: var(--tinte); }
+.score-detail { color: var(--tinte-weich); }
+.dein-platz { background: rgba(201, 149, 43, 0.16); border-color: rgba(201, 149, 43, 0.6); color: var(--tinte); }
+.loading { color: var(--tinte-weich); }
+.spinner { border-color: rgba(74, 59, 40, 0.15); border-top-color: var(--terrakotta); }
+.loesch-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  background: #c0392b;
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin-left: 8px;
+  flex-shrink: 0;
+}
+
+/* ---------- Installieren, Fuß ---------- */
+.install-box { margin-top: 10px; }
+.install-btn { width: 100%; background: rgba(74, 59, 40, 0.07); color: var(--tinte); box-shadow: none; font-size: 0.95rem; padding: 12px; }
+.install-hinweis { font-size: 0.8rem; color: var(--tinte-weich); text-align: center; padding: 8px; }
+.social-row a { border-color: var(--rand); color: var(--tinte); background: #fffdf7; }
+.footer-link { color: var(--tinte-weich); }
+.footer-link:hover { color: var(--tinte); }
+.detektiv-iframe { background: var(--tinte); }
